@@ -1,9 +1,10 @@
 class_name Action
 
 enum Change {DAY, NIGHT, NONE}
+enum Cible {PLAYER, MONSTER}
 
 var dmg: int
-var cible: Control
+var cible: Cible
 var cooldown: int = 0				#Nombre de tours avant de pouvoir réutiliser l'attaque lorsqu'on l'utilise
 var turnsBeforeUse: int = 0			#Nombre de tours actuel à attendre avant de pouvoir réutiliser l'attaque
 var stateToReload: bool				#Etat de l'environnement permettant de recharger l'attaque (true = jour)
@@ -19,6 +20,3 @@ func _init(d:int, co:int, t:int, s:bool, ch:Change) -> void :
 func reload(state: bool):
 	if turnsBeforeUse>0 and stateToReload == state:
 		turnsBeforeUse-=1
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.

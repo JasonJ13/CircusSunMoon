@@ -1,21 +1,24 @@
 extends Control
 class_name PlayerInterface
 
-@onready var Spell1 = $Spell1
-@onready var Spell2 = $Spell2
-@onready var Spell3 = $Spell3
-@onready var Spell4 = $Spell4
-@onready var Spell5 = $Spell5
+"""@onready var Spell1 = $Spells/Spell1
+@onready var Spell2 = $Spells/Spell2
+@onready var Spell3 = $Spells/Spell3
+@onready var Spell4 = $Spells/Spell4
+@onready var Spell5 = $Spells/Spell5"""
 @onready var Back = $Back
 @onready var HP_player = $HP_player
-@onready var NomMonstre1 = $NomMonstre1
-@onready var NomMonstre2 = $NomMonstre2
-@onready var NomMonstre3 = $NomMonstre3
-@onready var ButtonNomMonster = $boutonNomMonstre1
-@onready var ButtonNomMonster2 = $boutonNomMonstre2
-@onready var ButtonNomMonster3 = $boutonNomMonstre3
+@onready var NomMonstre1 = $Monstres/NomMonstre1
+@onready var NomMonstre2 = $Monstres/NomMonstre2
+@onready var NomMonstre3 = $Monstres/NomMonstre3
+@onready var ButtonNomMonster = $Monstres/boutonNomMonstre1
+@onready var ButtonNomMonster2 = $Monstres/boutonNomMonstre2
+@onready var ButtonNomMonster3 = $Monstres/boutonNomMonstre3
+@onready var monstresNode : Control = $Monstres
 
 
+
+var spellButton : Array[Button] = []
 var spell1 : Texture2D = preload("res://Asset/other/bouton spell.png")
 var spell1hover : Texture2D = preload("res://Asset/other/bouton spell hovered.png")
 var spell2 : Texture2D = preload("res://Asset/other/bouton spell.png")
@@ -30,14 +33,15 @@ var back : Texture2D = preload("res://Asset/other/back.png")
 var backhover : Texture2D = preload("res://Asset/other/backhover.png")
 
 var hp_player : int
-var ennemies: Array[Monster]
-var spells : Array[Action]
+var ennemies: Array[Monster] = []
+var spells : Array[Spell] = []
 
-var nom_ennemies : Array[String]
-var HP_ennemies : Array[int]
+var nom_ennemies : Array[String] = []
+var HP_ennemies : Array[int] = []
 
 
 var spellvalue : int
+@onready var spellsNode : Control = $Spells
 
 signal action(var1 : int, var2 : int)
 
@@ -47,30 +51,30 @@ func _ready() -> void:
 	NomMonstre1.text = "monstre1"
 	NomMonstre2.text = "monstre2"
 	NomMonstre3.text = "monstre3"
-	NomMonstre1.hide()
-	NomMonstre2.hide()
-	NomMonstre3.hide()
-	ButtonNomMonster.hide()
-	ButtonNomMonster2.hide()
-	ButtonNomMonster3.hide()
-	Spell1.show()
-	Spell2.show()
-	Spell3.show()
-	Spell4.show()
-	Spell5.show()
+	monstresNode.hide()
+
+	spellsNode.show()
 	Back.hide()
 
-func start(hp_player,ennemies,spells) -> void:
+
+func _ready_Spell() -> void :
+	for spell in spells :
+		var new_spell_button := Button.new()
+		new_spell_button.icon = spell.spellTexture
+		new_spell_button.scale = Vector2(0.1,0.1)
+		spellsNode.add_child(new_spell_button)
+
+func start(hp_player,ennemies,sps) -> void:
 	HP_player.value = hp_player
 	ennemies = ennemies
-	spells = spells
-	for i in range(ennemies.length):
-		nom_ennemies[i] = ennemies.nom
-		HP_ennemies[i] = ennemies.hp
-	
-	
+	spells = sps
+	_ready_Spell()
+	#for i in range(len(ennemies)):
+	#	nom_ennemies[i] = ennemies[i].nom
+	#	HP_ennemies[i] = ennemies[i].hp
 
-func _on_spell_1_mouse_entered() -> void:
+
+"""func _on_spell_1_mouse_entered() -> void:
 	Spell1.icon = spell1hover
 func _on_spell_1_mouse_exited() -> void:
 	Spell1.icon = spell1
@@ -93,90 +97,23 @@ func _on_spell_5_mouse_exited() -> void:
 func _on_back_mouse_entered() -> void:
 	Back.icon = backhover
 func _on_back_mouse_exited() -> void:
-	Back.icon = back
+	Back.icon = back"""
 
-func _on_spell_1_pressed() -> void:
-	spellvalue = 1
-	Spell1.hide()
-	Spell2.hide()
-	Spell3.hide()
-	Spell4.hide()
-	Spell5.hide()
-	NomMonstre1.show()
-	NomMonstre2.show()
-	NomMonstre3.show()
-	ButtonNomMonster.show()
-	ButtonNomMonster2.show()
-	ButtonNomMonster3.show()
+
+
+func spell_selected(ind_spell : int) -> void :
+	spellvalue = ind_spell
+	
+	spellsNode.hide()
+	monstresNode.show()
 	Back.show()
-func _on_spell_2_pressed() -> void:
-	spellvalue = 2
-	Spell1.hide()
-	Spell2.hide()
-	Spell3.hide()
-	Spell4.hide()
-	Spell5.hide()
-	NomMonstre1.show()
-	NomMonstre2.show()
-	NomMonstre3.show()
-	ButtonNomMonster.show()
-	ButtonNomMonster2.show()
-	ButtonNomMonster3.show()
-	Back.show()
-func _on_spell_3_pressed() -> void:
-	spellvalue = 3
-	Spell1.hide()
-	Spell2.hide()
-	Spell3.hide()
-	Spell4.hide()
-	Spell5.hide()
-	NomMonstre1.show()
-	NomMonstre2.show()
-	NomMonstre3.show()
-	ButtonNomMonster.show()
-	ButtonNomMonster2.show()
-	ButtonNomMonster3.show()
-	Back.show()
-func _on_spell_4_pressed() -> void:
-	spellvalue = 4
-	Spell1.hide()
-	Spell2.hide()
-	Spell3.hide()
-	Spell4.hide()
-	Spell5.hide()
-	NomMonstre1.show()
-	NomMonstre2.show()
-	NomMonstre3.show()
-	ButtonNomMonster.show()
-	ButtonNomMonster2.show()
-	ButtonNomMonster3.show()
-	Back.show()
-func _on_spell_5_pressed() -> void:
-	spellvalue = 5
-	Spell1.hide()
-	Spell2.hide()
-	Spell3.hide()
-	Spell4.hide()
-	Spell5.hide()
-	NomMonstre1.show()
-	NomMonstre2.show()
-	NomMonstre3.show()
-	ButtonNomMonster.show()
-	ButtonNomMonster2.show()
-	ButtonNomMonster3.show()
-	Back.show()
+
+
+
+	
 func _on_back_pressed() -> void:
-	Spell1.show()
-	Spell2.show()
-	Spell3.show()
-	Spell4.show()
-	Spell5.show()
-	NomMonstre1.hide()
-	NomMonstre2.hide()
-	NomMonstre3.hide()
-	ButtonNomMonster.hide()
-	ButtonNomMonster2.hide()
-	ButtonNomMonster3.hide()
+	spellsNode.show()
+	monstresNode.hide()
 	Back.hide()
 
 func _on_bouton_nom_monstre_1_mouse_entered() -> void:
