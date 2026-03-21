@@ -2,79 +2,25 @@
 
 [ext_resource type="Script" uid="uid://b4rr1lu7ee03m" path="res://Script/Player/PlayerInterface.gd" id="1_4er2e"]
 [ext_resource type="Texture2D" uid="uid://770vj58bpuhp" path="res://Asset/other/black box.png" id="2_ihut5"]
-[ext_resource type="Texture2D" uid="uid://dh4pp8af48s18" path="res://Asset/other/bouton spell.png" id="3_6iv84"]
 [ext_resource type="Texture2D" uid="uid://bvdf08viximpv" path="res://Asset/other/back.png" id="4_44f6b"]
 [ext_resource type="Texture2D" uid="uid://cdguerduveyhm" path="res://Asset/other/jaune.png" id="5_b7kor"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_b7kor"]
-font_size = 35
 
 [node name="PlayerInterface" type="Control" unique_id=1460089145]
 physics_interpolation_mode = 0
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_4er2e")
+debug = true
 metadata/_custom_type_script = "uid://b4rr1lu7ee03m"
 
 [node name="blackbox" type="Sprite2D" parent="." unique_id=1608974704]
 position = Vector2(724.5, 556.5)
 scale = Vector2(1.2210938, 0.29027778)
 texture = ExtResource("2_ihut5")
-
-[node name="Spell1" type="Button" parent="." unique_id=1681172384]
-layout_mode = 0
-offset_left = 100.0
-offset_top = 475.0
-offset_right = 1388.0
-offset_bottom = 1203.0
-scale = Vector2(0.1, 0.1)
-icon = ExtResource("3_6iv84")
-
-[node name="Spell2" type="Button" parent="." unique_id=1023289354]
-layout_mode = 0
-offset_left = 300.0
-offset_top = 475.0
-offset_right = 1588.0
-offset_bottom = 1203.0
-scale = Vector2(0.1, 0.1)
-icon = ExtResource("3_6iv84")
-
-[node name="Spell3" type="Button" parent="." unique_id=1095905764]
-layout_mode = 0
-offset_left = 500.0
-offset_top = 475.0
-offset_right = 1788.0
-offset_bottom = 1203.0
-scale = Vector2(0.1, 0.1)
-icon = ExtResource("3_6iv84")
-
-[node name="Spell4" type="Button" parent="." unique_id=1254825276]
-layout_mode = 0
-offset_left = 700.0
-offset_top = 475.0
-offset_right = 1988.0
-offset_bottom = 1203.0
-scale = Vector2(0.1, 0.1)
-icon = ExtResource("3_6iv84")
-
-[node name="Spell5" type="Button" parent="." unique_id=1714304370]
-layout_mode = 0
-offset_left = 900.0
-offset_top = 475.0
-offset_right = 2188.0
-offset_bottom = 1203.0
-scale = Vector2(0.1, 0.1)
-icon = ExtResource("3_6iv84")
-
-[node name="Back" type="Button" parent="." unique_id=750753261]
-visible = false
-layout_mode = 0
-offset_left = 1007.0
-offset_top = 562.0
-offset_right = 2295.0
-offset_bottom = 1290.0
-scale = Vector2(0.1, 0.1)
-icon = ExtResource("4_44f6b")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1957742915]
 position = Vector2(618, 607)
@@ -93,99 +39,46 @@ value = 650.0
 texture_under = ExtResource("2_ihut5")
 texture_progress = ExtResource("5_b7kor")
 
-[node name="NomMonstre1" type="Label" parent="." unique_id=323602651]
+[node name="Spells" type="Control" parent="." unique_id=1756865105]
 layout_mode = 1
-anchors_preset = -1
-anchor_right = 4.636
-anchor_bottom = 4.565
-offset_left = 175.0
-offset_top = 500.0
-offset_right = 229.56
-offset_bottom = 448.4
-text = "test32"
-label_settings = SubResource("LabelSettings_b7kor")
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0000305
+offset_top = -156.0
+offset_right = 10409.0
+offset_bottom = 572.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.1, 0.1)
 
-[node name="NomMonstre2" type="Label" parent="." unique_id=1826924233]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 4.636
-anchor_bottom = 4.565
-offset_left = 500.0
-offset_top = 500.0
-offset_right = 554.56
-offset_bottom = 448.4
-text = "test32"
-label_settings = SubResource("LabelSettings_b7kor")
-
-[node name="NomMonstre3" type="Label" parent="." unique_id=1473139784]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 4.636
-anchor_bottom = 4.565
-offset_left = 825.0
-offset_top = 500.0
-offset_right = 879.56
-offset_bottom = 448.4
-text = "test32"
-label_settings = SubResource("LabelSettings_b7kor")
-
-[node name="hpplayer" type="Label" parent="." unique_id=478974951]
-visible = false
-layout_mode = 0
+[node name="Confirm" type="Control" parent="." unique_id=1964108225]
+anchors_preset = 0
 offset_right = 40.0
-offset_bottom = 23.0
+offset_bottom = 40.0
 
-[node name="boutonNomMonstre1" type="Button" parent="." unique_id=751293591]
-visible = false
+[node name="Back" type="Button" parent="Confirm" unique_id=750753261]
 layout_mode = 0
-offset_left = 136.0
-offset_top = 480.0
-offset_right = 357.0
-offset_bottom = 567.0
-flat = true
+offset_left = 968.0
+offset_top = 488.0
+offset_right = 2256.0
+offset_bottom = 1216.0
+scale = Vector2(0.1, 0.1)
+icon = ExtResource("4_44f6b")
 
-[node name="boutonNomMonstre2" type="Button" parent="." unique_id=751734140]
-visible = false
+[node name="Confirm" type="Button" parent="Confirm" unique_id=692885979]
 layout_mode = 0
-offset_left = 462.0
-offset_top = 479.0
-offset_right = 679.0
-offset_bottom = 566.0
-flat = true
+offset_left = 802.0
+offset_top = 488.0
+offset_right = 2090.0
+offset_bottom = 1216.0
+scale = Vector2(0.1, 0.1)
+icon = ExtResource("4_44f6b")
 
-[node name="boutonNomMonstre3" type="Button" parent="." unique_id=1913049799]
-visible = false
-layout_mode = 0
-offset_left = 797.0
-offset_top = 479.0
-offset_right = 1018.0
-offset_bottom = 566.0
-flat = true
-
-[connection signal="mouse_entered" from="Spell1" to="." method="_on_spell_1_mouse_entered"]
-[connection signal="mouse_exited" from="Spell1" to="." method="_on_spell_1_mouse_exited"]
-[connection signal="pressed" from="Spell1" to="." method="_on_spell_1_pressed"]
-[connection signal="mouse_entered" from="Spell2" to="." method="_on_spell_2_mouse_entered"]
-[connection signal="mouse_exited" from="Spell2" to="." method="_on_spell_2_mouse_exited"]
-[connection signal="pressed" from="Spell2" to="." method="_on_spell_2_pressed"]
-[connection signal="mouse_entered" from="Spell3" to="." method="_on_spell_3_mouse_entered"]
-[connection signal="mouse_exited" from="Spell3" to="." method="_on_spell_3_mouse_exited"]
-[connection signal="pressed" from="Spell3" to="." method="_on_spell_3_pressed"]
-[connection signal="mouse_entered" from="Spell4" to="." method="_on_spell_4_mouse_entered"]
-[connection signal="mouse_exited" from="Spell4" to="." method="_on_spell_4_mouse_exited"]
-[connection signal="pressed" from="Spell4" to="." method="_on_spell_4_pressed"]
-[connection signal="mouse_entered" from="Spell5" to="." method="_on_spell_5_mouse_entered"]
-[connection signal="mouse_exited" from="Spell5" to="." method="_on_spell_5_mouse_exited"]
-[connection signal="pressed" from="Spell5" to="." method="_on_spell_5_pressed"]
-[connection signal="mouse_entered" from="Back" to="." method="_on_back_mouse_entered"]
-[connection signal="mouse_exited" from="Back" to="." method="_on_back_mouse_exited"]
-[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
-[connection signal="mouse_entered" from="boutonNomMonstre1" to="." method="_on_bouton_nom_monstre_1_mouse_entered"]
-[connection signal="mouse_exited" from="boutonNomMonstre1" to="." method="_on_bouton_nom_monstre_1_mouse_exited"]
-[connection signal="pressed" from="boutonNomMonstre1" to="." method="_on_bouton_nom_monstre_1_pressed"]
-[connection signal="mouse_entered" from="boutonNomMonstre2" to="." method="_on_bouton_nom_monstre_2_mouse_entered"]
-[connection signal="mouse_exited" from="boutonNomMonstre2" to="." method="_on_bouton_nom_monstre_2_mouse_exited"]
-[connection signal="pressed" from="boutonNomMonstre2" to="." method="_on_bouton_nom_monstre_2_pressed"]
-[connection signal="mouse_entered" from="boutonNomMonstre3" to="." method="_on_bouton_nom_monstre_3_mouse_entered"]
-[connection signal="mouse_exited" from="boutonNomMonstre3" to="." method="_on_bouton_nom_monstre_3_mouse_exited"]
-[connection signal="pressed" from="boutonNomMonstre3" to="." method="_on_bouton_nom_monstre_3_pressed"]
+[connection signal="mouse_entered" from="Confirm/Back" to="." method="_on_back_mouse_entered"]
+[connection signal="mouse_exited" from="Confirm/Back" to="." method="_on_back_mouse_exited"]
+[connection signal="pressed" from="Confirm/Back" to="." method="_on_back_pressed"]
+[connection signal="mouse_entered" from="Confirm/Confirm" to="." method="_on_back_mouse_entered"]
+[connection signal="mouse_exited" from="Confirm/Confirm" to="." method="_on_back_mouse_exited"]
+[connection signal="pressed" from="Confirm/Confirm" to="." method="spell_confirm"]
