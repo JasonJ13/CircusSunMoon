@@ -1,0 +1,11 @@
+extends Node
+
+
+
+
+
+
+signal test(t : int)
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	test.emit(50)
