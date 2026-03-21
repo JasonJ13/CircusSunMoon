@@ -3,6 +3,7 @@ extends Control
 class_name Monster
 var hp: int
 var dmg: int
+var nom: String
 @onready var interface: Control = $MonsterInterface
 
 # Called when the node enters the scene tree for the first time.
