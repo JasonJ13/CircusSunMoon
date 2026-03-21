@@ -3,6 +3,8 @@ extends Control
 class_name Monster
 var hp: int
 var dmg: int
+var nom: String
+var actions: Array[Action] = []
 @onready var interface: Control = $MonsterInterface
 
 # Called when the node enters the scene tree for the first time.
@@ -16,4 +18,4 @@ func _ready() -> void:
 @abstract func pass_nuit() -> void
 
 #Choisis une action à effectuer
-@abstract func takeAction() -> Action
+@abstract func takeAction(day:bool) -> Action
