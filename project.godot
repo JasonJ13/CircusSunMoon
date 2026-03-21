@@ -11,16 +11,13 @@ config_version=5
 [application]
 
 config/name="CircusSunMoon"
-run/main_scene="uid://rnupwuqu6c8n"
+run/main_scene="uid://cj03tr65hyydd"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://Asset/other/icon.svg"
 
-[audio]
-
-buses/default_bus_layout="uid://b1a5fgsh7fw38"
-
 [display]
 
+window/size/mode=2
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 

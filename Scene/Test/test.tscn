@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://cj03tr65hyydd"]
+
+[ext_resource type="Script" uid="uid://cdh3xjbk8ankh" path="res://Script/test.gd" id="1_vj45a"]
+[ext_resource type="Texture2D" uid="uid://dh4pp8af48s18" path="res://Asset/other/bouton spell.png" id="2_nvhdu"]
+[ext_resource type="Texture2D" uid="uid://b472436e3ke81" path="res://Asset/other/spell1.PNG" id="3_nvhdu"]
+[ext_resource type="Texture2D" uid="uid://b052fdcsqcxmr" path="res://Asset/other/spell2.png" id="4_yfkum"]
+[ext_resource type="Texture2D" uid="uid://770vj58bpuhp" path="res://Asset/other/black box.png" id="5_qylmw"]
+[ext_resource type="Texture2D" uid="uid://duuebeusjq2ef" path="res://Asset/other/quit.png" id="6_h1hnc"]
+
+[node name="Fight" type="Control" unique_id=1148027261]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vj45a")
+
+[node name="blackbox" type="Sprite2D" parent="." unique_id=1344227101]
+position = Vector2(781.62494, 541)
+scale = Vector2(1.2208984, 0.2868055)
+texture = ExtResource("5_qylmw")
+
+[node name="Button2" type="Button" parent="." unique_id=2126365497]
+visible = false
+layout_mode = 0
+offset_left = 88.0
+offset_top = 518.0
+offset_right = 1376.0
+offset_bottom = 1246.0
+scale = Vector2(0.11999935, 0.11999875)
+icon = ExtResource("2_nvhdu")
+
+[node name="Button3" type="Button" parent="." unique_id=872261938]
+layout_mode = 0
+offset_left = 245.00002
+offset_top = 501.00003
+offset_right = 1533.0
+offset_bottom = 1229.0
+scale = Vector2(0.13, 0.126)
+icon = ExtResource("3_nvhdu")
+
+[node name="Button4" type="Button" parent="." unique_id=896021377]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.051000003
+anchor_bottom = 0.087000005
+offset_left = 499.0
+offset_top = 500.0
+offset_right = 1728.248
+offset_bottom = 1171.624
+scale = Vector2(0.116, 0.13)
+icon = ExtResource("4_yfkum")
+
+[node name="quit" type="Button" parent="." unique_id=1459725671]
+layout_mode = 0
+offset_left = 711.0
+offset_top = 510.0
+offset_right = 1999.0
+offset_bottom = 1238.0
+scale = Vector2(0.115, 0.1)
+icon = ExtResource("6_h1hnc")
+
+[connection signal="mouse_entered" from="Button2" to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Button2" to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="mouse_entered" from="Button3" to="." method="_on_button_3_mouse_entered"]
+[connection signal="mouse_exited" from="Button3" to="." method="_on_button_3_mouse_exited"]
+[connection signal="mouse_entered" from="Button4" to="." method="_on_button_4_mouse_entered"]
+[connection signal="mouse_exited" from="Button4" to="." method="_on_button_4_mouse_exited"]
+[connection signal="mouse_entered" from="quit" to="." method="_on_quit_mouse_entered"]
+[connection signal="mouse_exited" from="quit" to="." method="_on_quit_mouse_exited"]
+[connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]

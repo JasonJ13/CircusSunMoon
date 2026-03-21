@@ -1,7 +1,95 @@
 [gd_scene format=3 uid="uid://bs43xgjop34ew"]
 
+[ext_resource type="Script" uid="uid://b4rr1lu7ee03m" path="res://Script/Player/PlayerInterface.gd" id="1_4er2e"]
+[ext_resource type="Texture2D" uid="uid://770vj58bpuhp" path="res://Asset/other/black box.png" id="2_ihut5"]
+[ext_resource type="Texture2D" uid="uid://dh4pp8af48s18" path="res://Asset/other/bouton spell.png" id="3_6iv84"]
+[ext_resource type="Texture2D" uid="uid://bvdf08viximpv" path="res://Asset/other/back.png" id="4_44f6b"]
+
 [node name="PlayerInterface" type="Control" unique_id=93433149]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("1_4er2e")
+
+[node name="blackbox" type="Sprite2D" parent="." unique_id=1608974704]
+position = Vector2(724.5, 556.5)
+scale = Vector2(1.2210938, 0.29027778)
+texture = ExtResource("2_ihut5")
+
+[node name="Spell1" type="Button" parent="." unique_id=1681172384]
+visible = false
+layout_mode = 0
+offset_left = 900.0
+offset_top = 510.0
+offset_right = 2188.0
+offset_bottom = 1238.0
+scale = Vector2(0.1, 0.1)
+icon = ExtResource("3_6iv84")
+
+[node name="Spell2" type="Button" parent="." unique_id=1023289354]
+visible = false
+layout_mode = 0
+offset_left = 700.0
+offset_top = 510.0
+offset_right = 1988.0
+offset_bottom = 1238.0
+scale = Vector2(0.1, 0.1)
+icon = ExtResource("3_6iv84")
+
+[node name="Spell3" type="Button" parent="." unique_id=1095905764]
+visible = false
+layout_mode = 0
+offset_left = 500.0
+offset_top = 510.0
+offset_right = 1788.0
+offset_bottom = 1238.0
+scale = Vector2(0.1, 0.1)
+icon = ExtResource("3_6iv84")
+
+[node name="Spell4" type="Button" parent="." unique_id=1254825276]
+visible = false
+layout_mode = 0
+offset_left = 300.0
+offset_top = 510.0
+offset_right = 1588.0
+offset_bottom = 1238.0
+scale = Vector2(0.1, 0.1)
+icon = ExtResource("3_6iv84")
+
+[node name="Spell5" type="Button" parent="." unique_id=1714304370]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 510.0
+offset_right = 1388.0
+offset_bottom = 1238.0
+scale = Vector2(0.1, 0.1)
+icon = ExtResource("3_6iv84")
+
+[node name="Back" type="Button" parent="." unique_id=750753261]
+layout_mode = 0
+offset_left = 936.0
+offset_top = 510.0
+offset_right = 2224.0
+offset_bottom = 1238.0
+scale = Vector2(0.1, 0.1)
+icon = ExtResource("4_44f6b")
+
+[connection signal="mouse_entered" from="Spell1" to="." method="_on_spell_1_mouse_entered"]
+[connection signal="mouse_exited" from="Spell1" to="." method="_on_spell_1_mouse_exited"]
+[connection signal="pressed" from="Spell1" to="." method="_on_spell_1_pressed"]
+[connection signal="mouse_entered" from="Spell2" to="." method="_on_spell_2_mouse_entered"]
+[connection signal="mouse_exited" from="Spell2" to="." method="_on_spell_2_mouse_exited"]
+[connection signal="pressed" from="Spell2" to="." method="_on_spell_2_pressed"]
+[connection signal="mouse_entered" from="Spell3" to="." method="_on_spell_3_mouse_entered"]
+[connection signal="mouse_exited" from="Spell3" to="." method="_on_spell_3_mouse_exited"]
+[connection signal="pressed" from="Spell3" to="." method="_on_spell_3_pressed"]
+[connection signal="mouse_entered" from="Spell4" to="." method="_on_spell_4_mouse_entered"]
+[connection signal="mouse_exited" from="Spell4" to="." method="_on_spell_4_mouse_exited"]
+[connection signal="pressed" from="Spell4" to="." method="_on_spell_4_pressed"]
+[connection signal="mouse_entered" from="Spell5" to="." method="_on_spell_5_mouse_entered"]
+[connection signal="mouse_exited" from="Spell5" to="." method="_on_spell_5_mouse_exited"]
+[connection signal="pressed" from="Spell5" to="." method="_on_spell_5_pressed"]
+[connection signal="mouse_entered" from="Back" to="." method="_on_back_mouse_entered"]
+[connection signal="mouse_exited" from="Back" to="." method="_on_back_mouse_exited"]
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
