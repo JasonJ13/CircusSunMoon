@@ -1,3 +1,4 @@
+@abstract
 extends Control
 class_name Monster
 var hp: int
@@ -9,13 +10,10 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 #éxecuté lorsqu'on passe du nuit au jour	
-func pass_jour() -> void:
-	pass
+@abstract func pass_jour() -> void
 
 #éxécuté lorsqu'on passe du jour à la nuit
-func pass_nuit() -> void:
-	pass
+@abstract func pass_nuit() -> void
 
 #Choisis une action à effectuer
-func takeAction() -> Action:
-	return null
+@abstract func takeAction() -> Action
