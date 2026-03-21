@@ -5,7 +5,7 @@ func _init() -> void:
 	hp = 1000
 	dmg = 100
 	nom = "Ballon"
-	var action1 : Action = Action.new(-150, 2, 0, true, Action.Change.NONE)
+	var action1 : Action = Action.new(-150, 3, 0, true, Action.Change.NONE)
 	action1.cible = Action.Cible.MONSTER
 	actions = [action1]
 	
