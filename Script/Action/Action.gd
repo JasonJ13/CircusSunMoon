@@ -1,6 +1,5 @@
 class_name Action
 
-extends Node
 enum Change {DAY, NIGHT, NONE}
 
 var dmg: int
@@ -9,6 +8,14 @@ var cooldown: int = 0				#Nombre de tours avant de pouvoir réutiliser l'attaque
 var turnsBeforeUse: int = 0			#Nombre de tours actuel à attendre avant de pouvoir réutiliser l'attaque
 var stateToReload: bool				#Etat de l'environnement permettant de recharger l'attaque (true = jour)
 var change: Change = Change.NONE	#Etat de l'environnement après l'action
+
+func _init(d:int, ci:Player, co:int, t: int, s:bool, ch:Change) -> void :
+	dmg = d
+	cible = ci
+	cooldown = co
+	turnsBeforeUse = t
+	stateToReload = s
+	change = ch
 
 func reload(state: bool):
 	if turnsBeforeUse>0 and stateToReload == state:
