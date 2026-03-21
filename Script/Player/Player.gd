@@ -5,7 +5,7 @@ var hp: int = 100
 var playerTurn: bool = false
 @onready var interface: Control = $PlayerInterface
 const hpmax: int = 100
-var actions: Array[Action] #Toutes les actions possibles
+var actions: Array[Action] = [] #Toutes les actions possibles
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
