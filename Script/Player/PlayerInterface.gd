@@ -6,6 +6,14 @@ extends Node
 @onready var Spell4 = $Spell4
 @onready var Spell5 = $Spell5
 @onready var Back = $Back
+@onready var HP_player = $HP_player
+@onready var NomMonstre1 = $NomMonstre1
+@onready var NomMonstre2 = $NomMonstre2
+@onready var NomMonstre3 = $NomMonstre3
+@onready var ButtonNomMonster = $boutonNomMonstre1
+@onready var ButtonNomMonster2 = $boutonNomMonstre2
+@onready var ButtonNomMonster3 = $boutonNomMonstre3
+
 
 var spell1 : Texture2D = preload("res://Asset/other/bouton spell.png")
 var spell1hover : Texture2D = preload("res://Asset/other/bouton spell hovered.png")
@@ -20,13 +28,40 @@ var spell5hover : Texture2D = preload("res://Asset/other/bouton spell hovered.pn
 var back : Texture2D = preload("res://Asset/other/back.png")
 var backhover : Texture2D = preload("res://Asset/other/backhover.png")
 
+var hp_player : int
+var ennemies: Array[Monster]
+var spells : Array[Action]
+
+var nom_ennemies : Array[String]
+var HP_ennemies : Array[int]
+
+
 func _ready() -> void:
+	NomMonstre1.text = "monstre1"
+	NomMonstre2.text = "monstre2"
+	NomMonstre3.text = "monstre3"
+	NomMonstre1.hide()
+	NomMonstre2.hide()
+	NomMonstre3.hide()
+	ButtonNomMonster.hide()
+	ButtonNomMonster2.hide()
+	ButtonNomMonster3.hide()
 	Spell1.show()
 	Spell2.show()
 	Spell3.show()
 	Spell4.show()
 	Spell5.show()
 	Back.hide()
+
+func start(hp_player,ennemies,spells) -> void:
+	HP_player.value = hp_player
+	ennemies = ennemies
+	spells = spells
+	for i in range(ennemies.length):
+		nom_ennemies[i] = ennemies.nom
+		HP_ennemies[i] = ennemies.hp
+	
+	
 
 func _on_spell_1_mouse_entered() -> void:
 	Spell1.icon = spell1hover
@@ -59,6 +94,12 @@ func _on_spell_1_pressed() -> void:
 	Spell3.hide()
 	Spell4.hide()
 	Spell5.hide()
+	NomMonstre1.show()
+	NomMonstre2.show()
+	NomMonstre3.show()
+	ButtonNomMonster.show()
+	ButtonNomMonster2.show()
+	ButtonNomMonster3.show()
 	Back.show()
 func _on_spell_2_pressed() -> void:
 	Spell1.hide()
@@ -66,6 +107,12 @@ func _on_spell_2_pressed() -> void:
 	Spell3.hide()
 	Spell4.hide()
 	Spell5.hide()
+	NomMonstre1.show()
+	NomMonstre2.show()
+	NomMonstre3.show()
+	ButtonNomMonster.show()
+	ButtonNomMonster2.show()
+	ButtonNomMonster3.show()
 	Back.show()
 func _on_spell_3_pressed() -> void:
 	Spell1.hide()
@@ -73,6 +120,12 @@ func _on_spell_3_pressed() -> void:
 	Spell3.hide()
 	Spell4.hide()
 	Spell5.hide()
+	NomMonstre1.show()
+	NomMonstre2.show()
+	NomMonstre3.show()
+	ButtonNomMonster.show()
+	ButtonNomMonster2.show()
+	ButtonNomMonster3.show()
 	Back.show()
 func _on_spell_4_pressed() -> void:
 	Spell1.hide()
@@ -80,6 +133,12 @@ func _on_spell_4_pressed() -> void:
 	Spell3.hide()
 	Spell4.hide()
 	Spell5.hide()
+	NomMonstre1.show()
+	NomMonstre2.show()
+	NomMonstre3.show()
+	ButtonNomMonster.show()
+	ButtonNomMonster2.show()
+	ButtonNomMonster3.show()
 	Back.show()
 func _on_spell_5_pressed() -> void:
 	Spell1.hide()
@@ -87,6 +146,12 @@ func _on_spell_5_pressed() -> void:
 	Spell3.hide()
 	Spell4.hide()
 	Spell5.hide()
+	NomMonstre1.show()
+	NomMonstre2.show()
+	NomMonstre3.show()
+	ButtonNomMonster.show()
+	ButtonNomMonster2.show()
+	ButtonNomMonster3.show()
 	Back.show()
 func _on_back_pressed() -> void:
 	Spell1.show()
@@ -94,4 +159,30 @@ func _on_back_pressed() -> void:
 	Spell3.show()
 	Spell4.show()
 	Spell5.show()
+	NomMonstre1.hide()
+	NomMonstre2.hide()
+	NomMonstre3.hide()
+	ButtonNomMonster.hide()
+	ButtonNomMonster2.hide()
+	ButtonNomMonster3.hide()
 	Back.hide()
+
+func _on_bouton_nom_monstre_1_mouse_entered() -> void:
+	NomMonstre1.modulate = Color.YELLOW
+func _on_bouton_nom_monstre_1_mouse_exited() -> void:
+	NomMonstre1.modulate = Color.WHITE
+func _on_bouton_nom_monstre_2_mouse_entered() -> void:
+	NomMonstre2.modulate = Color.YELLOW
+func _on_bouton_nom_monstre_2_mouse_exited() -> void:
+	NomMonstre2.modulate = Color.WHITE
+func _on_bouton_nom_monstre_3_mouse_entered() -> void:
+	NomMonstre3.modulate = Color.YELLOW
+func _on_bouton_nom_monstre_3_mouse_exited() -> void:
+	NomMonstre3.modulate = Color.WHITE
+
+func _on_bouton_nom_monstre_1_pressed() -> void:
+	pass # Replace with function body.
+func _on_bouton_nom_monstre_2_pressed() -> void:
+	pass # Replace with function body.
+func _on_bouton_nom_monstre_3_pressed() -> void:
+	pass # Replace with function body.
