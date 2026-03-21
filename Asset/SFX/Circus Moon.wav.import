@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://pvhfjrgovu61"
+path="res://.godot/imported/Circus Moon.wav-8850362931d24f42ae35d74bd8c5bd8a.sample"
+
+[deps]
+
+source_file="res://Asset/SFX/Circus Moon.wav"
+dest_files=["res://.godot/imported/Circus Moon.wav-8850362931d24f42ae35d74bd8c5bd8a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
