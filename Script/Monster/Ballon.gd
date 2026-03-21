@@ -6,7 +6,7 @@ func _init() -> void:
 	dmg = 100
 	nom = "Ballon"
 	var action1 : Action = Action.new(-150, 2, 0, true, Action.Change.NONE)
-	action1.cible = $"res://Scene/Player/Player.tscn"
+	action1.cible = self
 	actions = [action1]
 	
 func pass_jour() -> void:
