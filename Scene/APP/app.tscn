@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bmv4s0fsvdp2w"]
+
+[ext_resource type="PackedScene" uid="uid://rnupwuqu6c8n" path="res://Scene/MainMenu/MainMenu.tscn" id="1_8h336"]
+[ext_resource type="Script" uid="uid://jqpikbrdbbdo" path="res://Script/APP/app.gd" id="1_tay45"]
+[ext_resource type="PackedScene" uid="uid://dqoddm88ktvch" path="res://Scene/SFX/sfx.tscn" id="2_tay45"]
+
+[node name="APP" type="Control" unique_id=651810850]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tay45")
+
+[node name="MainMenu" parent="." unique_id=1614029504 instance=ExtResource("1_8h336")]
+layout_mode = 1
+
+[node name="SFX" parent="." unique_id=485798726 instance=ExtResource("2_tay45")]
+
+[connection signal="game_start" from="." to="SFX" method="_on_app_game_start"]
+[connection signal="on_play" from="MainMenu" to="." method="_on_main_menu_on_play"]
+[connection signal="on_quit" from="MainMenu" to="." method="_on_main_menu_on_quit"]

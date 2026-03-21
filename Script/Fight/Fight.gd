@@ -5,7 +5,7 @@ var day: bool = true		#Indique si on est le jour
 
 @onready var player: Player
 @onready var FightInterface = $FightInterface
-var ennemies: Array[Monster]
+var ennemies: Array[Monster] = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

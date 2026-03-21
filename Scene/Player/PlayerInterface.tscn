@@ -22,56 +22,52 @@ scale = Vector2(1.2210938, 0.29027778)
 texture = ExtResource("2_ihut5")
 
 [node name="Spell1" type="Button" parent="." unique_id=1681172384]
-visible = false
 layout_mode = 0
-offset_left = 900.0
-offset_top = 490.0
-offset_right = 2188.0
-offset_bottom = 1218.0
+offset_left = 100.0
+offset_top = 475.0
+offset_right = 1388.0
+offset_bottom = 1203.0
 scale = Vector2(0.1, 0.1)
 icon = ExtResource("3_6iv84")
 
 [node name="Spell2" type="Button" parent="." unique_id=1023289354]
-visible = false
 layout_mode = 0
-offset_left = 700.0
-offset_top = 490.0
-offset_right = 1988.0
-offset_bottom = 1218.0
+offset_left = 300.0
+offset_top = 475.0
+offset_right = 1588.0
+offset_bottom = 1203.0
 scale = Vector2(0.1, 0.1)
 icon = ExtResource("3_6iv84")
 
 [node name="Spell3" type="Button" parent="." unique_id=1095905764]
-visible = false
 layout_mode = 0
 offset_left = 500.0
-offset_top = 490.0
+offset_top = 475.0
 offset_right = 1788.0
-offset_bottom = 1218.0
+offset_bottom = 1203.0
 scale = Vector2(0.1, 0.1)
 icon = ExtResource("3_6iv84")
 
 [node name="Spell4" type="Button" parent="." unique_id=1254825276]
-visible = false
 layout_mode = 0
-offset_left = 300.0
-offset_top = 490.0
-offset_right = 1588.0
-offset_bottom = 1218.0
+offset_left = 700.0
+offset_top = 475.0
+offset_right = 1988.0
+offset_bottom = 1203.0
 scale = Vector2(0.1, 0.1)
 icon = ExtResource("3_6iv84")
 
 [node name="Spell5" type="Button" parent="." unique_id=1714304370]
-visible = false
 layout_mode = 0
-offset_left = 101.0
-offset_top = 490.0
-offset_right = 1389.0
-offset_bottom = 1218.0
+offset_left = 900.0
+offset_top = 475.0
+offset_right = 2188.0
+offset_bottom = 1203.0
 scale = Vector2(0.1, 0.1)
 icon = ExtResource("3_6iv84")
 
 [node name="Back" type="Button" parent="." unique_id=750753261]
+visible = false
 layout_mode = 0
 offset_left = 1007.0
 offset_top = 562.0
@@ -81,11 +77,13 @@ scale = Vector2(0.1, 0.1)
 icon = ExtResource("4_44f6b")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1957742915]
+visible = false
 position = Vector2(618, 607)
 scale = Vector2(0.32656252, 0.052083455)
 texture = ExtResource("5_b7kor")
 
 [node name="HP_player" type="TextureProgressBar" parent="." unique_id=370749168]
+visible = false
 layout_mode = 0
 offset_left = 411.0
 offset_top = 592.0
@@ -98,6 +96,7 @@ texture_under = ExtResource("2_ihut5")
 texture_progress = ExtResource("5_b7kor")
 
 [node name="NomMonstre1" type="Label" parent="." unique_id=323602651]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 4.636
@@ -110,6 +109,7 @@ text = "test32"
 label_settings = SubResource("LabelSettings_b7kor")
 
 [node name="NomMonstre2" type="Label" parent="." unique_id=1826924233]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 4.636
@@ -122,6 +122,7 @@ text = "test32"
 label_settings = SubResource("LabelSettings_b7kor")
 
 [node name="NomMonstre3" type="Label" parent="." unique_id=1473139784]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 4.636
@@ -133,7 +134,14 @@ offset_bottom = 448.4
 text = "test32"
 label_settings = SubResource("LabelSettings_b7kor")
 
+[node name="hpplayer" type="Label" parent="." unique_id=478974951]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
 [node name="boutonNomMonstre1" type="Button" parent="." unique_id=751293591]
+visible = false
 layout_mode = 0
 offset_left = 136.0
 offset_top = 480.0
@@ -142,6 +150,7 @@ offset_bottom = 567.0
 flat = true
 
 [node name="boutonNomMonstre2" type="Button" parent="." unique_id=751734140]
+visible = false
 layout_mode = 0
 offset_left = 462.0
 offset_top = 479.0
@@ -150,6 +159,7 @@ offset_bottom = 566.0
 flat = true
 
 [node name="boutonNomMonstre3" type="Button" parent="." unique_id=1913049799]
+visible = false
 layout_mode = 0
 offset_left = 797.0
 offset_top = 479.0
