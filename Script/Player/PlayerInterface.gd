@@ -35,6 +35,8 @@ var spells : Array[Action]
 var nom_ennemies : Array[String]
 var HP_ennemies : Array[int]
 
+signal action(var1 : int, var2 : int)
+var spellvalue : int
 
 func _ready() -> void:
 	NomMonstre1.text = "monstre1"
@@ -89,6 +91,7 @@ func _on_back_mouse_exited() -> void:
 	Back.icon = back
 
 func _on_spell_1_pressed() -> void:
+	spellvalue = 1
 	Spell1.hide()
 	Spell2.hide()
 	Spell3.hide()
@@ -102,6 +105,7 @@ func _on_spell_1_pressed() -> void:
 	ButtonNomMonster3.show()
 	Back.show()
 func _on_spell_2_pressed() -> void:
+	spellvalue = 2
 	Spell1.hide()
 	Spell2.hide()
 	Spell3.hide()
@@ -115,6 +119,7 @@ func _on_spell_2_pressed() -> void:
 	ButtonNomMonster3.show()
 	Back.show()
 func _on_spell_3_pressed() -> void:
+	spellvalue = 3
 	Spell1.hide()
 	Spell2.hide()
 	Spell3.hide()
@@ -128,6 +133,7 @@ func _on_spell_3_pressed() -> void:
 	ButtonNomMonster3.show()
 	Back.show()
 func _on_spell_4_pressed() -> void:
+	spellvalue = 4
 	Spell1.hide()
 	Spell2.hide()
 	Spell3.hide()
@@ -141,6 +147,7 @@ func _on_spell_4_pressed() -> void:
 	ButtonNomMonster3.show()
 	Back.show()
 func _on_spell_5_pressed() -> void:
+	spellvalue = 5
 	Spell1.hide()
 	Spell2.hide()
 	Spell3.hide()
@@ -181,8 +188,29 @@ func _on_bouton_nom_monstre_3_mouse_exited() -> void:
 	NomMonstre3.modulate = Color.WHITE
 
 func _on_bouton_nom_monstre_1_pressed() -> void:
-	pass # Replace with function body.
+	action.emit(spellvalue, 1)
+	NomMonstre1.hide()
+	NomMonstre2.hide()
+	NomMonstre3.hide()
+	ButtonNomMonster.hide()
+	ButtonNomMonster2.hide()
+	ButtonNomMonster3.hide()
+	Back.hide()
 func _on_bouton_nom_monstre_2_pressed() -> void:
-	pass # Replace with function body.
+	action.emit(spellvalue, 1)
+	NomMonstre1.hide()
+	NomMonstre2.hide()
+	NomMonstre3.hide()
+	ButtonNomMonster.hide()
+	ButtonNomMonster2.hide()
+	ButtonNomMonster3.hide()
+	Back.hide()
 func _on_bouton_nom_monstre_3_pressed() -> void:
-	pass # Replace with function body.
+	action.emit(spellvalue, 1)
+	NomMonstre1.hide()
+	NomMonstre2.hide()
+	NomMonstre3.hide()
+	ButtonNomMonster.hide()
+	ButtonNomMonster2.hide()
+	ButtonNomMonster3.hide()
+	Back.hide()
