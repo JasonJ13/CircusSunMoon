@@ -77,13 +77,11 @@ scale = Vector2(0.1, 0.1)
 icon = ExtResource("4_44f6b")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1957742915]
-visible = false
 position = Vector2(618, 607)
 scale = Vector2(0.32656252, 0.052083455)
 texture = ExtResource("5_b7kor")
 
 [node name="HP_player" type="TextureProgressBar" parent="." unique_id=370749168]
-visible = false
 layout_mode = 0
 offset_left = 411.0
 offset_top = 592.0
@@ -96,7 +94,6 @@ texture_under = ExtResource("2_ihut5")
 texture_progress = ExtResource("5_b7kor")
 
 [node name="NomMonstre1" type="Label" parent="." unique_id=323602651]
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 4.636
@@ -109,7 +106,6 @@ text = "test32"
 label_settings = SubResource("LabelSettings_b7kor")
 
 [node name="NomMonstre2" type="Label" parent="." unique_id=1826924233]
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 4.636
@@ -122,7 +118,6 @@ text = "test32"
 label_settings = SubResource("LabelSettings_b7kor")
 
 [node name="NomMonstre3" type="Label" parent="." unique_id=1473139784]
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 4.636
