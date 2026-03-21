@@ -63,7 +63,9 @@ func turn() -> void:
 		
 	#Les ennemis font leurs actions
 	for e in ennemies:
-		var eAction: Action = e.takeAction()
+		for action in e.actions:
+			action.reload(day)
+		var eAction: Action = e.takeAction(day)
 		resolveAction(eAction)
 	
 	
