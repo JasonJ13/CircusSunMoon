@@ -1,9 +1,25 @@
 extends Monster
 class_name Ballon
 
-func _ready() -> void:
+func _init() -> void:
 	hp = 1000
-	dmg = 75
+	dmg = 100
 	nom = "Ballon"
-	var action1 : Action = Action.new()
-	actions = []
+	var action1 : Action = Action.new(-150, 2, 0, true, Action.Change.NONE)
+	action1.cible = self
+	actions = [action1]
+	
+func pass_jour() -> void:
+	dmg = 100
+	
+func pass_nuit() -> void:
+	dmg=50
+	
+func takeAction(day:bool) -> Action:
+	if actions[0].turnsBeforeUse == 0:
+		return actions[0]
+	else:
+		var action = Action.new(dmg, 0, 0, true, Action.Change.NONE)
+		action.cible = $"res://Scene/Player/Player.tscn"
+		return action
+		
