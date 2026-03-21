@@ -81,7 +81,11 @@ func _on_back_mouse_entered() -> void:
 func _on_back_mouse_exited() -> void:
 	backButton.icon = back
 
+func _on_confirm_mouse_entered() -> void:
+	confirmButton.icon = backhover
 
+func _on_confirm_mouse_exited() -> void:
+	confirmButton.icon = back
 
 func spell_has_been_selected(spell : Spell) -> void :
 	spell_selected = spell
@@ -89,6 +93,10 @@ func spell_has_been_selected(spell : Spell) -> void :
 	spellsNode.hide()
 	confirmNode.show()
 
+
+func spell_deny() -> void:
+	spellsNode.show()
+	confirmNode.hide()
 
 func spell_confirm() -> void:
 
