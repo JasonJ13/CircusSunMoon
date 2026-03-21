@@ -181,7 +181,7 @@ func _on_bouton_nom_monstre_3_mouse_exited() -> void:
 	NomMonstre3.modulate = Color.WHITE
 
 func _on_bouton_nom_monstre_1_pressed() -> void:
-	print("test")
+	pass # Replace with function body.
 func _on_bouton_nom_monstre_2_pressed() -> void:
 	pass # Replace with function body.
 func _on_bouton_nom_monstre_3_pressed() -> void:
