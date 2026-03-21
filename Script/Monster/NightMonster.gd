@@ -5,7 +5,7 @@ func _init() -> void:
 	hp = 1000
 	dmg = 75
 	nom = "NightMonster"
-	var action1: Action = Action.new(225, 3, 0, false, Action.Change.NONE)
+	var action1: Action = Action.new(225, 3, 0, false, Action.Change.NONE, Action.Effect.DMG)
 	action1.cible = Action.Cible.PLAYER
 	actions = [action1]
 	
@@ -19,6 +19,6 @@ func takeAction(day:bool) -> Action:
 	if actions[0].turnsBeforeUse == 0:
 		return actions[0]
 	else:
-		var action = Action.new(dmg, 0, 0, true, Action.Change.NONE)
+		var action = Action.new(dmg, 0, 0, true, Action.Change.NONE, Action.Effect.DMG)
 		action.cible=Action.Cible.PLAYER
 		return action
