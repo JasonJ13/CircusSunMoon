@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bknftp6dv4xbg"
-path="res://.godot/imported/Enemy_attack_sun.png-e08ff8e5d8afc44b04aae6b503951c00.ctex"
+uid="uid://x0ek8wf03q7i"
+path="res://.godot/imported/Player_idle_sun-sheet.png-af7bcc8da40a8a642a33dd3064d18a29.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Asset/pixel/Enemy_attack_sun.png"
-dest_files=["res://.godot/imported/Enemy_attack_sun.png-e08ff8e5d8afc44b04aae6b503951c00.ctex"]
+source_file="res://Asset/pixel/Player/Player_idle_sun-sheet.png"
+dest_files=["res://.godot/imported/Player_idle_sun-sheet.png-af7bcc8da40a8a642a33dd3064d18a29.ctex"]
 
 [params]
 

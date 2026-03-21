@@ -2,14 +2,110 @@
 
 [ext_resource type="Script" uid="uid://blbc2hmrnbqkj" path="res://Script/Player/Player.gd" id="1_s60e6"]
 [ext_resource type="PackedScene" uid="uid://bs43xgjop34ew" path="res://Scene/Player/PlayerInterface.tscn" id="2_e35vl"]
+[ext_resource type="Texture2D" uid="uid://x0ek8wf03q7i" path="res://Asset/pixel/Player/Player_idle_sun-sheet.png" id="3_vitwr"]
+[ext_resource type="Texture2D" uid="uid://ddccfh0rgkk5y" path="res://Asset/pixel/Player/Player_idle_moon-sheet.png" id="4_wx5cg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_25uvi"]
+atlas = ExtResource("3_vitwr")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u008n"]
+atlas = ExtResource("3_vitwr")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mqfxk"]
+atlas = ExtResource("3_vitwr")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f30au"]
+atlas = ExtResource("3_vitwr")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qhn4q"]
+atlas = ExtResource("4_wx5cg")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_flr57"]
+atlas = ExtResource("4_wx5cg")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3pbjx"]
+atlas = ExtResource("4_wx5cg")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sctna"]
+atlas = ExtResource("4_wx5cg")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1yjkl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_25uvi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u008n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mqfxk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f30au")
+}],
+"loop": true,
+"name": &"Day",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qhn4q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_flr57")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3pbjx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sctna")
+}],
+"loop": true,
+"name": &"Night",
+"speed": 8.0
+}]
 
 [node name="Player" type="Control" unique_id=607304866]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_s60e6")
 
 [node name="PlayerInterface" parent="." unique_id=93433149 instance=ExtResource("2_e35vl")]
 layout_mode = 0
 script = null
+
+[node name="SpritePlayer" type="Control" parent="." unique_id=292770404]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite" type="AnimatedSprite2D" parent="SpritePlayer" unique_id=710565002]
+texture_filter = 1
+position = Vector2(-178, -54)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_1yjkl")
+animation = &"Day"
+autoplay = "Day"
+frame_progress = 0.85953766
