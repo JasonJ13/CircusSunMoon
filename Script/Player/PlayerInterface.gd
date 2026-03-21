@@ -14,6 +14,7 @@ class_name PlayerInterface
 @onready var ButtonNomMonster = $boutonNomMonstre1
 @onready var ButtonNomMonster2 = $boutonNomMonstre2
 @onready var ButtonNomMonster3 = $boutonNomMonstre3
+@onready var hpplayer = $hpplayer
 
 
 var spell1 : Texture2D = preload("res://Asset/other/bouton spell.png")
