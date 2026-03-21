@@ -1,8 +1,11 @@
 [gd_scene format=3 uid="uid://dsexau7kcdupv"]
 
 [ext_resource type="Script" uid="uid://d3fja8v0oebt6" path="res://Script/Fight/Fight.gd" id="1_8f7nq"]
+[ext_resource type="Texture2D" uid="uid://dcf5ftxsqdtal" path="res://Asset/drawing/Circus.jpg" id="2_81b1g"]
 [ext_resource type="PackedScene" uid="uid://cb5xjboiocjml" path="res://Scene/Fight/FightInterface.tscn" id="2_at0q3"]
 [ext_resource type="Texture2D" uid="uid://770vj58bpuhp" path="res://Asset/other/black box.png" id="3_at0q3"]
+[ext_resource type="PackedScene" uid="uid://dd3h6nmejmclf" path="res://Scene/Player/Player.tscn" id="5_6b077"]
+[ext_resource type="PackedScene" uid="uid://bjgtbsw88nar4" path="res://Scene/Test/ballon_test.tscn" id="6_moa3j"]
 
 [node name="Fight" type="Control" unique_id=1148027261]
 layout_mode = 3
@@ -13,6 +16,34 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_8f7nq")
 
+[node name="TextureRect" type="TextureRect" parent="." unique_id=431349501]
+modulate = Color(0.8158153, 0.81581545, 0.8158154, 1)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -430.0
+offset_top = 4.0
+offset_right = 1667.4998
+offset_bottom = 1196.4999
+grow_horizontal = 2
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_81b1g")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=691702639]
+layout_mode = 0
+offset_right = 181.0
+offset_bottom = 650.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=716275899]
+layout_mode = 0
+offset_left = 983.0
+offset_top = 2.0
+offset_right = 1151.0
+offset_bottom = 652.0
+color = Color(0, 0, 0, 1)
+
 [node name="FightInterface" parent="." unique_id=242278182 instance=ExtResource("2_at0q3")]
 layout_mode = 1
 
@@ -20,3 +51,22 @@ layout_mode = 1
 position = Vector2(590, 545.75006)
 scale = Vector2(1, 0.29097235)
 texture = ExtResource("3_at0q3")
+
+[node name="Player" parent="." unique_id=607304866 instance=ExtResource("5_6b077")]
+layout_mode = 1
+
+[node name="Control" parent="." unique_id=2037288147 instance=ExtResource("6_moa3j")]
+layout_mode = 0
+offset_left = 764.0
+offset_top = 247.0
+offset_right = 764.0
+offset_bottom = 247.0
+scale = Vector2(2, 2)
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=434383279]
+layout_mode = 0
+offset_left = -36.0
+offset_top = 0.5
+offset_right = 0.5
+offset_bottom = 14.0
+color = Color(0, 0, 0, 0.4117647)
