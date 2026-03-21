@@ -3,25 +3,25 @@ class_name Fight
 
 var day: bool = true		#Indique si on est le jour
 
-@export var player: Player
 @onready var FightInterface = $FightInterface
-@export var ennemies: Array[Monster] = []
+@export var player: Player
+@export var ennemie: Monster
+
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	turn()
 
-func addEnnemy(ennemy: Monster) -> void:
-	ennemies.append(ennemy)
 
 ##Changement entre jour et nuit
 func changeDayNight() -> void:
 	day = not day
-	for e in ennemies:
-		if day:
-			e.pass_jour()
-		else:
-			e.pass_nuit()
+
+	if day:
+		ennemie.pass_jour()
+	else:
+		ennemie.pass_nuit()
 
 ##Effectue les effets d'une action
 func resolveAction(action: Action) -> void:
@@ -32,13 +32,18 @@ func resolveAction(action: Action) -> void:
 	#Inflige les dégâts
 	match action.cible :
 		Action.Cible.PLAYER :
-			player.cible.hp -= action.dmg
-			#Mort du joueur
-			pass #à coder
+			player.hp -= action.dmg
+			
+			if player.hp < 1 :
+				pass
+				#Mort du joueur
 	
 		Action.Cible.MONSTER :
-			ennemies.erase(action.cible)
-
+			ennemie.hp -= action.dmg
+			
+			if ennemie.hp < 1 :
+				ennemie.queue_free()
+				ennemie = null
 				
 			
 	#Regarde si l'action change le cycle
@@ -58,19 +63,18 @@ func turn() -> void:
 		action.reload(day)
 	
 	 #Le joueur fait son action
-	var playerAction: Action = await player.takeAction(ennemies)
+	var playerAction: Action = await player.takeAction(ennemie)
 	resolveAction(playerAction)
 		
 		
 	#Les ennemis font leurs actions
-	for e in ennemies:
-		for action in e.actions:
-			action.reload(day)
-		var eAction: Action = e.takeAction(day)
-		resolveAction(eAction)
+	for action in ennemie.actions:
+		action.reload(day)
+	var eAction: Action = ennemie.takeAction(day)
+	resolveAction(eAction)
 	
 	
-	if ennemies.is_empty():
+	if ennemie == null:
 		#S'il n'y a plus d'ennemis, fin du combat et nouveau combat
 		_ready()
 	else:

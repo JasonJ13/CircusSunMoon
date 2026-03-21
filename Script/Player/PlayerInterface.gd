@@ -62,8 +62,9 @@ func _ready_Spell(spells : Array[Spell]) -> void :
 		
 		spellsNode.add_child(new_spell_button)
 
-func start(hpp,enn,sps) -> void:
+func start(hpp : int, enn : Monster, sps : Array[Spell]) -> void:
 	HP_player.value = hpp
+	ennemie = enn
 	_ready_Spell(sps)
 
 
