@@ -2,7 +2,9 @@
 
 [ext_resource type="Script" uid="uid://cvmlmm6unx76t" path="res://Script/MainMenu/main_menu.gd" id="1_lck82"]
 [ext_resource type="PackedScene" uid="uid://0p2t77b6t20r" path="res://Scene/MainMenu/sound_setting.tscn" id="2_b4s8y"]
+[ext_resource type="Texture2D" uid="uid://bkpbpt2g4gsft" path="res://Asset/pixel/Play_button_hover.png" id="2_svdxt"]
 [ext_resource type="AudioStream" uid="uid://qk8c5a5m1sp" path="res://Asset/SFX/Spooky flotes.wav" id="3_f0l23"]
+[ext_resource type="Texture2D" uid="uid://32p5bwg73sqj" path="res://Asset/pixel/Play_button.png" id="3_y882m"]
 [ext_resource type="Script" uid="uid://dkckssw4r8od4" path="res://Script/MainMenu/spooky_flotes.gd" id="4_bqsmv"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_o12uj"]
@@ -26,14 +28,25 @@ offset_bottom = 129.0
 text = "Cirque du soleil et de la lune"
 label_settings = SubResource("LabelSettings_o12uj")
 
+[node name="PlayButon" type="TextureButton" parent="." unique_id=2124255286]
+layout_mode = 0
+offset_left = 523.0
+offset_top = 188.0
+offset_right = 688.0
+offset_bottom = 265.0
+texture_normal = ExtResource("2_svdxt")
+texture_hover = ExtResource("3_y882m")
+stretch_mode = 0
+
 [node name="PlayButton" type="Button" parent="." unique_id=364789616]
+visible = false
 layout_mode = 0
 offset_left = 527.0
 offset_top = 164.0
 offset_right = 690.0
 offset_bottom = 225.0
 theme_override_font_sizes/font_size = 30
-text = "Play"
+icon = ExtResource("3_y882m")
 
 [node name="SoundSettingButton" type="Button" parent="." unique_id=1260568817]
 layout_mode = 0
@@ -68,6 +81,7 @@ bus = &"Sountrack"
 script = ExtResource("4_bqsmv")
 
 [connection signal="on_play" from="." to="SpookyFlotes" method="_on_main_menu_on_play"]
+[connection signal="pressed" from="PlayButon" to="." method="_on_play_buton_pressed"]
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="SoundSettingButton" to="SoundSetting" method="_on_sound_setting_button_pressed"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
