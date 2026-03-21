@@ -1,0 +1,116 @@
+[gd_scene format=3 uid="uid://0p2t77b6t20r"]
+
+[ext_resource type="Script" uid="uid://cetemqr7o26vm" path="res://Script/MainMenu/sound_setting.gd" id="1_fssin"]
+[ext_resource type="Texture2D" uid="uid://ck034vpoe3tyo" path="res://Asset/Images/black.png" id="2_igi57"]
+
+[node name="SoundSetting" type="Control" unique_id=2041703280]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1.0
+offset_top = -1.0
+offset_right = 1154.0
+offset_bottom = 649.0
+script = ExtResource("1_fssin")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1126852662]
+layout_mode = 0
+offset_left = 385.0
+offset_top = 146.0
+offset_right = 829.0
+offset_bottom = 599.0
+texture = ExtResource("2_igi57")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="." unique_id=401208704]
+layout_mode = 0
+offset_left = 509.0
+offset_top = 188.0
+offset_right = 725.0
+offset_bottom = 230.0
+theme_override_font_sizes/font_size = 30
+text = "Sound Settings"
+
+[node name="CloseSetting" type="Button" parent="." unique_id=1573142327]
+layout_mode = 0
+offset_left = 758.0
+offset_top = 162.0
+offset_right = 809.0
+offset_bottom = 212.0
+theme_override_font_sizes/font_size = 30
+text = "X"
+
+[node name="Master" type="Control" parent="." unique_id=1033232989]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Master" unique_id=947050763]
+layout_mode = 0
+offset_left = 586.0
+offset_top = 274.0
+offset_right = 641.0
+offset_bottom = 297.0
+text = "Master"
+
+[node name="MasterSlider" type="HSlider" parent="Master" unique_id=1014998535]
+layout_mode = 0
+offset_left = 488.0
+offset_top = 300.0
+offset_right = 736.0
+offset_bottom = 337.0
+max_value = 1.0
+step = 0.001
+value = 1.0
+
+[node name="Soundtrack" type="Control" parent="." unique_id=175372409]
+anchors_preset = 0
+offset_top = 91.0
+offset_right = 40.0
+offset_bottom = 131.0
+
+[node name="Label" type="Label" parent="Soundtrack" unique_id=234044731]
+layout_mode = 0
+offset_left = 568.0
+offset_top = 281.0
+offset_right = 657.0
+offset_bottom = 304.0
+text = "Soundtrack"
+
+[node name="SoundtrackSlider" type="HSlider" parent="Soundtrack" unique_id=2083780720]
+layout_mode = 0
+offset_left = 488.0
+offset_top = 300.0
+offset_right = 736.0
+offset_bottom = 337.0
+max_value = 1.0
+step = 0.001
+value = 1.0
+
+[node name="SFX" type="Control" parent="." unique_id=1064095675]
+anchors_preset = 0
+offset_top = 194.0
+offset_right = 40.0
+offset_bottom = 234.0
+
+[node name="Label" type="Label" parent="SFX" unique_id=22518151]
+layout_mode = 0
+offset_left = 595.0
+offset_top = 274.0
+offset_right = 650.0
+offset_bottom = 297.0
+text = "SFX"
+
+[node name="SFXSlider" type="HSlider" parent="SFX" unique_id=1532151120]
+layout_mode = 0
+offset_left = 488.0
+offset_top = 300.0
+offset_right = 736.0
+offset_bottom = 337.0
+max_value = 1.0
+step = 0.001
+value = 1.0
+
+[connection signal="pressed" from="CloseSetting" to="." method="_on_close_setting_pressed"]
+[connection signal="value_changed" from="Master/MasterSlider" to="." method="_on_master_slider_value_changed"]
+[connection signal="value_changed" from="Soundtrack/SoundtrackSlider" to="." method="_on_soundtrack_slider_value_changed"]
+[connection signal="value_changed" from="SFX/SFXSlider" to="." method="_on_sfx_slider_value_changed"]

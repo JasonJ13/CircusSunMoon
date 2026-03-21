@@ -1,22 +1,23 @@
 [gd_scene format=3 uid="uid://dqoddm88ktvch"]
 
-[ext_resource type="AudioStream" uid="uid://faukvu3p26lr" path="res://Asset/SFX/Circus SunMoon.wav" id="1_nlxgm"]
 [ext_resource type="Script" uid="uid://jmlier4tf5vh" path="res://Script/SFX/sfx.gd" id="1_npfgb"]
 [ext_resource type="AudioStream" uid="uid://pvhfjrgovu61" path="res://Asset/SFX/Circus Moon.wav" id="2_npfgb"]
+[ext_resource type="Script" uid="uid://crdyr004tpf12" path="res://Script/SFX/circus_moon.gd" id="3_dti4m"]
 [ext_resource type="AudioStream" uid="uid://c45a5aw2xnq0i" path="res://Asset/SFX/Circus Sun.wav" id="3_sl0mt"]
+[ext_resource type="Script" uid="uid://dn7eipmp56lm7" path="res://Script/SFX/circus_sun.gd" id="5_u1kxe"]
 
 [node name="SFX" type="Node" unique_id=485798726]
 script = ExtResource("1_npfgb")
 
-[node name="test" type="AudioStreamPlayer" parent="." unique_id=92527422]
-stream = ExtResource("1_nlxgm")
-
 [node name="CircusMoon" type="AudioStreamPlayer" parent="." unique_id=295726462]
 stream = ExtResource("2_npfgb")
-autoplay = true
 bus = &"Moon"
+script = ExtResource("3_dti4m")
 
 [node name="CircusSun" type="AudioStreamPlayer" parent="." unique_id=62891149]
 stream = ExtResource("3_sl0mt")
-autoplay = true
 bus = &"Sun"
+script = ExtResource("5_u1kxe")
+
+[connection signal="play_sountrack" from="." to="CircusMoon" method="_on_sfx_play_sountrack"]
+[connection signal="play_sountrack" from="." to="CircusSun" method="_on_sfx_play_sountrack"]

@@ -1,5 +1,8 @@
 [gd_scene format=3 uid="uid://rnupwuqu6c8n"]
 
+[ext_resource type="Script" uid="uid://cvmlmm6unx76t" path="res://Script/MainMenu/main_menu.gd" id="1_lck82"]
+[ext_resource type="PackedScene" uid="uid://0p2t77b6t20r" path="res://Scene/MainMenu/sound_setting.tscn" id="2_b4s8y"]
+
 [sub_resource type="LabelSettings" id="LabelSettings_o12uj"]
 font_size = 47
 
@@ -10,6 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_lck82")
 
 [node name="Label" type="Label" parent="." unique_id=624498139]
 layout_mode = 0
@@ -29,7 +33,7 @@ offset_bottom = 225.0
 theme_override_font_sizes/font_size = 30
 text = "Play"
 
-[node name="SoundSetting" type="Button" parent="." unique_id=1260568817]
+[node name="SoundSettingButton" type="Button" parent="." unique_id=1260568817]
 layout_mode = 0
 offset_left = 494.0
 offset_top = 297.0
@@ -38,7 +42,7 @@ offset_bottom = 373.0
 theme_override_font_sizes/font_size = 30
 text = "Sound Settings"
 
-[node name="Button" type="Button" parent="." unique_id=585952680]
+[node name="QuitButton" type="Button" parent="." unique_id=585952680]
 layout_mode = 0
 offset_left = 543.0
 offset_top = 412.0
@@ -46,3 +50,15 @@ offset_right = 669.0
 offset_bottom = 484.0
 theme_override_font_sizes/font_size = 30
 text = "Quit"
+
+[node name="SoundSetting" parent="." unique_id=2041703280 instance=ExtResource("2_b4s8y")]
+visible = false
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 1153.0
+offset_bottom = 650.0
+
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="SoundSettingButton" to="SoundSetting" method="_on_sound_setting_button_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
