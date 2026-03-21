@@ -4,11 +4,19 @@
 [ext_resource type="Texture2D" uid="uid://c1rfm62r7nq75" path="res://Asset/Images/astuce.png" id="2_10548"]
 [ext_resource type="PackedScene" uid="uid://0p2t77b6t20r" path="res://Scene/MainMenu/sound_setting.tscn" id="2_b4s8y"]
 [ext_resource type="Texture2D" uid="uid://bkpbpt2g4gsft" path="res://Asset/pixel/Play_button_hover.png" id="2_svdxt"]
-[ext_resource type="AudioStream" uid="uid://qk8c5a5m1sp" path="res://Asset/SFX/Spooky flotes.wav" id="3_f0l23"]
+[ext_resource type="AudioStream" uid="uid://qk8c5a5m1sp" path="res://Asset/Soundtrack/Spooky flotes.wav" id="3_f0l23"]
 [ext_resource type="Texture2D" uid="uid://32p5bwg73sqj" path="res://Asset/pixel/Play_button.png" id="3_y882m"]
 [ext_resource type="Script" uid="uid://dkckssw4r8od4" path="res://Script/MainMenu/spooky_flotes.gd" id="4_bqsmv"]
 [ext_resource type="Texture2D" uid="uid://cbhp5dy2puluy" path="res://Asset/pixel/Quit_button.png" id="4_uw2h6"]
 [ext_resource type="Texture2D" uid="uid://dej5smm2rcknu" path="res://Asset/pixel/Quit_button_hover.png" id="5_10548"]
+[ext_resource type="AudioStream" uid="uid://dx2i7m6n8s11n" path="res://Asset/SFX/hover flat.mp3" id="5_bqsmv"]
+[ext_resource type="Script" uid="uid://7srds7haahqs" path="res://Script/MainMenu/hover_flat.gd" id="6_svdxt"]
+[ext_resource type="AudioStream" uid="uid://co1eefyr65cdw" path="res://Asset/SFX/click confirm.mp3" id="7_y882m"]
+[ext_resource type="Script" uid="uid://cowvjprdfe0g5" path="res://Script/MainMenu/click_confirm.gd" id="8_uw2h6"]
+[ext_resource type="AudioStream" uid="uid://tfsbvicob1q8" path="res://Asset/SFX/click back.mp3" id="9_ja60e"]
+[ext_resource type="Script" uid="uid://qy60fkdlnim5" path="res://Script/MainMenu/click_back.gd" id="10_auexh"]
+[ext_resource type="AudioStream" uid="uid://dtqdm83rp66yt" path="res://Asset/SFX/click final.mp3" id="11_lp0kt"]
+[ext_resource type="Script" uid="uid://cre0gixg6clsd" path="res://Script/MainMenu/click_final.gd" id="12_m71po"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_o12uj"]
 font_size = 47
@@ -76,13 +84,37 @@ offset_top = 0.0
 offset_right = 1153.0
 offset_bottom = 650.0
 
-[node name="SpookyFlotes" type="AudioStreamPlayer" parent="." unique_id=1719987256]
+[node name="SFX" type="Node" parent="." unique_id=1347383040]
+
+[node name="SpookyFlotes" type="AudioStreamPlayer" parent="SFX" unique_id=1719987256]
 stream = ExtResource("3_f0l23")
 autoplay = true
 bus = &"Sountrack"
 script = ExtResource("4_bqsmv")
 
-[connection signal="on_play" from="." to="SpookyFlotes" method="_on_main_menu_on_play"]
+[node name="HoverFlat" type="AudioStreamPlayer" parent="SFX" unique_id=851603867]
+stream = ExtResource("5_bqsmv")
+script = ExtResource("6_svdxt")
+
+[node name="ClickConfirm" type="AudioStreamPlayer" parent="SFX" unique_id=1446164710]
+stream = ExtResource("7_y882m")
+script = ExtResource("8_uw2h6")
+
+[node name="ClickBack" type="AudioStreamPlayer" parent="SFX" unique_id=851260066]
+stream = ExtResource("9_ja60e")
+script = ExtResource("10_auexh")
+
+[node name="ClickFinal" type="AudioStreamPlayer" parent="SFX" unique_id=1661310428]
+stream = ExtResource("11_lp0kt")
+script = ExtResource("12_m71po")
+
+[connection signal="on_play" from="." to="SFX/SpookyFlotes" method="_on_main_menu_on_play"]
+[connection signal="mouse_entered" from="PlayButon" to="SFX/HoverFlat" method="_on_play_buton_mouse_entered"]
 [connection signal="pressed" from="PlayButon" to="." method="_on_play_buton_pressed"]
+[connection signal="pressed" from="PlayButon" to="SFX/ClickFinal" method="_on_play_buton_pressed"]
+[connection signal="mouse_entered" from="SoundSettingButton" to="SFX/HoverFlat" method="_on_sound_setting_button_mouse_entered"]
 [connection signal="pressed" from="SoundSettingButton" to="SoundSetting" method="_on_sound_setting_button_pressed"]
+[connection signal="pressed" from="SoundSettingButton" to="SFX/ClickConfirm" method="_on_sound_setting_button_pressed"]
+[connection signal="mouse_entered" from="QuitButon" to="SFX/HoverFlat" method="_on_quit_buton_mouse_entered"]
 [connection signal="pressed" from="QuitButon" to="." method="_on_quit_buton_pressed"]
+[connection signal="sound_setting_exited" from="SoundSetting" to="SFX/ClickBack" method="_on_sound_setting_sound_setting_exited"]

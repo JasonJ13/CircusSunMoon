@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://qk8c5a5m1sp"
-path="res://.godot/imported/Spooky flotes.wav-f9ec051a6372574189c54882c1dcdd48.sample"
+path="res://.godot/imported/Spooky flotes.wav-56e1c3e9754f9df124c32c91da138e23.sample"
 
 [deps]
 
-source_file="res://Asset/SFX/Spooky flotes.wav"
-dest_files=["res://.godot/imported/Spooky flotes.wav-f9ec051a6372574189c54882c1dcdd48.sample"]
+source_file="res://Asset/Soundtrack/Spooky flotes.wav"
+dest_files=["res://.godot/imported/Spooky flotes.wav-56e1c3e9754f9df124c32c91da138e23.sample"]
 
 [params]
 
@@ -18,7 +18,7 @@ force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=false
-edit/loop_mode=0
+edit/loop_mode=2
 edit/loop_begin=0
 edit/loop_end=-1
 compress/mode=2

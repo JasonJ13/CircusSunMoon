@@ -1,5 +1,7 @@
 extends Control
 
+signal sound_setting_exited
+
 # Variables 
 # ------------
 var _MasterBus:int = AudioServer.get_bus_index("Master")
@@ -12,6 +14,7 @@ var _SFXBus:int = AudioServer.get_bus_index("SFX")
 # -----------------------
 
 func _on_close_setting_pressed() -> void:
+	sound_setting_exited.emit()
 	visible = false
 
 

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dx2i7m6n8s11n"
+path="res://.godot/imported/hover flat.mp3-7fc43f617b7fbd6fb2fb7af2726935eb.mp3str"
+
+[deps]
+
+source_file="res://Asset/SFX/hover flat.mp3"
+dest_files=["res://.godot/imported/hover flat.mp3-7fc43f617b7fbd6fb2fb7af2726935eb.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

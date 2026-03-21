@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://c45a5aw2xnq0i"
-path="res://.godot/imported/Circus Sun.wav-f12e78a38585fc76bbeafdfbfc17a1dd.sample"
+path="res://.godot/imported/Circus Sun.wav-8614c48b15d1d1f9984bbb910e7cddad.sample"
 
 [deps]
 
-source_file="res://Asset/SFX/Circus Sun.wav"
-dest_files=["res://.godot/imported/Circus Sun.wav-f12e78a38585fc76bbeafdfbfc17a1dd.sample"]
+source_file="res://Asset/Soundtrack/Circus Sun.wav"
+dest_files=["res://.godot/imported/Circus Sun.wav-8614c48b15d1d1f9984bbb910e7cddad.sample"]
 
 [params]
 

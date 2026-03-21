@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://dqoddm88ktvch"]
 
 [ext_resource type="Script" uid="uid://jmlier4tf5vh" path="res://Script/SFX/sfx.gd" id="1_npfgb"]
-[ext_resource type="AudioStream" uid="uid://pvhfjrgovu61" path="res://Asset/SFX/Circus Moon.wav" id="2_npfgb"]
+[ext_resource type="AudioStream" uid="uid://pvhfjrgovu61" path="res://Asset/Soundtrack/Circus Moon.wav" id="2_npfgb"]
 [ext_resource type="Script" uid="uid://crdyr004tpf12" path="res://Script/SFX/circus_moon.gd" id="3_dti4m"]
-[ext_resource type="AudioStream" uid="uid://c45a5aw2xnq0i" path="res://Asset/SFX/Circus Sun.wav" id="3_sl0mt"]
+[ext_resource type="AudioStream" uid="uid://c45a5aw2xnq0i" path="res://Asset/Soundtrack/Circus Sun.wav" id="3_sl0mt"]
 [ext_resource type="Script" uid="uid://dn7eipmp56lm7" path="res://Script/SFX/circus_sun.gd" id="5_u1kxe"]
 
 [node name="SFX" type="Node" unique_id=485798726]

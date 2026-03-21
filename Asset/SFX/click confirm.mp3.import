@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://co1eefyr65cdw"
+path="res://.godot/imported/click confirm.mp3-f75ee1866fb6c909540ebe9d7137d5ec.mp3str"
+
+[deps]
+
+source_file="res://Asset/SFX/click confirm.mp3"
+dest_files=["res://.godot/imported/click confirm.mp3-f75ee1866fb6c909540ebe9d7137d5ec.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
