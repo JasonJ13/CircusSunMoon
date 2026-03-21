@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddccfh0rgkk5y"
-path="res://.godot/imported/Player_idle_moon-sheet.png-d1c832500ba986f9eb6b3e0e1e45edf0.ctex"
+uid="uid://bk7234bxuqjqi"
+path="res://.godot/imported/Enemy_idle_sun.png-3d74332e98880f77886fac0bddc0fb7d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Asset/pixel/Player_idle_moon-sheet.png"
-dest_files=["res://.godot/imported/Player_idle_moon-sheet.png-d1c832500ba986f9eb6b3e0e1e45edf0.ctex"]
+source_file="res://Asset/pixel/Ennemy/Enemy_idle_sun.png"
+dest_files=["res://.godot/imported/Enemy_idle_sun.png-3d74332e98880f77886fac0bddc0fb7d.ctex"]
 
 [params]
 

@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bjgtbsw88nar4"]
 
-[ext_resource type="Texture2D" uid="uid://bknftp6dv4xbg" path="res://Asset/pixel/Enemy_attack_sun.png" id="1_0l45b"]
-[ext_resource type="Texture2D" uid="uid://bk7234bxuqjqi" path="res://Asset/pixel/Enemy_idle_sun.png" id="1_joacd"]
-[ext_resource type="Texture2D" uid="uid://uavuq0h8hh26" path="res://Asset/pixel/Enemy_hurt_sun.png" id="2_mjd4x"]
+[ext_resource type="Texture2D" uid="uid://bknftp6dv4xbg" path="res://Asset/pixel/Ennemy/Enemy_attack_sun.png" id="1_0l45b"]
+[ext_resource type="Texture2D" uid="uid://bk7234bxuqjqi" path="res://Asset/pixel/Ennemy/Enemy_idle_sun.png" id="1_joacd"]
+[ext_resource type="Texture2D" uid="uid://uavuq0h8hh26" path="res://Asset/pixel/Ennemy/Enemy_hurt_sun.png" id="2_mjd4x"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0d221"]
 atlas = ExtResource("1_0l45b")
