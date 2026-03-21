@@ -1,9 +1,10 @@
-extends Control
+class_name Action
 
-var hp: int = 100
-var playerTurn: bool = false
+extends Node
 
-@onready var interface: Control = $PlayerInterface
+var dmg: int
+var cible: Control
+var cooldown: int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
