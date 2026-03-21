@@ -356,7 +356,7 @@ _data = {
 &"RESET": SubResource("Animation_0d221")
 }
 
-[node name="Control" type="Control" unique_id=2037288147]
+[node name="ballon" type="Control" unique_id=2037288147]
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 0
@@ -381,6 +381,3 @@ frame_progress = 1.0
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=411659636]
 libraries/ = SubResource("AnimationLibrary_85c3l")
 autoplay = &"Iddle"
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1237492738]
-zoom = Vector2(4, 4)
