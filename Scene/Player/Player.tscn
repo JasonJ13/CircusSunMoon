@@ -12,3 +12,4 @@ script = ExtResource("1_s60e6")
 
 [node name="PlayerInterface" parent="." unique_id=93433149 instance=ExtResource("2_e35vl")]
 layout_mode = 0
+script = null
