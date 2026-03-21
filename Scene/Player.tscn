@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dd3h6nmejmclf"]
+
+[ext_resource type="Script" uid="uid://blbc2hmrnbqkj" path="res://Script/Player.gd" id="1_6l3be"]
+[ext_resource type="PackedScene" uid="uid://bs43xgjop34ew" path="res://Scene/PlayerInterface.tscn" id="2_3eeal"]
+
+[node name="Player" type="Control" unique_id=607304866]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_6l3be")
+
+[node name="PlayerInterface" parent="." unique_id=93433149 instance=ExtResource("2_3eeal")]
+layout_mode = 0
