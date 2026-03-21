@@ -6,6 +6,8 @@ extends Node
 @onready var Spell4 = $Spell4
 @onready var Spell5 = $Spell5
 @onready var Back = $Back
+@onready var HP_player = $HP_player
+
 
 var spell1 : Texture2D = preload("res://Asset/other/bouton spell.png")
 var spell1hover : Texture2D = preload("res://Asset/other/bouton spell hovered.png")
@@ -20,6 +22,10 @@ var spell5hover : Texture2D = preload("res://Asset/other/bouton spell hovered.pn
 var back : Texture2D = preload("res://Asset/other/back.png")
 var backhover : Texture2D = preload("res://Asset/other/backhover.png")
 
+var hp_player : int
+var ennemies: Array[Monster]
+var spells : Array[Action]
+
 func _ready() -> void:
 	Spell1.show()
 	Spell2.show()
@@ -27,6 +33,11 @@ func _ready() -> void:
 	Spell4.show()
 	Spell5.show()
 	Back.hide()
+
+func start(hp_player,ennemies,spells) -> void:
+	HP_player.value = hp_player
+	
+	
 
 func _on_spell_1_mouse_entered() -> void:
 	Spell1.icon = spell1hover

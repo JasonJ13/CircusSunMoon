@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://770vj58bpuhp" path="res://Asset/other/black box.png" id="2_ihut5"]
 [ext_resource type="Texture2D" uid="uid://dh4pp8af48s18" path="res://Asset/other/bouton spell.png" id="3_6iv84"]
 [ext_resource type="Texture2D" uid="uid://bvdf08viximpv" path="res://Asset/other/back.png" id="4_44f6b"]
+[ext_resource type="Texture2D" uid="uid://cdguerduveyhm" path="res://Asset/other/jaune.png" id="5_b7kor"]
 
 [node name="PlayerInterface" type="Control" unique_id=93433149]
 layout_mode = 3
@@ -18,62 +19,75 @@ scale = Vector2(1.2210938, 0.29027778)
 texture = ExtResource("2_ihut5")
 
 [node name="Spell1" type="Button" parent="." unique_id=1681172384]
-visible = false
 layout_mode = 0
 offset_left = 900.0
-offset_top = 510.0
+offset_top = 490.0
 offset_right = 2188.0
-offset_bottom = 1238.0
+offset_bottom = 1218.0
 scale = Vector2(0.1, 0.1)
 icon = ExtResource("3_6iv84")
 
 [node name="Spell2" type="Button" parent="." unique_id=1023289354]
-visible = false
 layout_mode = 0
 offset_left = 700.0
-offset_top = 510.0
+offset_top = 490.0
 offset_right = 1988.0
-offset_bottom = 1238.0
+offset_bottom = 1218.0
 scale = Vector2(0.1, 0.1)
 icon = ExtResource("3_6iv84")
 
 [node name="Spell3" type="Button" parent="." unique_id=1095905764]
-visible = false
 layout_mode = 0
 offset_left = 500.0
-offset_top = 510.0
+offset_top = 490.0
 offset_right = 1788.0
-offset_bottom = 1238.0
+offset_bottom = 1218.0
 scale = Vector2(0.1, 0.1)
 icon = ExtResource("3_6iv84")
 
 [node name="Spell4" type="Button" parent="." unique_id=1254825276]
-visible = false
 layout_mode = 0
 offset_left = 300.0
-offset_top = 510.0
+offset_top = 490.0
 offset_right = 1588.0
-offset_bottom = 1238.0
+offset_bottom = 1218.0
 scale = Vector2(0.1, 0.1)
 icon = ExtResource("3_6iv84")
 
 [node name="Spell5" type="Button" parent="." unique_id=1714304370]
 layout_mode = 0
-offset_left = 100.0
-offset_top = 510.0
-offset_right = 1388.0
-offset_bottom = 1238.0
+offset_left = 101.0
+offset_top = 490.0
+offset_right = 1389.0
+offset_bottom = 1218.0
 scale = Vector2(0.1, 0.1)
 icon = ExtResource("3_6iv84")
 
 [node name="Back" type="Button" parent="." unique_id=750753261]
 layout_mode = 0
 offset_left = 936.0
-offset_top = 510.0
+offset_top = 490.0
 offset_right = 2224.0
-offset_bottom = 1238.0
+offset_bottom = 1218.0
 scale = Vector2(0.1, 0.1)
 icon = ExtResource("4_44f6b")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1957742915]
+position = Vector2(618, 607)
+scale = Vector2(0.32656252, 0.052083455)
+texture = ExtResource("5_b7kor")
+
+[node name="HP_player" type="TextureProgressBar" parent="." unique_id=370749168]
+layout_mode = 0
+offset_left = 411.0
+offset_top = 592.0
+offset_right = 1691.0
+offset_bottom = 1312.0
+scale = Vector2(0.32000002, 0.040001087)
+max_value = 1000.0
+value = 650.0
+texture_under = ExtResource("2_ihut5")
+texture_progress = ExtResource("5_b7kor")
 
 [connection signal="mouse_entered" from="Spell1" to="." method="_on_spell_1_mouse_entered"]
 [connection signal="mouse_exited" from="Spell1" to="." method="_on_spell_1_mouse_exited"]
