@@ -7,7 +7,9 @@ var playerTurn: bool = false
 const hpmax: int = 1000
 var actions: Array[Spell] = [] #Toutes les actions possibles
 var dmgInflictModifier: float = 1
+var dmgInflictModifierTurn: int = 0
 var dmgReceiveModifier: float = 1
+var dmgReceiveModifierTurn: int = 0
 
 var ennemie : Monster
 
@@ -25,14 +27,22 @@ func _ready() -> void:
 	interface.start(hpmax,ennemie,actions)
 
 
-func takeAction(ennemie : Monster) -> Action:
-	interface.start(hp, ennemie, actions)
+func takeAction(enn : Monster) -> Action:
+	interface.start(hp, enn, actions)
 	var x = await interface.action
+	dmgInflictModifierTurn -= 1
+	dmgReceiveModifierTurn -= 1
+	if dmgInflictModifierTurn == 0:
+		dmgInflictModifier = 1
+	if dmgReceiveModifierTurn == 0:
+		dmgReceiveModifier = 1
 	if x.effect == Action.Effect.INFLICT:
 		dmgInflictModifier = 0.75
+		dmgInflictModifierTurn = 2
 		x.dmg = 0
 	elif x.effect == Action.Effect.RECEIVE:
 		dmgReceiveModifier = 50
+		dmgInflictModifierTurn = 2
 		x.dmg = 0
 	
 	return x
