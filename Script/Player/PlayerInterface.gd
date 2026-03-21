@@ -27,7 +27,7 @@ signal action(spell : Spell)
 
 func _ready() -> void:
 
-	spellsNode.show()
+	spellsNode.hide()
 	confirmNode.hide()
 	
 	size_spell = spellsNode.size.x
@@ -66,6 +66,7 @@ func start(hpp : int, enn : Monster, sps : Array[Spell]) -> void:
 	HP_player.value = hpp
 	ennemie = enn
 	_ready_Spell(sps)
+	spellsNode.show()
 
 
 
@@ -90,6 +91,7 @@ func _on_confirm_mouse_exited() -> void:
 
 func spell_has_been_selected(spell : Spell) -> void :
 	spell_selected = spell
+	spell.cible = Action.Cible.MONSTER
 	
 	spellsNode.hide()
 	confirmNode.show()

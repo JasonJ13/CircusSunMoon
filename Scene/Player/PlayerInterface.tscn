@@ -78,14 +78,14 @@ offset_bottom = 1216.0
 scale = Vector2(0.1, 0.1)
 icon = ExtResource("4_44f6b")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1358145450]
+[node name="ColorRect" type="ColorRect" parent="Confirm" unique_id=1358145450]
 layout_mode = 0
 offset_left = 820.0
 offset_top = 510.0
 offset_right = 906.0
 offset_bottom = 544.0
 
-[node name="Label" type="Label" parent="ColorRect" unique_id=256838886]
+[node name="Label" type="Label" parent="Confirm/ColorRect" unique_id=256838886]
 layout_mode = 0
 offset_left = 11.0
 offset_top = 6.0

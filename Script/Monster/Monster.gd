@@ -8,7 +8,7 @@ var hp: int
 var dmg: int
 var nom: String
 var actions: Array[Action] = []
-@onready var interface: Control = $MonsterInterface
+#@onready var interface: Control = $MonsterInterface
 
 
 

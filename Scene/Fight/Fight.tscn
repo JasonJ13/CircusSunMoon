@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dd3h6nmejmclf" path="res://Scene/Player/Player.tscn" id="5_6b077"]
 [ext_resource type="PackedScene" uid="uid://bjgtbsw88nar4" path="res://Scene/Test/ballon_test.tscn" id="6_moa3j"]
 
-[node name="Fight" type="Control" unique_id=1148027261 node_paths=PackedStringArray("player")]
+[node name="Fight" type="Control" unique_id=1148027261 node_paths=PackedStringArray("player", "ennemie")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,6 +16,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_8f7nq")
 player = NodePath("Player")
+ennemie = NodePath("Ballon")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=431349501]
 modulate = Color(0.8158153, 0.81581545, 0.8158154, 1)

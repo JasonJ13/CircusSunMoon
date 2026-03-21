@@ -40,10 +40,7 @@ func resolveAction(action: Action) -> void:
 	
 		Action.Cible.MONSTER :
 			ennemie.hp -= action.dmg
-			
-			if ennemie.hp < 1 :
-				ennemie.queue_free()
-				ennemie = null
+
 				
 			
 	#Regarde si l'action change le cycle
@@ -58,6 +55,13 @@ func resolveAction(action: Action) -> void:
 #Un tour : joueur + ennemis
 func turn() -> void:
 	
+	if ennemie.hp < 1 :
+		#S'il n'y a plus d'ennemis, fin du combat et nouveau combat
+		print("bravo")
+		ennemie.queue_free()
+		return
+
+	
 	#Mise à jour des actions possibles du joueur
 	for action in player.actions:
 		action.reload(day)
@@ -65,19 +69,16 @@ func turn() -> void:
 	 #Le joueur fait son action
 	var playerAction: Action = await player.takeAction(ennemie)
 	resolveAction(playerAction)
-		
-		
+
 	#Les ennemis font leurs actions
 	for action in ennemie.actions:
 		action.reload(day)
 	var eAction: Action = ennemie.takeAction(day)
 	resolveAction(eAction)
 	
+	print(player.hp)
+	print(ennemie.hp)
 	
-	if ennemie == null:
-		#S'il n'y a plus d'ennemis, fin du combat et nouveau combat
-		_ready()
-	else:
-		#Sinon on recommence un tour
-		turn()
+
+	turn()
 	
