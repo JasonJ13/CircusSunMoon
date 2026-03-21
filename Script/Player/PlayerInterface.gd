@@ -1,4 +1,5 @@
-extends Node
+extends Control
+class_name PlayerInterface
 
 @onready var Spell1 = $Spell1
 @onready var Spell2 = $Spell2
@@ -190,7 +191,28 @@ func _on_bouton_nom_monstre_3_mouse_exited() -> void:
 
 func _on_bouton_nom_monstre_1_pressed() -> void:
 	Action.emit(spellvalue,1)
+	NomMonstre1.hide()
+	NomMonstre2.hide()
+	NomMonstre3.hide()
+	ButtonNomMonster.hide()
+	ButtonNomMonster2.hide()
+	ButtonNomMonster3.hide()
+	Back.hide()
 func _on_bouton_nom_monstre_2_pressed() -> void:
 	Action.emit(spellvalue,2)
+	NomMonstre1.hide()
+	NomMonstre2.hide()
+	NomMonstre3.hide()
+	ButtonNomMonster.hide()
+	ButtonNomMonster2.hide()
+	ButtonNomMonster3.hide()
+	Back.hide()
 func _on_bouton_nom_monstre_3_pressed() -> void:
 	Action.emit(spellvalue,3)
+	NomMonstre1.hide()
+	NomMonstre2.hide()
+	NomMonstre3.hide()
+	ButtonNomMonster.hide()
+	ButtonNomMonster2.hide()
+	ButtonNomMonster3.hide()
+	Back.hide()
