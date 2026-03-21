@@ -40,6 +40,10 @@ signal Action
 
 var spellvalue : int
 
+signal action(var1 : int, var2 : int)
+
+var spellvalue : int
+
 func _ready() -> void:
 	NomMonstre1.text = "monstre1"
 	NomMonstre2.text = "monstre2"
@@ -190,7 +194,11 @@ func _on_bouton_nom_monstre_3_mouse_exited() -> void:
 	NomMonstre3.modulate = Color.WHITE
 
 func _on_bouton_nom_monstre_1_pressed() -> void:
+<<<<<<< HEAD
 	Action.emit(spellvalue,1)
+=======
+	action.emit(spellvalue, 1)
+>>>>>>> Nathan
 	NomMonstre1.hide()
 	NomMonstre2.hide()
 	NomMonstre3.hide()
@@ -199,7 +207,11 @@ func _on_bouton_nom_monstre_1_pressed() -> void:
 	ButtonNomMonster3.hide()
 	Back.hide()
 func _on_bouton_nom_monstre_2_pressed() -> void:
+<<<<<<< HEAD
 	Action.emit(spellvalue,2)
+=======
+	action.emit(spellvalue,2)
+>>>>>>> Nathan
 	NomMonstre1.hide()
 	NomMonstre2.hide()
 	NomMonstre3.hide()
@@ -208,7 +220,11 @@ func _on_bouton_nom_monstre_2_pressed() -> void:
 	ButtonNomMonster3.hide()
 	Back.hide()
 func _on_bouton_nom_monstre_3_pressed() -> void:
+<<<<<<< HEAD
 	Action.emit(spellvalue,3)
+=======
+	action.emit(spellvalue, 3)
+>>>>>>> Nathan
 	NomMonstre1.hide()
 	NomMonstre2.hide()
 	NomMonstre3.hide()
