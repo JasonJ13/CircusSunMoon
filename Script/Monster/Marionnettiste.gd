@@ -7,13 +7,13 @@ func _init() -> void:
 	hp = 1000
 	dmg = 75
 	nom = "Marionnettiste"
-	var actionNuit1: Action = Action.new(225, 2, 0, false, Action.Change.NONE)
+	var actionNuit1: Action = Action.new(225, 2, 0, false, Action.Change.NONE, Action.Effect.DMG)
 	actionNuit1.cible = Action.Cible.PLAYER
-	var actionNuit2: Action = Action.new(100, 2, 2, true, Action.Change.NONE)
+	var actionNuit2: Action = Action.new(100, 2, 2, true, Action.Change.NONE, Action.Effect.DMG)
 	actionNuit2.cible = Action.Cible.PLAYER
-	var actionJour1: Action = Action.new(-150, 3, 0, true, Action.Change.NONE)
+	var actionJour1: Action = Action.new(-150, 3, 0, true, Action.Change.NONE, Action.Effect.DMG)
 	actionJour1.cible = Action.Cible.MONSTER
-	var actionJour2: Action = Action.new(150, 2, 2, false, Action.Change.NONE)
+	var actionJour2: Action = Action.new(150, 2, 2, false, Action.Change.NONE, Action.Effect.DMG)
 	actionJour2.cible = Action.Cible.PLAYER
 	actions = [actionNuit1, actionNuit2, actionJour1, actionJour2]
 	
@@ -42,7 +42,7 @@ func takeAction(day:bool) -> Action:
 			return actions[2]
 		#Attaque de base
 		else:
-			var action = Action.new(dmg, 0, 0, true, Action.Change.NONE)
+			var action = Action.new(dmg, 0, 0, true, Action.Change.NONE, Action.Effect.DMG)
 			action.cible=Action.Cible.PLAYER
 			return action
 			
@@ -58,6 +58,6 @@ func takeAction(day:bool) -> Action:
 			return actions[0]
 		#Attaque de base
 		else:
-			var action = Action.new(dmg, 0, 0, true, Action.Change.NONE)
+			var action = Action.new(dmg, 0, 0, true, Action.Change.NONE, Action.Effect.DMG)
 			action.cible=Action.Cible.PLAYER
 			return action
