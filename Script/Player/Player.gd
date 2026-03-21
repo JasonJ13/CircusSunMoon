@@ -1,11 +1,12 @@
 extends Control
 class_name Player
 
-var hp: int = 100
+var hp: int = 1000
 var playerTurn: bool = false
 @onready var interface: PlayerInterface = $PlayerInterface
-const hpmax: int = 100
+const hpmax: int = 1000
 var actions: Array[Spell] = [] #Toutes les actions possibles
+var dmgModifier: float = 1
 
 var ennemies : Array[Monster] = []
 
@@ -16,6 +17,10 @@ func _ready() -> void:
 	actions.append(Spell.new(100,0,0,true,Action.Change.NONE,preload("res://Asset/other/bouton spell.png"), preload("res://Asset/other/bouton spell hovered.png")))
 	actions.append(Spell.new(250,2,0,false,Action.Change.DAY,preload("res://Asset/other/bouton spell.png"), preload("res://Asset/other/bouton spell hovered.png")))
 	actions.append(Spell.new(150,1,0,false,Action.Change.DAY,preload("res://Asset/other/bouton spell.png"), preload("res://Asset/other/bouton spell hovered.png")))
+	#Multiplicateur de degat (prendre en pourcentage)
+	actions.append(Spell.new(75,1,0,true,Action.Change.NIGHT,preload("res://Asset/other/bouton spell.png"), preload("res://Asset/other/bouton spell hovered.png")))
+	#Reduction de degat (prendre en pourcentage)
+	actions.append(Spell.new(50,1,0,true,Action.Change.NIGHT,preload("res://Asset/other/bouton spell.png"), preload("res://Asset/other/bouton spell hovered.png")))
 	interface.start(hpmax,ennemies,actions)
 
 
