@@ -3,9 +3,9 @@ class_name Fight
 
 var day: bool = true		#Indique si on est le jour
 
-@onready var player: Player
+@export var player: Player
 @onready var FightInterface = $FightInterface
-var ennemies: Array[Monster] = []
+@export var ennemies: Array[Monster] = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -26,19 +26,20 @@ func changeDayNight() -> void:
 ##Effectue les effets d'une action
 func resolveAction(action: Action) -> void:
 	
-	#Inflige les dégâts
-	action.cible.hp -= action.dmg
-	
 	#Mets un cooldown sur l'action
 	action.turnsBeforeUse = action.cooldown
 	
-	if action.cible.hp == 0:
-		if action.cible == player:
+	#Inflige les dégâts
+	match action.cible :
+		Action.Cible.PLAYER :
+			player.cible.hp -= action.dmg
 			#Mort du joueur
 			pass #à coder
-		else:
-			#Mort d'un monstre
+	
+		Action.Cible.MONSTER :
 			ennemies.erase(action.cible)
+
+				
 			
 	#Regarde si l'action change le cycle
 	match action.change :
