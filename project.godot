@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="CircusSunMoon"
+run/main_scene="uid://cj03tr65hyydd"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://Asset/other/icon.svg"
 
