@@ -1,4 +1,5 @@
-extends Node
+extends Control
+class_name PlayerInterface
 
 @onready var Spell1 = $Spell1
 @onready var Spell2 = $Spell2
@@ -35,7 +36,9 @@ var spells : Array[Action]
 var nom_ennemies : Array[String]
 var HP_ennemies : Array[int]
 
+
 signal action(var1 : int, var2 : int)
+
 var spellvalue : int
 
 func _ready() -> void:
@@ -197,7 +200,7 @@ func _on_bouton_nom_monstre_1_pressed() -> void:
 	ButtonNomMonster3.hide()
 	Back.hide()
 func _on_bouton_nom_monstre_2_pressed() -> void:
-	action.emit(spellvalue, 1)
+	action.emit(spellvalue,2)
 	NomMonstre1.hide()
 	NomMonstre2.hide()
 	NomMonstre3.hide()
@@ -206,7 +209,7 @@ func _on_bouton_nom_monstre_2_pressed() -> void:
 	ButtonNomMonster3.hide()
 	Back.hide()
 func _on_bouton_nom_monstre_3_pressed() -> void:
-	action.emit(spellvalue, 1)
+	action.emit(spellvalue, 3)
 	NomMonstre1.hide()
 	NomMonstre2.hide()
 	NomMonstre3.hide()
