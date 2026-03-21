@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dd3h6nmejmclf" path="res://Scene/Player/Player.tscn" id="5_6b077"]
 [ext_resource type="PackedScene" uid="uid://bjgtbsw88nar4" path="res://Scene/Test/ballon_test.tscn" id="6_moa3j"]
 
-[node name="Fight" type="Control" unique_id=1148027261 node_paths=PackedStringArray("player", "ennemies")]
+[node name="Fight" type="Control" unique_id=1148027261 node_paths=PackedStringArray("player")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,7 +16,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_8f7nq")
 player = NodePath("Player")
-ennemies = [NodePath("Ballon")]
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=431349501]
 modulate = Color(0.8158153, 0.81581545, 0.8158154, 1)
@@ -24,26 +23,28 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -430.0
-offset_top = 4.0
-offset_right = 1667.4998
-offset_bottom = 1196.4999
+offset_left = -469.0
+offset_top = -20.999998
+offset_right = 1775.9998
+offset_bottom = 1233.9999
 grow_horizontal = 2
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_81b1g")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=691702639]
 layout_mode = 0
+offset_left = -295.0
+offset_top = -98.0
 offset_right = 181.0
-offset_bottom = 650.0
+offset_bottom = 839.0
 color = Color(0, 0, 0, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="." unique_id=716275899]
 layout_mode = 0
 offset_left = 983.0
-offset_top = 2.0
-offset_right = 1151.0
-offset_bottom = 652.0
+offset_top = -101.0
+offset_right = 1423.0
+offset_bottom = 746.0
 color = Color(0, 0, 0, 1)
 
 [node name="FightInterface" parent="." unique_id=242278182 instance=ExtResource("2_at0q3")]

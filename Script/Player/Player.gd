@@ -7,7 +7,7 @@ var playerTurn: bool = false
 const hpmax: int = 100
 var actions: Array[Spell] = [] #Toutes les actions possibles
 
-var ennemies : Array[Monster] = []
+var ennemie : Monster
 
 @onready var sprite : AnimatedSprite2D = $SpritePlayer/Sprite
 
@@ -16,10 +16,10 @@ func _ready() -> void:
 	actions.append(Spell.new(100,0,0,true,Action.Change.NONE,preload("res://Asset/other/bouton spell.png"), preload("res://Asset/other/bouton spell hovered.png")))
 	actions.append(Spell.new(250,2,0,false,Action.Change.DAY,preload("res://Asset/other/bouton spell.png"), preload("res://Asset/other/bouton spell hovered.png")))
 	actions.append(Spell.new(150,1,0,false,Action.Change.DAY,preload("res://Asset/other/bouton spell.png"), preload("res://Asset/other/bouton spell hovered.png")))
-	interface.start(hpmax,ennemies,actions)
+	interface.start(hpmax,ennemie,actions)
 
 
-func takeAction(ennemies: Array[Monster]) -> Action:
+func takeAction(ennemies: Monster) -> Action:
 	interface.start(hp, ennemies, actions)
 	var x = await interface.action
 	var res: Action = actions[x[0]]
@@ -28,6 +28,7 @@ func takeAction(ennemies: Array[Monster]) -> Action:
 	else:	
 		res.cible = Action.Cible.MONSTER
 	return res
+
 
 func dayTime() -> void :
 	sprite.play("Day")
