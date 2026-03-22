@@ -15,6 +15,7 @@ grow_vertical = 2
 script = ExtResource("1_tay45")
 
 [node name="MainMenu" parent="." unique_id=1614029504 instance=ExtResource("1_8h336")]
+texture_filter = 1
 layout_mode = 1
 
 [node name="Soundtrack" parent="." unique_id=485798726 instance=ExtResource("2_tay45")]

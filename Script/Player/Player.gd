@@ -39,6 +39,11 @@ func takeAction(enn : Monster, day : bool) -> Action:
 		dayTurn += 1
 	else :
 		dayTurn = 0
+		if day :
+			nightTime()
+		else :
+			dayTime()
+			
 	dayBefore = day
 	if dmgInflictModifierTurn > 0:
 		dmgInflictModifierTurn -= 1
@@ -63,6 +68,8 @@ func takeAction(enn : Monster, day : bool) -> Action:
 		dmgReceiveModifier = 0.5
 		dmgInflictModifierTurn = 2
 		x.dmg = 0
+	
+
 	
 	return x
 
