@@ -21,3 +21,5 @@ script = ExtResource("5_u1kxe")
 
 [connection signal="play_sountrack" from="." to="CircusMoon" method="_on_sfx_play_sountrack"]
 [connection signal="play_sountrack" from="." to="CircusSun" method="_on_sfx_play_sountrack"]
+[connection signal="stop_soundtrack" from="." to="CircusMoon" method="_on_sfx_stop_soundtrack"]
+[connection signal="stop_soundtrack" from="." to="CircusSun" method="_on_sfx_stop_soundtrack"]

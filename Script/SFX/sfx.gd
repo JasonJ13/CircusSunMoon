@@ -66,6 +66,9 @@ func toMoon() -> void:
 
 func start_soundtracks() -> void:
 	play_sountrack.emit()
+	
+func stop_soundtracks() -> void:
+	stop_soundtrack.emit()
 
 
 # Signals from OTHERS
