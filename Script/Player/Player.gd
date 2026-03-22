@@ -11,7 +11,7 @@ var dmgInflictModifierTurn: int = 0
 var dmgReceiveModifier: float = 1
 var dmgReceiveModifierTurn: int = 0
 var dayTurn: int = 0
-var dayBefore: bool = true
+var dayBefore: bool = false
 
 var ennemie : Monster
 
@@ -19,7 +19,7 @@ var ennemie : Monster
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	actions.append(Spell.new(100,0,0,true,Action.Change.NONE,Action.Effect.DMG,preload("res://Asset/other/bouton spell.png"), preload("res://Asset/other/bouton spell hovered.png")))
+	actions.append(Spell.new(100,0,0,true,Action.Change.NONE,Action.Effect.BASE,preload("res://Asset/other/bouton spell.png"), preload("res://Asset/other/bouton spell hovered.png")))
 	actions.append(Spell.new(250,3,0,false,Action.Change.DAY,Action.Effect.DMG,preload("res://Asset/other/bouton spell.png"), preload("res://Asset/other/bouton spell hovered.png")))
 	actions.append(Spell.new(150,2,0,false,Action.Change.DAY,Action.Effect.DMG,preload("res://Asset/other/bouton spell.png"), preload("res://Asset/other/bouton spell hovered.png")))
 	#Multiplicateur de degat (prendre en pourcentage)
@@ -32,6 +32,11 @@ func _ready() -> void:
 func takeAction(enn : Monster, day : bool) -> Action:
 	interface.start(hp, enn, actions)
 	var x = await interface.action
+	if  dayBefore == day:
+		dayTurn += 1
+	else :
+		dayTurn = 0
+	dayBefore = day
 	if dmgInflictModifierTurn > 0:
 		dmgInflictModifierTurn -= 1
 	if dmgReceiveModifierTurn > 0:
@@ -40,10 +45,12 @@ func takeAction(enn : Monster, day : bool) -> Action:
 		dmgInflictModifier = 1
 	if dmgReceiveModifierTurn == 0:
 		dmgReceiveModifier = 1
-	if x.dmg == 100:
-		if dayTurn == 1:
+	if x.effect == Action.Effect.BASE:
+		if dayTurn == 0:
+			x.dmg = 100
+		elif dayTurn == 1:
 			x.dmg = 50
-		elif dayTurn > 1:
+		else:
 			x.dmg = 0
 	if x.effect == Action.Effect.INFLICT:
 		dmgInflictModifier = 1.75
@@ -53,11 +60,6 @@ func takeAction(enn : Monster, day : bool) -> Action:
 		dmgReceiveModifier = 0.5
 		dmgInflictModifierTurn = 2
 		x.dmg = 0
-	if  dayBefore == day:
-		dayTurn += 1
-	else :
-		dayTurn = 0
-	dayBefore = day
 	
 	return x
 
