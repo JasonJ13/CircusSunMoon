@@ -17,13 +17,14 @@ script = ExtResource("1_tay45")
 [node name="MainMenu" parent="." unique_id=1614029504 instance=ExtResource("1_8h336")]
 layout_mode = 1
 
-[node name="SFX" parent="." unique_id=485798726 instance=ExtResource("2_tay45")]
+[node name="Soundtrack" parent="." unique_id=485798726 instance=ExtResource("2_tay45")]
 
 [node name="Fight" parent="." unique_id=1148027261 instance=ExtResource("4_tay45")]
 visible = false
 layout_mode = 1
 
+[connection signal="game_start" from="." to="Soundtrack" method="_on_app_game_start"]
 [connection signal="on_play" from="MainMenu" to="." method="_on_main_menu_on_play"]
 [connection signal="on_quit" from="MainMenu" to="." method="_on_main_menu_on_quit"]
-[connection signal="toDay" from="Fight" to="SFX" method="_on_fight_to_day"]
-[connection signal="toNight" from="Fight" to="SFX" method="_on_fight_to_night"]
+[connection signal="toDay" from="Fight" to="Soundtrack" method="_on_fight_to_day"]
+[connection signal="toNight" from="Fight" to="Soundtrack" method="_on_fight_to_night"]
