@@ -1,7 +1,0 @@
-[gd_scene format=3 uid="uid://cetnxf7nmjvoa"]
-
-[node name="MonsterInterface" type="Control" unique_id=811989687]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
