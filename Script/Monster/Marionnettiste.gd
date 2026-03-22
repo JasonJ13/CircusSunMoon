@@ -9,7 +9,7 @@ func _init() -> void:
 	hp = 1000
 	dmg = 75
 	nom = "Marionnettiste"
-	var actionNight1: Action = Action.new(225, 2, 0, false, Action.Change.NONE, Action.Effect.DMG)
+	var actionNight1: Action = Action.new(250, 2, 0, false, Action.Change.NONE, Action.Effect.DMG)
 	actionNight1.cible = Action.Cible.PLAYER
 	var actionNight2: Action = Action.new(100, 2, 2, true, Action.Change.NONE, Action.Effect.DMG)
 	actionNight2.cible = Action.Cible.PLAYER
