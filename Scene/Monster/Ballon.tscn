@@ -400,7 +400,7 @@ offset_bottom = 40.0
 position = Vector2(16, -16)
 rotation = -0.7853982
 sprite_frames = SubResource("SpriteFrames_0l45b")
-animation = &"Attack"
+animation = &"Self"
 autoplay = "Iddle"
 
 [node name="string" type="ColorRect" parent="Control" unique_id=422002774]

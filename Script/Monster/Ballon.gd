@@ -2,8 +2,6 @@ extends Monster
 class_name Ballon
 
 
-
-
 func _init() -> void:
 	hp_max = 1000
 	hp = hp_max
@@ -13,9 +11,14 @@ func _init() -> void:
 	action1.cible = Action.Cible.MONSTER
 	actions = [action1]
 
+
+
 func _ready() -> void :
 	animation = $Control/Animation
 	monsterAnimation = $BallonAnimation
+	dmgAnimation = $Control/DmgAnimation
+	dmgLabel = $Control/DmgTaken
+
 
 func pass_jour() -> void:
 	dmg = 100
