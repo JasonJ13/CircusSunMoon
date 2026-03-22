@@ -79,6 +79,7 @@ func resolveAction(action: Action) -> void:
 
 #Un tour : joueur + ennemis
 func turn() -> void:
+
 	#Mise à jour des actions possibles du joueur
 	for action in player.actions:
 		action.reload(day)

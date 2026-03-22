@@ -24,7 +24,9 @@ func _init() -> void:
 	
 func _ready() -> void :
 	animation = $Control/Animation
-	monsterAnimation = $BallonAnimation	
+	monsterAnimation = $BallonAnimation
+	dmgAnimation = $Control/DmgAnimation
+	dmgLabel =$Control/DmgTaken	
 
 func pass_jour() -> void:
 	if state:
