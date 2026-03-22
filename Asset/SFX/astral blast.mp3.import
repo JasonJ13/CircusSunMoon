@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ddcrbgg7nj7i8"
+path="res://.godot/imported/astral blast.mp3-999f916d52c2e9af6a8cab767b0beec2.mp3str"
+
+[deps]
+
+source_file="res://Asset/SFX/astral blast.mp3"
+dest_files=["res://.godot/imported/astral blast.mp3-999f916d52c2e9af6a8cab767b0beec2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
