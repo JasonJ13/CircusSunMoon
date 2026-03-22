@@ -10,6 +10,8 @@ var dmgInflictModifier: float = 1
 var dmgInflictModifierTurn: int = 0
 var dmgReceiveModifier: float = 1
 var dmgReceiveModifierTurn: int = 0
+var dayTurn: int = 0
+var dayBefore: bool = true
 
 var ennemie : Monster
 
@@ -27,7 +29,7 @@ func _ready() -> void:
 	interface.start(hpmax,ennemie,actions)
 
 
-func takeAction(enn : Monster) -> Action:
+func takeAction(enn : Monster, day : bool) -> Action:
 	interface.start(hp, enn, actions)
 	var x = await interface.action
 	dmgInflictModifierTurn -= 1
@@ -36,6 +38,16 @@ func takeAction(enn : Monster) -> Action:
 		dmgInflictModifier = 1
 	if dmgReceiveModifierTurn == 0:
 		dmgReceiveModifier = 1
+	if  dayBefore == day:
+		dayTurn += 1
+	else :
+		dayTurn = 0
+	dayBefore = day
+	if x.dmg == 100:
+		if dayTurn == 1:
+			x.dmg = 50
+		elif dayTurn > 1:
+			x.dmg = 0
 	if x.effect == Action.Effect.INFLICT:
 		dmgInflictModifier = 0.75
 		dmgInflictModifierTurn = 2
