@@ -3,7 +3,7 @@ class_name Fight
 
 var day: bool = true		#Indique si on est le jour
 
-@onready var FightInterface = $FightInterface
+@onready var interface = $FightInterface
 @export var player: Player
 @export var ennemie: Monster
 
@@ -19,8 +19,10 @@ func changeDayNight() -> void:
 	day = not day
 
 	if day:
+		interface.night_to_day()
 		ennemie.pass_jour()
 	else:
+		interface.day_to_night()
 		ennemie.pass_nuit()
 
 ##Effectue les effets d'une action

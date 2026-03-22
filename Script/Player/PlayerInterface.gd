@@ -49,7 +49,7 @@ func _ready_Spell(spells : Array[Spell]) -> void :
 	for i in range(nmb_spell) :
 		var new_spell_button := Button.new()
 		new_spell_button.icon = spells[i].spellTexture
-		new_spell_button.position.x = size_spell*i/nmb_spell + size_spell/(nmb_spell*2)
+		new_spell_button.position.x = size_spell*i/nmb_spell + size_spell/(nmb_spell*4)
 		
 		var pressed := Callable(self, "spell_has_been_selected").bind(spells[i])
 		new_spell_button.pressed.connect(pressed)

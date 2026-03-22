@@ -23,7 +23,7 @@ buses/default_bus_layout="uid://b1a5fgsh7fw38"
 
 window/size/mode=2
 window/stretch/mode="viewport"
-window/stretch/aspect="expand"
+window/stretch/aspect="ignore"
 
 [file_customization]
 
