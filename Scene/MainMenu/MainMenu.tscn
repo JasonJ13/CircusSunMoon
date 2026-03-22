@@ -8,8 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://32p5bwg73sqj" path="res://Asset/pixel/Play_button.png" id="3_y882m"]
 [ext_resource type="Script" uid="uid://dkckssw4r8od4" path="res://Script/MainMenu/spooky_flotes.gd" id="4_bqsmv"]
 [ext_resource type="Texture2D" uid="uid://cbhp5dy2puluy" path="res://Asset/pixel/Quit_button.png" id="4_uw2h6"]
+[ext_resource type="Texture2D" uid="uid://p73rsjlw4udw" path="res://Asset/pixel/Sound_button.png" id="5_1wsok"]
 [ext_resource type="Texture2D" uid="uid://dej5smm2rcknu" path="res://Asset/pixel/Quit_button_hover.png" id="5_10548"]
 [ext_resource type="AudioStream" uid="uid://dx2i7m6n8s11n" path="res://Asset/SFX/hover flat.mp3" id="5_bqsmv"]
+[ext_resource type="Texture2D" uid="uid://dpovq6f0hvpei" path="res://Asset/pixel/Sound_button_hover.png" id="6_ed4r4"]
 [ext_resource type="Script" uid="uid://7srds7haahqs" path="res://Script/MainMenu/hover_flat.gd" id="6_svdxt"]
 [ext_resource type="AudioStream" uid="uid://co1eefyr65cdw" path="res://Asset/SFX/click confirm.mp3" id="7_y882m"]
 [ext_resource type="Script" uid="uid://cowvjprdfe0g5" path="res://Script/MainMenu/click_confirm.gd" id="8_uw2h6"]
@@ -57,21 +59,22 @@ texture_normal = ExtResource("2_svdxt")
 texture_hover = ExtResource("3_y882m")
 stretch_mode = 0
 
-[node name="SoundSettingButton" type="Button" parent="." unique_id=1260568817]
+[node name="SoundButon" type="TextureButton" parent="." unique_id=978396082]
 layout_mode = 0
-offset_left = 494.0
-offset_top = 297.0
-offset_right = 718.0
-offset_bottom = 373.0
-theme_override_font_sizes/font_size = 30
-text = "Sound Settings"
+offset_left = 517.0
+offset_top = 301.0
+offset_right = 690.85394
+offset_bottom = 392.3382
+texture_normal = ExtResource("5_1wsok")
+texture_hover = ExtResource("6_ed4r4")
+stretch_mode = 0
 
 [node name="QuitButon" type="TextureButton" parent="." unique_id=861990744]
 layout_mode = 0
-offset_left = 522.0
-offset_top = 429.0
-offset_right = 697.0
-offset_bottom = 522.0
+offset_left = 515.0
+offset_top = 438.0
+offset_right = 690.0
+offset_bottom = 531.0
 texture_normal = ExtResource("4_uw2h6")
 texture_hover = ExtResource("5_10548")
 stretch_mode = 0
@@ -98,6 +101,7 @@ script = ExtResource("6_svdxt")
 
 [node name="ClickConfirm" type="AudioStreamPlayer" parent="SFX" unique_id=1446164710]
 stream = ExtResource("7_y882m")
+bus = &"SFX"
 script = ExtResource("8_uw2h6")
 
 [node name="ClickBack" type="AudioStreamPlayer" parent="SFX" unique_id=851260066]
@@ -112,9 +116,10 @@ script = ExtResource("12_m71po")
 [connection signal="mouse_entered" from="PlayButon" to="SFX/HoverFlat" method="_on_play_buton_mouse_entered"]
 [connection signal="pressed" from="PlayButon" to="." method="_on_play_buton_pressed"]
 [connection signal="pressed" from="PlayButon" to="SFX/ClickFinal" method="_on_play_buton_pressed"]
-[connection signal="mouse_entered" from="SoundSettingButton" to="SFX/HoverFlat" method="_on_sound_setting_button_mouse_entered"]
-[connection signal="pressed" from="SoundSettingButton" to="SoundSetting" method="_on_sound_setting_button_pressed"]
-[connection signal="pressed" from="SoundSettingButton" to="SFX/ClickConfirm" method="_on_sound_setting_button_pressed"]
+[connection signal="mouse_entered" from="SoundButon" to="SFX/HoverFlat" method="_on_sound_buton_mouse_entered"]
+[connection signal="pressed" from="SoundButon" to="SoundSetting" method="_on_sound_buton_pressed"]
+[connection signal="pressed" from="SoundButon" to="SFX/ClickConfirm" method="_on_sound_buton_pressed"]
 [connection signal="mouse_entered" from="QuitButon" to="SFX/HoverFlat" method="_on_quit_buton_mouse_entered"]
 [connection signal="pressed" from="QuitButon" to="." method="_on_quit_buton_pressed"]
+[connection signal="sfx_slide_release" from="SoundSetting" to="SFX/ClickConfirm" method="_on_sound_setting_sfx_slide_release"]
 [connection signal="sound_setting_exited" from="SoundSetting" to="SFX/ClickBack" method="_on_sound_setting_sound_setting_exited"]
