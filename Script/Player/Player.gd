@@ -19,7 +19,7 @@ var ennemie : Monster
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	actions.append(Spell.new(100,0,0,true,Action.Change.NONE,Action.Effect.BASE,preload("res://Asset/pixel/Sun_skill_UI.png")))
+	actions.append(Spell.new(100,0,0,true,Action.Change.NONE,Action.Effect.BASE,preload("res://Asset/pixel/Neutral_skill_UI.png")))
 	actions[-1].add_name_and_description("Ball Bounce","Deals 100 damage, decrease if cycle doesn't change")
 	actions.append(Spell.new(250,3,0,false,Action.Change.DAY,Action.Effect.DMG,preload("res://Asset/pixel/Sun_skill_UI.png")))
 	actions[-1].add_name_and_description("Astral Blast","Deals 250 damage")
