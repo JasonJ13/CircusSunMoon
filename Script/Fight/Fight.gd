@@ -44,7 +44,10 @@ func resolveAction(action: Action) -> void:
 			if action.dmg > 0:
 				ennemie.hp -= floor(action.dmg * player.dmgInflictModifier)
 			else:
-				ennemie.hp -= action.dmg
+				if ennemie.hp - action.dmg > ennemie.hp_max:
+					ennemie.hp = 1000
+				else:
+					ennemie.hp -= action.dmg
 			
 	#Regarde si l'action change le cycle
 	match action.change :
