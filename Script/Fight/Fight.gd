@@ -98,6 +98,8 @@ func turn() -> void:
 			print("bravo")
 		else :
 			player.hp = player.hpmax
+			for action in player.actions:
+				action.turnsBeforeUse=0
 			turn()
 		return
 
