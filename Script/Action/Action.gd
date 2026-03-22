@@ -2,7 +2,7 @@ class_name Action
 
 enum Change {DAY, NIGHT, NONE}
 enum Cible {PLAYER, MONSTER}
-enum Effect {RECEIVE, INFLICT, DMG}
+enum Effect {RECEIVE, INFLICT, DMG, BASE}
 
 var dmg: int
 var cible: Cible

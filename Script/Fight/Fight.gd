@@ -3,7 +3,7 @@ class_name Fight
 
 var day: bool = true		#Indique si on est le jour
 
-@onready var FightInterface = $FightInterface
+@onready var interface = $FightInterface
 @export var player: Player
 @export var ennemie: Monster
 
@@ -19,8 +19,10 @@ func changeDayNight() -> void:
 	day = not day
 
 	if day:
+		interface.night_to_day()
 		ennemie.pass_jour()
 	else:
+		interface.day_to_night()
 		ennemie.pass_nuit()
 
 ##Effectue les effets d'une action
@@ -32,19 +34,14 @@ func resolveAction(action: Action) -> void:
 	#Inflige les dégâts
 	match action.cible :
 		Action.Cible.PLAYER :
-			player.hp -= action.dmg
+			player.hp -= floor(action.dmg * player.dmgReceiveModifier)
 			
 			if player.hp < 1 :
 				pass
 				#Mort du joueur
 	
 		Action.Cible.MONSTER :
-			ennemie.hp -= action.dmg
-			
-			if ennemie.hp < 1 :
-				ennemie.queue_free()
-				ennemie = null
-				
+			await ennemie.take_dmg(action.dmg * player.dmgInflictModifier)
 			
 	#Regarde si l'action change le cycle
 	match action.change :
@@ -58,26 +55,31 @@ func resolveAction(action: Action) -> void:
 #Un tour : joueur + ennemis
 func turn() -> void:
 	
+	if ennemie.hp < 1 :
+		#S'il n'y a plus d'ennemis, fin du combat et nouveau combat
+		print("bravo")
+		ennemie.queue_free()
+		return
+
+	
 	#Mise à jour des actions possibles du joueur
 	for action in player.actions:
 		action.reload(day)
 	
 	 #Le joueur fait son action
-	var playerAction: Action = await player.takeAction(ennemie)
-	resolveAction(playerAction)
-		
-		
+	var playerAction: Action = await player.takeAction(ennemie, day)
+	await resolveAction(playerAction)
+
 	#Les ennemis font leurs actions
 	for action in ennemie.actions:
 		action.reload(day)
-	var eAction: Action = ennemie.takeAction(day)
-	resolveAction(eAction)
+
+	var eAction = await ennemie.your_turn(day)
+	await resolveAction(eAction)
 	
+	print(player.hp)
+	print(ennemie.hp)
 	
-	if ennemie == null:
-		#S'il n'y a plus d'ennemis, fin du combat et nouveau combat
-		_ready()
-	else:
-		#Sinon on recommence un tour
-		turn()
+
+	turn()
 	

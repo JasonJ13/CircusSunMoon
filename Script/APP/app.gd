@@ -1,5 +1,12 @@
 extends Control
 
+# Node 
+# -----------
+
+@onready var mainMenu : Control = $MainMenu
+@onready var fight : Fight = $Fight
+
+
 # Signals 
 # -----------
 
@@ -26,6 +33,9 @@ func _process(delta: float) -> void:
 
 func _on_main_menu_on_play() -> void:
 	game_start.emit()
+	
+	fight.show()
+	mainMenu.hide()
 
 
 func _on_main_menu_on_quit() -> void:

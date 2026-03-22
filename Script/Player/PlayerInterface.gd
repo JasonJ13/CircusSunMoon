@@ -19,15 +19,16 @@ var nmb_spell : int
 
 @onready var spellsNode : Control = $Spells
 @onready var confirmNode : Control = $Confirm
-@onready var backButton : Control = $Confirm/Back
-@onready var confirmButton : Control = $Confirm/Confirm
+@onready var backButton : Button = $Confirm/Back
+@onready var confirmButton : Button = $Confirm/Confirm
+@onready var descriptionLabel : Label = $Confirm/Description
 
 var spell_selected : Spell
 signal action(spell : Spell)
 
 func _ready() -> void:
 
-	spellsNode.show()
+	spellsNode.hide()
 	confirmNode.hide()
 	
 	size_spell = spellsNode.size.x
@@ -49,7 +50,7 @@ func _ready_Spell(spells : Array[Spell]) -> void :
 	for i in range(nmb_spell) :
 		var new_spell_button := Button.new()
 		new_spell_button.icon = spells[i].spellTexture
-		new_spell_button.position.x = size_spell*i/nmb_spell + size_spell/(nmb_spell*2)
+		new_spell_button.position.x = size_spell*i/nmb_spell + size_spell/(nmb_spell*4)
 		
 		var pressed := Callable(self, "spell_has_been_selected").bind(spells[i])
 		new_spell_button.pressed.connect(pressed)
@@ -66,6 +67,7 @@ func start(hpp : int, enn : Monster, sps : Array[Spell]) -> void:
 	HP_player.value = hpp
 	ennemie = enn
 	_ready_Spell(sps)
+	spellsNode.show()
 
 
 
@@ -90,6 +92,9 @@ func _on_confirm_mouse_exited() -> void:
 
 func spell_has_been_selected(spell : Spell) -> void :
 	spell_selected = spell
+	spell.cible = Action.Cible.MONSTER
+	
+	descriptionLabel.text = str(spell)
 	
 	spellsNode.hide()
 	confirmNode.show()
