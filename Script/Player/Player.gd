@@ -32,17 +32,14 @@ func _ready() -> void:
 func takeAction(enn : Monster, day : bool) -> Action:
 	interface.start(hp, enn, actions)
 	var x = await interface.action
-	dmgInflictModifierTurn -= 1
-	dmgReceiveModifierTurn -= 1
+	if dmgInflictModifierTurn > 0:
+		dmgInflictModifierTurn -= 1
+	if dmgReceiveModifierTurn > 0:
+		dmgReceiveModifierTurn -= 1
 	if dmgInflictModifierTurn == 0:
 		dmgInflictModifier = 1
 	if dmgReceiveModifierTurn == 0:
 		dmgReceiveModifier = 1
-	if  dayBefore == day:
-		dayTurn += 1
-	else :
-		dayTurn = 0
-	dayBefore = day
 	if x.dmg == 100:
 		if dayTurn == 1:
 			x.dmg = 50
@@ -56,6 +53,11 @@ func takeAction(enn : Monster, day : bool) -> Action:
 		dmgReceiveModifier = 50
 		dmgInflictModifierTurn = 2
 		x.dmg = 0
+	if  dayBefore == day:
+		dayTurn += 1
+	else :
+		dayTurn = 0
+	dayBefore = day
 	
 	return x
 
