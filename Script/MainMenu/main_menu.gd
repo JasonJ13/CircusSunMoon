@@ -10,6 +10,9 @@ signal on_play
 # Internal Signals 
 # ------------------
 
+func play_menu() -> void :
+	$SFX/SpookyFlotes.play()
+
 func _on_play_button_pressed() -> void:
 	visible = false
 	on_play.emit()

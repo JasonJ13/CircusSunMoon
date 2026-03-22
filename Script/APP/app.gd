@@ -23,6 +23,7 @@ func _on_main_menu_on_quit() -> void:
 
 
 func player_died() :
+	mainMenu.play_menu()
 	fight.queue_free()
 	sfx.stop_soundtracks()
 	gameOver.show()
