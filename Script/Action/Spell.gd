@@ -2,13 +2,12 @@ extends Action
 class_name Spell
 
 var spellTexture : Texture2D
-var spellTextureHover : Texture2D
 
 var name : String
 var description : String
 
 ## d : dmg, co : cooldown, t : turnsBeforeUse, s : stateToReload, ch : Change, ef : effect, sT : texture du bouton, sTh : texture sélectionner
-func _init(d:int, co:int, t:int, s:bool, ch:Change, ef:Effect, sT : Texture2D, sTH : Texture2D) -> void :
+func _init(d:int, co:int, t:int, s:bool, ch:Change, ef:Effect, sT : Texture2D) -> void :
 	dmg = d
 	cooldown = co
 	turnsBeforeUse = t
@@ -16,7 +15,6 @@ func _init(d:int, co:int, t:int, s:bool, ch:Change, ef:Effect, sT : Texture2D, s
 	change = ch
 	effect = ef
 	spellTexture = sT
-	spellTextureHover = sTH
 	name = "spell who deal " + str(dmg) + " damage"
 	description = "Description indisponible"
 

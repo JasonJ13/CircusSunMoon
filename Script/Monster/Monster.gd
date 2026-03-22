@@ -25,21 +25,29 @@ var dmgLabel : Label
 #Choisis une action à effectuer
 @abstract func takeAction(day:bool) -> Action
 
-func take_dmg(dmg_taken : int) :
+func take_dmg(dmg_taken : int) -> void :
 	hp -= dmg_taken
 	hp = min(hp, hp_max)
-	print(hp)
+	
+	if monsterAnimation != null :
+		monsterAnimation.pause()
+	
+	dmgLabel.text = str(abs(dmg_taken))
 	if dmg_taken > 0 :
-		if monsterAnimation != null :
-			monsterAnimation.pause()
-		
-		
+		dmgLabel.modulate = Color.RED
 		animation.play("Hurt")
-		await animation.animation_finished
-		animation.play("Iddle")
+	else :
+		dmgLabel.modulate = Color.GREEN
+		animation.play("Self")
+	
+	dmgAnimation.play("label faided")
+	await animation.animation_finished
+	animation.play("Iddle")
 		
-		if monsterAnimation != null :
-			monsterAnimation.play()
+	if monsterAnimation != null :
+		monsterAnimation.play()
+	
+	return
 
 func your_turn(day:bool) -> Action :
 	var action : Action = takeAction(day)
@@ -47,13 +55,9 @@ func your_turn(day:bool) -> Action :
 	if monsterAnimation != null :
 		monsterAnimation.pause()
 	
-	match action.cible :
-		Action.Cible.PLAYER :
-			animation.play("Attack")
-		Action.Cible.MONSTER :
-			animation.play("Self")
-	
-	await animation.animation_finished
+	if action.cible == Action.Cible.PLAYER :
+		animation.play("Attack")
+		await animation.animation_finished
 	
 	animation.play("Iddle")
 	if monsterAnimation != null :

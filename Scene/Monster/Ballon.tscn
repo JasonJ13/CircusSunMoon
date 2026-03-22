@@ -380,6 +380,66 @@ animations = [{
 [sub_resource type="LabelSettings" id="LabelSettings_bnsst"]
 font_size = 8
 
+[sub_resource type="Animation" id="Animation_bnsst"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/DmgTaken:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-43, -24)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/DmgTaken:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_cff2s"]
+resource_name = "label faided"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/DmgTaken:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-18, -27), Vector2(-18, -52)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/DmgTaken:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.4, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hbdki"]
+_data = {
+&"RESET": SubResource("Animation_bnsst"),
+&"label faided": SubResource("Animation_cff2s")
+}
+
 [node name="Ballon" type="Control" unique_id=2037288147]
 texture_filter = 1
 layout_mode = 3
@@ -400,7 +460,7 @@ offset_bottom = 40.0
 position = Vector2(16, -16)
 rotation = -0.7853982
 sprite_frames = SubResource("SpriteFrames_0l45b")
-animation = &"Attack"
+animation = &"Self"
 autoplay = "Iddle"
 
 [node name="string" type="ColorRect" parent="Control" unique_id=422002774]
@@ -417,8 +477,8 @@ offset_left = -43.0
 offset_top = -24.0
 offset_right = -1.0
 offset_bottom = -11.0
-text = "dmg taken"
 label_settings = SubResource("LabelSettings_bnsst")
 
 [node name="DmgAnimation" type="AnimationPlayer" parent="Control" unique_id=4039444]
 root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_hbdki")

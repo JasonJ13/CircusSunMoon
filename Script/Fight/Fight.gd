@@ -46,7 +46,7 @@ func resolveAction(action: Action) -> void:
 				#Mort du joueur
 	
 		Action.Cible.MONSTER :
-			await ennemie.take_dmg(action.dmg * player.dmgInflictModifier)
+			await ennemie.take_dmg(floor(action.dmg * player.dmgInflictModifier))
 			
 	#Regarde si l'action change le cycle
 	match action.change :
@@ -79,13 +79,12 @@ func turn() -> void:
 	#Les ennemis font leurs actions
 	for action in ennemie.actions:
 		action.reload(day)
-
 	var eAction = await ennemie.your_turn(day)
+
 	await resolveAction(eAction)
-	
+
 	print(player.hp)
 	print(ennemie.hp)
-	
 
 	turn()
 	
