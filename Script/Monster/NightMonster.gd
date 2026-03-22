@@ -12,7 +12,6 @@ func _init() -> void:
 	
 func _ready() -> void :
 	animation = $Control/Animation
-	monsterAnimation = $BallonAnimation	
 	dmgAnimation = $Control/DmgAnimation
 	dmgLabel =$Control/DmgTaken
 	
