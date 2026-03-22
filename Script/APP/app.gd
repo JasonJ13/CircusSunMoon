@@ -6,7 +6,7 @@ extends Control
 @onready var mainMenu : Control = $MainMenu
 @onready var fight : Fight
 @onready var gameOver : Control = $GameOver
-@onready var sfx : sfx = $Soundtrack
+@onready var sfx = $Soundtrack
 
 var fightRess : Resource = load("res://Scene/Fight/Fight.tscn")
 
