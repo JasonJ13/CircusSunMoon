@@ -7,6 +7,7 @@ var spellTextureHover : Texture2D
 var name : String
 var description : String
 
+## d : dmg, co : cooldown, t : turnsBeforeUse, s : stateToReload, ch : Change, ef : effect, sT : texture du bouton, sTh : texture sélectionner
 func _init(d:int, co:int, t:int, s:bool, ch:Change, ef:Effect, sT : Texture2D, sTH : Texture2D) -> void :
 	dmg = d
 	cooldown = co
@@ -24,6 +25,7 @@ func usable() -> bool:
 		return false
 	return true
 
+## n : nom du spell / descr : description du spell
 func add_name_and_description(n : String, descr : String) -> void:
 	name = n
 	description = descr
@@ -32,7 +34,7 @@ func _to_string() -> String:
 	var string : String = ""
 	
 	string += "Spell : " + name + "\n"
-	string += "Value : " + str(dmg) +"    cooldown : " + str(cooldown) + "\n"
+	string += "cooldown : " + str(cooldown) + "\n"
 	
 	match change :
 		Action.Change.DAY :

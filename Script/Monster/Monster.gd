@@ -12,7 +12,9 @@ var actions: Array[Action] = []
 #@onready var interface: Control = $MonsterInterface
 
 var animation : AnimatedSprite2D
-var animation_player : AnimationPlayer = null
+var monsterAnimation : AnimationPlayer = null
+var dmgAnimation : AnimationPlayer
+var dmgLabel : Label
 
 #éxecuté lorsqu'on passe du nuit au jour	
 @abstract func pass_jour() -> void
@@ -23,17 +25,38 @@ var animation_player : AnimationPlayer = null
 #Choisis une action à effectuer
 @abstract func takeAction(day:bool) -> Action
 
+func take_dmg(dmg_taken : int) :
+	hp -= dmg_taken
+	hp = min(hp, hp_max)
+	print(hp)
+	if dmg_taken > 0 :
+		if monsterAnimation != null :
+			monsterAnimation.pause()
+		
+		
+		animation.play("Hurt")
+		await animation.animation_finished
+		animation.play("Iddle")
+		
+		if monsterAnimation != null :
+			monsterAnimation.play()
 
 func your_turn(day:bool) -> Action :
-	if animation_player != null :
-		animation_player.pause()
+	var action : Action = takeAction(day)
 	
-	animation.play("Attack")
+	if monsterAnimation != null :
+		monsterAnimation.pause()
+	
+	match action.cible :
+		Action.Cible.PLAYER :
+			animation.play("Attack")
+		Action.Cible.MONSTER :
+			animation.play("Self")
 	
 	await animation.animation_finished
+	
 	animation.play("Iddle")
+	if monsterAnimation != null :
+		monsterAnimation.play()
 	
-	if animation_player != null :
-		animation_player.play()
-	
-	return takeAction(day)
+	return action

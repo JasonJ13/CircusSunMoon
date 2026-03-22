@@ -4,7 +4,68 @@
 [ext_resource type="Texture2D" uid="uid://bknftp6dv4xbg" path="res://Asset/pixel/Ennemy/Enemy_attack_sun.png" id="2_hbdki"]
 [ext_resource type="Texture2D" uid="uid://uavuq0h8hh26" path="res://Asset/pixel/Ennemy/Enemy_hurt_sun.png" id="3_dojed"]
 [ext_resource type="Texture2D" uid="uid://bk7234bxuqjqi" path="res://Asset/pixel/Ennemy/Enemy_idle_sun.png" id="4_hjf8c"]
-[ext_resource type="PackedScene" uid="uid://cetnxf7nmjvoa" path="res://Scene/Monster/MonsterInterface.tscn" id="5_3tpct"]
+
+[sub_resource type="Animation" id="Animation_mjd4x"]
+resource_name = "Iddle"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/Animation:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0.0, -0.7853982, 0.7853982]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2(0, 0), Vector2(-16, -32), Vector2(16, -16)]
+}
+
+[sub_resource type="Animation" id="Animation_0d221"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/Animation:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.7853982]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_85c3l"]
+_data = {
+&"Iddle": SubResource("Animation_mjd4x"),
+&"RESET": SubResource("Animation_0d221")
+}
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0d221"]
 atlas = ExtResource("2_hbdki")
@@ -98,6 +159,14 @@ region = Rect2(672, 0, 32, 32)
 atlas = ExtResource("2_hbdki")
 region = Rect2(704, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_joacd"]
+atlas = ExtResource("4_hjf8c")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pimtj"]
+atlas = ExtResource("4_hjf8c")
+region = Rect2(32, 0, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_mjtbd"]
 atlas = ExtResource("3_dojed")
 region = Rect2(0, 0, 32, 32)
@@ -137,14 +206,6 @@ region = Rect2(256, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_ngwue"]
 atlas = ExtResource("3_dojed")
 region = Rect2(288, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_joacd"]
-atlas = ExtResource("4_hjf8c")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pimtj"]
-atlas = ExtResource("4_hjf8c")
-region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0l45b"]
 animations = [{
@@ -189,6 +250,21 @@ animations = [{
 "texture": SubResource("AtlasTexture_l47yo")
 }, {
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_l47yo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l47yo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l47yo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l47yo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l47yo")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_0l2f4")
 }, {
 "duration": 1.0,
@@ -221,6 +297,46 @@ animations = [{
 "loop": false,
 "name": &"Attack",
 "speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_joacd")
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_joacd")
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_joacd")
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_joacd")
+}],
+"loop": false,
+"name": &"Hurt",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_joacd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pimtj")
+}],
+"loop": true,
+"name": &"Iddle",
+"speed": 4.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -257,106 +373,12 @@ animations = [{
 "texture": SubResource("AtlasTexture_mjtbd")
 }],
 "loop": false,
-"name": &"Hurt",
+"name": &"Self",
 "speed": 20.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_joacd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pimtj")
-}],
-"loop": true,
-"name": &"Iddle",
-"speed": 4.0
 }]
 
-[sub_resource type="Animation" id="Animation_mjd4x"]
-resource_name = "Iddle"
-length = 3.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Animation:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [Vector2(0, 0), Vector2(-16, -32), Vector2(16, -16)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Animation:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1, 2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [0.0, -0.7853982, 0.7853982]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("string:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1, 2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [Vector2(0, -160), Vector2(-16, -192), Vector2(16, -176)]
-}
-
-[sub_resource type="Animation" id="Animation_0d221"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Animation:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-16, -32)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Animation:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-0.7853982]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("string:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-16, -192)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_85c3l"]
-_data = {
-&"Iddle": SubResource("Animation_mjd4x"),
-&"RESET": SubResource("Animation_0d221")
-}
+[sub_resource type="LabelSettings" id="LabelSettings_bnsst"]
+font_size = 8
 
 [node name="Ballon" type="Control" unique_id=2037288147]
 texture_filter = 1
@@ -364,26 +386,39 @@ layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_cff2s")
 
-[node name="string" type="ColorRect" parent="." unique_id=422002774]
-layout_mode = 0
-offset_left = -16.0
-offset_top = -192.0
-offset_right = -15.0
-offset_bottom = -32.0
-color = Color(0.45685214, 0.4568522, 0.4568522, 1)
+[node name="BallonAnimation" type="AnimationPlayer" parent="." unique_id=411659636]
+libraries/ = SubResource("AnimationLibrary_85c3l")
+autoplay = &"Iddle"
 
-[node name="Animation" type="AnimatedSprite2D" parent="." unique_id=1736830151]
-position = Vector2(-16, -32)
+[node name="Control" type="Control" parent="." unique_id=1755626624]
+layout_mode = 1
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Animation" type="AnimatedSprite2D" parent="Control" unique_id=1736830151]
+position = Vector2(16, -16)
 rotation = -0.7853982
 sprite_frames = SubResource("SpriteFrames_0l45b")
 animation = &"Attack"
 autoplay = "Iddle"
-frame = 22
-frame_progress = 1.0
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=411659636]
-libraries/ = SubResource("AnimationLibrary_85c3l")
-autoplay = &"Iddle"
-
-[node name="MonsterInterface" parent="." unique_id=811989687 instance=ExtResource("5_3tpct")]
+[node name="string" type="ColorRect" parent="Control" unique_id=422002774]
 layout_mode = 0
+offset_left = 16.0
+offset_top = -176.0
+offset_right = 17.0
+offset_bottom = -16.0
+color = Color(0.45685214, 0.4568522, 0.4568522, 1)
+
+[node name="DmgTaken" type="Label" parent="Control" unique_id=622763044]
+layout_mode = 0
+offset_left = -43.0
+offset_top = -24.0
+offset_right = -1.0
+offset_bottom = -11.0
+text = "dmg taken"
+label_settings = SubResource("LabelSettings_bnsst")
+
+[node name="DmgAnimation" type="AnimationPlayer" parent="Control" unique_id=4039444]
+root_node = NodePath("../..")
