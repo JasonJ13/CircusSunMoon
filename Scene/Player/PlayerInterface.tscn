@@ -42,6 +42,7 @@ texture_under = ExtResource("2_ihut5")
 texture_progress = ExtResource("5_b7kor")
 
 [node name="Spells" type="Control" parent="." unique_id=1756865105]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -49,11 +50,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 1.0000305
 offset_top = -156.0
-offset_right = 10409.0
-offset_bottom = 572.0
+offset_right = -573.0
+offset_bottom = -119.599976
 grow_horizontal = 2
 grow_vertical = 0
-scale = Vector2(0.1, 0.1)
+scale = Vector2(2, 2)
 
 [node name="Confirm" type="Control" parent="." unique_id=1964108225]
 anchors_preset = 0
