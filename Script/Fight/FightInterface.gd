@@ -1,6 +1,9 @@
 extends Node
 
+@onready var animation : AnimationPlayer = $AnimationPlayer
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass
+func day_to_night() -> void :
+	animation.play("night_time")
+
+func night_to_day() -> void :
+	animation.play_backwards("night_time")
