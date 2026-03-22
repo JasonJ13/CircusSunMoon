@@ -14,7 +14,7 @@ func _init() -> void:
 	var actionNight2: Action = Action.new(100, 2, 2, true, Action.Change.NONE, Action.Effect.DMG)
 	actionNight2.cible = Action.Cible.PLAYER
 	actionsNight = [actionNight1, actionNight2]
-	var actionDay1: Action = Action.new(-150, 3, 0, true, Action.Change.NONE, Action.Effect.DMG)
+	var actionDay1: Action = Action.new(-200, 3, 0, true, Action.Change.NONE, Action.Effect.DMG)
 	actionDay1.cible = Action.Cible.MONSTER
 	var actionDay2: Action = Action.new(150, 2, 2, false, Action.Change.NONE, Action.Effect.DMG)
 	actionDay2.cible = Action.Cible.PLAYER
