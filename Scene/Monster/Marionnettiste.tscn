@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://wwrjlvd6vim7" path="res://Asset/pixel/Enemy_night_idle.png" id="2_mm5mc"]
 [ext_resource type="Texture2D" uid="uid://dpkuit70u0wyg" path="res://Asset/pixel/Enemy_night_attack.png" id="3_sae86"]
 [ext_resource type="Texture2D" uid="uid://b56uanv14wtxh" path="res://Asset/pixel/Enemy_night_hurt-sheet.png" id="4_3ofm8"]
+[ext_resource type="Texture2D" uid="uid://cudupk17ri3i3" path="res://Asset/pixel/Boss_idle-sheet.png" id="4_sae86"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e04uj"]
 atlas = ExtResource("2_mm5mc")
@@ -13,9 +14,17 @@ region = Rect2(0, 0, 32, 32)
 atlas = ExtResource("3_sae86")
 region = Rect2(0, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ofm8"]
+atlas = ExtResource("4_sae86")
+region = Rect2(0, 0, 96, 96)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_7afk5"]
-atlas = ExtResource("2_mm5mc")
-region = Rect2(0, 0, 32, 32)
+atlas = ExtResource("4_sae86")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_plmbk"]
+atlas = ExtResource("4_sae86")
+region = Rect2(96, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1yqyg"]
 atlas = ExtResource("4_3ofm8")
@@ -93,19 +102,19 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7afk5")
+"texture": SubResource("AtlasTexture_3ofm8")
 }, {
 "duration": 1.0,
 "texture": null
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7afk5")
+"texture": SubResource("AtlasTexture_3ofm8")
 }, {
 "duration": 1.0,
 "texture": null
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7afk5")
+"texture": SubResource("AtlasTexture_3ofm8")
 }, {
 "duration": 1.0,
 "texture": null
@@ -117,10 +126,13 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7afk5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_plmbk")
 }],
 "loop": true,
 "name": &"Iddle",
-"speed": 4.0
+"speed": 1.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -236,7 +248,7 @@ offset_bottom = 40.0
 [node name="Animation" type="AnimatedSprite2D" parent="Control" unique_id=654550462]
 position = Vector2(16, -16)
 sprite_frames = SubResource("SpriteFrames_sae86")
-animation = &"Self"
+animation = &"Hurt"
 autoplay = "Iddle"
 
 [node name="string" type="ColorRect" parent="Control" unique_id=1876361146]
