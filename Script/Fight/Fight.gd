@@ -6,11 +6,14 @@ var day: bool = true		#Indique si on est le jour
 @onready var interface = $FightInterface
 @export var player: Player
 @export var ennemie: Monster
+@onready var allEnnemies : Array[Monster] = [$Ballon, $BallonNight, $Marionnettiste] 
 
-
+signal toNight
+signal toDay
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	ennemie = $Ballon
 	turn()
 
 
@@ -21,9 +24,11 @@ func changeDayNight() -> void:
 	if day:
 		interface.night_to_day()
 		ennemie.pass_jour()
+		toDay.emit()
 	else:
 		interface.day_to_night()
 		ennemie.pass_nuit()
+		toNight.emit()
 
 ##Effectue les effets d'une action
 func resolveAction(action: Action) -> void:
@@ -60,6 +65,7 @@ func turn() -> void:
 		print("bravo")
 		ennemie.queue_free()
 		return
+		
 
 	
 	#Mise à jour des actions possibles du joueur

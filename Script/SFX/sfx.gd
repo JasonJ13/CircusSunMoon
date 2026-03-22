@@ -73,3 +73,11 @@ func start_soundtracks() -> void:
 
 func _on_app_game_start() -> void:
 	start_soundtracks()
+
+
+func _on_fight_to_day() -> void:
+	toSun()
+
+
+func _on_fight_to_night() -> void:
+	toMoon()
