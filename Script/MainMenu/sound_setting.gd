@@ -1,6 +1,7 @@
 extends Control
 
 signal sound_setting_exited
+signal sfx_slide_release
 
 # Variables 
 # ------------
@@ -36,5 +37,10 @@ func _on_sfx_slider_value_changed(value: float) -> void:
 
 # Signals from outside
 # --------------------
-func _on_sound_setting_button_pressed() -> void:
+
+func _on_sound_buton_pressed() -> void:
 	visible = true
+
+
+func _on_sfx_slider_drag_ended(value_changed: bool) -> void:
+	sfx_slide_release.emit()

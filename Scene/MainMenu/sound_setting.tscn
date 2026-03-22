@@ -113,4 +113,5 @@ value = 1.0
 [connection signal="pressed" from="CloseSetting" to="." method="_on_close_setting_pressed"]
 [connection signal="value_changed" from="Master/MasterSlider" to="." method="_on_master_slider_value_changed"]
 [connection signal="value_changed" from="Soundtrack/SoundtrackSlider" to="." method="_on_soundtrack_slider_value_changed"]
+[connection signal="drag_ended" from="SFX/SFXSlider" to="." method="_on_sfx_slider_drag_ended"]
 [connection signal="value_changed" from="SFX/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
