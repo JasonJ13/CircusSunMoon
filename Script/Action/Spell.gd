@@ -14,3 +14,8 @@ func _init(d:int, co:int, t:int, s:bool, ch:Change, ef:Effect, sT : Texture2D, s
 	effect = ef
 	spellTexture = sT
 	spellTextureHover = sTH
+
+func usable(spell: Action) -> bool:
+	if turnsBeforeUse > 0 :
+		return false
+	return true

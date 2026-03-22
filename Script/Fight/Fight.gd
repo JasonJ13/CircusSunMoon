@@ -69,7 +69,7 @@ func turn() -> void:
 		action.reload(day)
 	
 	 #Le joueur fait son action
-	var playerAction: Action = await player.takeAction(ennemie)
+	var playerAction: Action = await player.takeAction(ennemie, day)
 	resolveAction(playerAction)
 
 	#Les ennemis font leurs actions
