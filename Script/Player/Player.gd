@@ -20,17 +20,16 @@ var ennemie : Monster
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	actions.append(Spell.new(100,0,0,true,Action.Change.NONE,Action.Effect.BASE,preload("res://Asset/other/bouton spell.png"), preload("res://Asset/other/bouton spell hovered.png")))
-	actions[-1].add_name_and_description("","Dealt 100/50/0 damage if at your 1st/2nd/other turn at the same cycle")
+	actions[-1].add_name_and_description("Ball Bounce","Dealt 100/50/0 damage if at your 1st/2nd/other turn at the same cycle")
 	actions.append(Spell.new(250,3,0,false,Action.Change.DAY,Action.Effect.DMG,preload("res://Asset/other/bouton spell.png"), preload("res://Asset/other/bouton spell hovered.png")))
-	actions[-1].add_name_and_description("","Dealt 250 damage")
+	actions[-1].add_name_and_description("Astral Blast","Dealt 250 damage")
 	actions.append(Spell.new(150,2,0,false,Action.Change.DAY,Action.Effect.DMG,preload("res://Asset/other/bouton spell.png"), preload("res://Asset/other/bouton spell hovered.png")))
-	actions[-1].add_name_and_description("","Dealt 150 damage")
+	actions[-1].add_name_and_description("Astral Flash","Dealt 150 damage")
 	#Multiplicateur de degat (prendre en pourcentage)
 	actions.append(Spell.new(0,2,0,true,Action.Change.NIGHT,Action.Effect.INFLICT,preload("res://Asset/other/bouton spell.png"), preload("res://Asset/other/bouton spell hovered.png")))
-	actions[-1].add_name_and_description("","Damage dealt +75% for the next turn")
-	#Reduction de degat (prendre en pourcentage)
+	actions[-1].add_name_and_description("Lunar Harvest","Damage dealt +75% for the next turn")
 	actions.append(Spell.new(0,2,0,true,Action.Change.NIGHT,Action.Effect.RECEIVE,preload("res://Asset/other/bouton spell.png"), preload("res://Asset/other/bouton spell hovered.png")))
-	actions[-1].add_name_and_description("","Damage received -50% for the turn")
+	actions[-1].add_name_and_description("Stellar Protection","Damage received -50% for the turn")
 	interface.start(hpmax,ennemie,actions)
 
 
