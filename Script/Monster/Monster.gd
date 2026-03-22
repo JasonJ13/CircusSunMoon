@@ -26,23 +26,25 @@ var dmgLabel : Label
 @abstract func takeAction(day:bool) -> Action
 
 func take_dmg(dmg_taken : int) -> void :
-	hp -= dmg_taken
-	hp = min(hp, hp_max)
-	
-	if monsterAnimation != null :
-		monsterAnimation.pause()
-	
-	dmgLabel.text = str(abs(dmg_taken))
-	if dmg_taken > 0 :
-		dmgLabel.modulate = Color.RED
-		animation.play("Hurt")
-	else :
-		dmgLabel.modulate = Color.GREEN
-		animation.play("Self")
-	
-	dmgAnimation.play("label faided")
-	await animation.animation_finished
-	animation.play("Iddle")
+	if dmg_taken != 0 :
+		hp -= dmg_taken
+		hp = min(hp, hp_max)
+		
+		if monsterAnimation != null :
+			monsterAnimation.pause()
+		
+		dmgLabel.text = str(abs(dmg_taken))
+		
+		if dmg_taken > 0 :
+			dmgLabel.modulate = Color.RED
+			animation.play("Hurt")
+		elif dmg_taken :
+			dmgLabel.modulate = Color.GREEN
+			animation.play("Self")
+		
+		dmgAnimation.play("label faided")
+		await animation.animation_finished
+		animation.play("Iddle")
 		
 	if monsterAnimation != null :
 		monsterAnimation.play()
