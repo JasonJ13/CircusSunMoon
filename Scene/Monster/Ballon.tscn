@@ -384,6 +384,7 @@ font_size = 8
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 0
+scale = Vector2(2, 2)
 script = ExtResource("1_cff2s")
 
 [node name="BallonAnimation" type="AnimationPlayer" parent="." unique_id=411659636]

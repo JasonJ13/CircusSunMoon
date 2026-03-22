@@ -22,6 +22,10 @@ func _init() -> void:
 	actionsDay = [actionDay1, actionDay2]
 	actions = actionsNight
 	
+func _ready() -> void :
+	animation = $Control/Animation
+	monsterAnimation = $BallonAnimation	
+
 func pass_jour() -> void:
 	if state:
 		dmg=100

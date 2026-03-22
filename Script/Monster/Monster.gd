@@ -28,7 +28,6 @@ var dmgLabel : Label
 func take_dmg(dmg_taken : int) :
 	hp -= dmg_taken
 	hp = min(hp, hp_max)
-	print(hp)
 	if dmg_taken > 0 :
 		if monsterAnimation != null :
 			monsterAnimation.pause()
