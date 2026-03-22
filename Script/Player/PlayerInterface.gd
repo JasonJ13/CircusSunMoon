@@ -23,6 +23,9 @@ var nmb_spell : int
 @onready var confirmButton : Button = $Confirm/Confirm
 @onready var descriptionLabel : Label = $Confirm/Description
 
+var buttons : Array[Button] = []
+
+
 var spell_selected : Spell
 signal action(spell : Spell)
 
@@ -32,7 +35,6 @@ func _ready() -> void:
 	confirmNode.hide()
 	
 	size_spell = spellsNode.size.x
-	
 	
 	
 	if debug :
@@ -45,37 +47,62 @@ func _ready() -> void:
 	
 
 
+func free_all() -> void :
+	for button in buttons :
+		button.queue_free()
+	buttons.clear()
+
+
 func _ready_Spell(spells : Array[Spell]) -> void :
 	nmb_spell = len(spells)
+	free_all()
+
 	for i in range(nmb_spell) :
 		var new_spell_button := Button.new()
 		new_spell_button.icon = spells[i].spellTexture
+		new_spell_button.flat = true
 		new_spell_button.position.x = size_spell*i/nmb_spell + size_spell/(nmb_spell*4)
 		
-		var pressed := Callable(self, "spell_has_been_selected").bind(spells[i])
-		new_spell_button.pressed.connect(pressed)
+		var label_button = Label.new()
+		label_button.text = spells[i].name
+		label_button.scale /= 4
+		label_button.size = Vector2(284,156)
+		label_button.position -= new_spell_button.size/2
+		label_button.label_settings = preload("res://Asset/Font/button_font.tres")
+		label_button.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		label_button.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+		label_button.set_anchors_preset(Control.PRESET_CENTER)
+		new_spell_button.add_child(label_button)
 		
-		var entered := Callable(self,"mouse_as_entered").bind(new_spell_button, spells[i])
-		new_spell_button.mouse_entered.connect(entered)
 		
-		var exited := Callable(self,"mouse_as_exited").bind(new_spell_button, spells[i])
-		new_spell_button.mouse_exited.connect(exited)
+		if spells[i].usable() :
+			var pressed := Callable(self, "spell_has_been_selected").bind(spells[i])
+			new_spell_button.pressed.connect(pressed)
+			
+			var entered := Callable(self,"mouse_as_entered").bind(new_spell_button)
+			new_spell_button.mouse_entered.connect(entered)
+			
+			var exited := Callable(self,"mouse_as_exited").bind(new_spell_button)
+			new_spell_button.mouse_exited.connect(exited)
+		
+		else :
+			new_spell_button.modulate = Color.DARK_GRAY
 		
 		spellsNode.add_child(new_spell_button)
 
-func start(hpp : int, enn : Monster, sps : Array[Spell]) -> void:
+func start(hpp : int, enn : Monster, spells : Array[Spell]) -> void:
 	HP_player.value = hpp
 	ennemie = enn
-	_ready_Spell(sps)
+	_ready_Spell(spells)
 	spellsNode.show()
 
 
 
-func mouse_as_entered(button : Button, spell : Spell) -> void :
-	button.icon = spell.spellTextureHover
+func mouse_as_entered(button : Button) -> void :
+	button.modulate = Color.LIGHT_GREEN
 
-func mouse_as_exited(button : Button, spell : Spell) -> void :
-	button.icon = spell.spellTexture
+func mouse_as_exited(button : Button) -> void :
+	button.modulate = Color.WHITE
 
 
 func _on_back_mouse_entered() -> void:
