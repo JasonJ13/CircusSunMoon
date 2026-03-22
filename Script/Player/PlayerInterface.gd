@@ -19,8 +19,9 @@ var nmb_spell : int
 
 @onready var spellsNode : Control = $Spells
 @onready var confirmNode : Control = $Confirm
-@onready var backButton : Control = $Confirm/Back
-@onready var confirmButton : Control = $Confirm/Confirm
+@onready var backButton : Button = $Confirm/Back
+@onready var confirmButton : Button = $Confirm/Confirm
+@onready var descriptionLabel : Label = $Confirm/Description
 
 var spell_selected : Spell
 signal action(spell : Spell)
@@ -92,6 +93,8 @@ func _on_confirm_mouse_exited() -> void:
 func spell_has_been_selected(spell : Spell) -> void :
 	spell_selected = spell
 	spell.cible = Action.Cible.MONSTER
+	
+	descriptionLabel.text = str(spell)
 	
 	spellsNode.hide()
 	confirmNode.show()

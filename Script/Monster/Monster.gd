@@ -5,16 +5,14 @@ class_name Monster
 
 
 var hp: int
+var hp_max : int
 var dmg: int
 var nom: String
 var actions: Array[Action] = []
 #@onready var interface: Control = $MonsterInterface
 
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+var animation : AnimatedSprite2D
+var animation_player : AnimationPlayer = null
 
 #éxecuté lorsqu'on passe du nuit au jour	
 @abstract func pass_jour() -> void
@@ -24,3 +22,18 @@ func _ready() -> void:
 
 #Choisis une action à effectuer
 @abstract func takeAction(day:bool) -> Action
+
+
+func your_turn(day:bool) -> Action :
+	if animation_player != null :
+		animation_player.pause()
+	
+	animation.play("Attack")
+	
+	await animation.animation_finished
+	animation.play("Iddle")
+	
+	if animation_player != null :
+		animation_player.play()
+	
+	return takeAction(day)
