@@ -3,7 +3,7 @@ class_name Fight
 
 var day: bool = true		#Indique si on est le jour
 
-@onready var FightInterface = $FightInterface
+@onready var interface = $FightInterface
 @export var player: Player
 @export var ennemie: Monster
 
@@ -19,8 +19,10 @@ func changeDayNight() -> void:
 	day = not day
 
 	if day:
+		interface.night_to_day()
 		ennemie.pass_jour()
 	else:
+		interface.day_to_night()
 		ennemie.pass_nuit()
 
 ##Effectue les effets d'une action
@@ -32,16 +34,17 @@ func resolveAction(action: Action) -> void:
 	#Inflige les dégâts
 	match action.cible :
 		Action.Cible.PLAYER :
-			player.hp -= action.dmg
+			player.hp -= floor(action.dmg * player.dmgReceiveModifier)
 			
 			if player.hp < 1 :
 				pass
 				#Mort du joueur
 	
 		Action.Cible.MONSTER :
-			ennemie.hp -= action.dmg
-
-				
+			if action.dmg > 0:
+				ennemie.hp -= floor(action.dmg * player.dmgInflictModifier)
+			else:
+				ennemie.hp -= action.dmg
 			
 	#Regarde si l'action change le cycle
 	match action.change :
@@ -67,7 +70,7 @@ func turn() -> void:
 		action.reload(day)
 	
 	 #Le joueur fait son action
-	var playerAction: Action = await player.takeAction(ennemie)
+	var playerAction: Action = await player.takeAction(ennemie, day)
 	resolveAction(playerAction)
 
 	#Les ennemis font leurs actions

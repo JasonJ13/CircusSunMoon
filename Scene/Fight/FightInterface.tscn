@@ -1,6 +1,92 @@
 [gd_scene format=3 uid="uid://cb5xjboiocjml"]
 
 [ext_resource type="Script" uid="uid://0w2tkilrc6wa" path="res://Script/Fight/FightInterface.gd" id="1_nnlo1"]
+[ext_resource type="Texture2D" uid="uid://bxrl5dd06wgvj" path="res://Asset/drawing/curtain.png" id="2_vjcp8"]
+[ext_resource type="Texture2D" uid="uid://ccipqrt23oip0" path="res://Asset/drawing/Circus.png" id="3_jbj7q"]
+
+[sub_resource type="Animation" id="Animation_5wunx"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_s8ldc"]
+resource_name = "night_time"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Curtain:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(475.65518, 40.887154), Vector2(530.75, 36.000008)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Curtain:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.06981317, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Curtain2:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.06981317, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Curtain2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(699.65515, 38.887154), Vector2(628.74994, 36.000004)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("sky:color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0.777307, 0.8462891, 1), Color(0.17254902, 0, 0.30980393, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("TextureRect/ColorRect4:color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.019607844, 0.019607844, 0.019607844, 0), Color(0.019607844, 0.019607844, 0.019607844, 0.2509804)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nssco"]
+_data = {
+&"RESET": SubResource("Animation_5wunx"),
+&"night_time": SubResource("Animation_s8ldc")
+}
 
 [node name="FightInterface" type="Control" unique_id=242278182]
 layout_mode = 3
@@ -10,3 +96,78 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_nnlo1")
+
+[node name="sky" type="ColorRect" parent="." unique_id=1456561337]
+layout_mode = 0
+offset_left = -295.0
+offset_top = -98.0
+offset_right = 181.0
+offset_bottom = 839.0
+scale = Vector2(3.6399994, 1)
+color = Color(0, 0.777307, 0.8462891, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="." unique_id=1949263006]
+layout_mode = 0
+offset_left = -295.0
+offset_top = 206.0
+offset_right = 1481.0
+offset_bottom = 726.25
+scale = Vector2(1, 1.28)
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2105235953]
+layout_mode = 0
+offset_left = -295.0
+offset_top = -98.0
+offset_right = 181.0
+offset_bottom = 839.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=1935742189]
+layout_mode = 0
+offset_left = 983.0
+offset_top = -101.0
+offset_right = 1423.0
+offset_bottom = 746.0
+color = Color(0, 0, 0, 1)
+
+[node name="Curtain" type="Sprite2D" parent="." unique_id=628342555]
+position = Vector2(475.65518, 40.887154)
+rotation = -0.06981317
+scale = Vector2(0.45117182, 0.45312503)
+texture = ExtResource("2_vjcp8")
+
+[node name="Curtain2" type="Sprite2D" parent="." unique_id=597855006]
+position = Vector2(699.65515, 38.887154)
+rotation = 0.06981317
+scale = Vector2(0.45117182, 0.45312503)
+texture = ExtResource("2_vjcp8")
+flip_h = true
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=586030505]
+modulate = Color(0.8158153, 0.81581545, 0.8158154, 1)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -441.0
+offset_top = -2.9999995
+offset_right = 1803.9998
+offset_bottom = 1251.9999
+grow_horizontal = 2
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("3_jbj7q")
+
+[node name="ColorRect4" type="ColorRect" parent="TextureRect" unique_id=2128944326]
+z_index = 1
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.019607844, 0.019607844, 0.019607844, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1267784706]
+libraries/ = SubResource("AnimationLibrary_nssco")
