@@ -34,16 +34,17 @@ func resolveAction(action: Action) -> void:
 	#Inflige les dégâts
 	match action.cible :
 		Action.Cible.PLAYER :
-			player.hp -= action.dmg
+			player.hp -= floor(action.dmg * player.dmgReceiveModifier)
 			
 			if player.hp < 1 :
 				pass
 				#Mort du joueur
 	
 		Action.Cible.MONSTER :
-			ennemie.hp -= action.dmg
-
-				
+			if action.dmg > 0:
+				ennemie.hp -= floor(action.dmg * player.dmgInflictModifier)
+			else:
+				ennemie.hp -= action.dmg
 			
 	#Regarde si l'action change le cycle
 	match action.change :

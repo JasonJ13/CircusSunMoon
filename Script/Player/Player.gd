@@ -46,11 +46,11 @@ func takeAction(enn : Monster, day : bool) -> Action:
 		elif dayTurn > 1:
 			x.dmg = 0
 	if x.effect == Action.Effect.INFLICT:
-		dmgInflictModifier = 0.75
+		dmgInflictModifier = 1.75
 		dmgInflictModifierTurn = 2
 		x.dmg = 0
 	elif x.effect == Action.Effect.RECEIVE:
-		dmgReceiveModifier = 50
+		dmgReceiveModifier = 0.5
 		dmgInflictModifierTurn = 2
 		x.dmg = 0
 	if  dayBefore == day:
