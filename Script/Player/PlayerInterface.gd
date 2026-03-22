@@ -52,14 +52,19 @@ func _ready_Spell(spells : Array[Spell]) -> void :
 		new_spell_button.icon = spells[i].spellTexture
 		new_spell_button.position.x = size_spell*i/nmb_spell + size_spell/(nmb_spell*4)
 		
-		var pressed := Callable(self, "spell_has_been_selected").bind(spells[i])
-		new_spell_button.pressed.connect(pressed)
 		
-		var entered := Callable(self,"mouse_as_entered").bind(new_spell_button, spells[i])
-		new_spell_button.mouse_entered.connect(entered)
+		if spells[i].usable() :
+			var pressed := Callable(self, "spell_has_been_selected").bind(spells[i])
+			new_spell_button.pressed.connect(pressed)
+			
+			var entered := Callable(self,"mouse_as_entered").bind(new_spell_button, spells[i])
+			new_spell_button.mouse_entered.connect(entered)
+			
+			var exited := Callable(self,"mouse_as_exited").bind(new_spell_button, spells[i])
+			new_spell_button.mouse_exited.connect(exited)
 		
-		var exited := Callable(self,"mouse_as_exited").bind(new_spell_button, spells[i])
-		new_spell_button.mouse_exited.connect(exited)
+		else :
+			new_spell_button.modulate = Color.DARK_GRAY
 		
 		spellsNode.add_child(new_spell_button)
 

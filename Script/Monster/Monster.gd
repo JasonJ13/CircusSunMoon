@@ -32,7 +32,7 @@ func take_dmg(dmg_taken : int) -> void :
 	if monsterAnimation != null :
 		monsterAnimation.pause()
 	
-	dmgLabel.text = str(dmg_taken)
+	dmgLabel.text = str(abs(dmg_taken))
 	if dmg_taken > 0 :
 		dmgLabel.modulate = Color.RED
 		animation.play("Hurt")
@@ -40,6 +40,7 @@ func take_dmg(dmg_taken : int) -> void :
 		dmgLabel.modulate = Color.GREEN
 		animation.play("Self")
 	
+	dmgAnimation.play("label faided")
 	await animation.animation_finished
 	animation.play("Iddle")
 		
