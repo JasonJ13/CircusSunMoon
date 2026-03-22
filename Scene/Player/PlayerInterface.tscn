@@ -2,8 +2,9 @@
 
 [ext_resource type="Script" uid="uid://b4rr1lu7ee03m" path="res://Script/Player/PlayerInterface.gd" id="1_4er2e"]
 [ext_resource type="Texture2D" uid="uid://770vj58bpuhp" path="res://Asset/other/black box.png" id="2_ihut5"]
-[ext_resource type="Texture2D" uid="uid://r4mnvso35tg2" path="res://Asset/other/back.png" id="4_44f6b"]
+[ext_resource type="Texture2D" uid="uid://bifw10phdegdp" path="res://Asset/pixel/No.png" id="4_b7kor"]
 [ext_resource type="Texture2D" uid="uid://cdguerduveyhm" path="res://Asset/other/jaune.png" id="5_b7kor"]
+[ext_resource type="Texture2D" uid="uid://bsipyf8qgr556" path="res://Asset/pixel/OK.png" id="5_h04my"]
 
 [node name="PlayerInterface" type="Control" unique_id=1460089145]
 physics_interpolation_mode = 0
@@ -60,21 +61,42 @@ offset_bottom = 40.0
 
 [node name="Back" type="Button" parent="Confirm" unique_id=750753261]
 layout_mode = 0
-offset_left = 968.0
-offset_top = 488.0
-offset_right = 2256.0
-offset_bottom = 1216.0
+offset_left = 1062.0
+offset_top = 486.0
+offset_right = 1712.0
+offset_bottom = 1126.0
 scale = Vector2(0.1, 0.1)
-icon = ExtResource("4_44f6b")
+icon = ExtResource("4_b7kor")
+flat = true
+
+[node name="TextureRect2" type="TextureRect" parent="Confirm/Back" unique_id=1003609302]
+texture_filter = 1
+layout_mode = 0
+offset_left = 20.000122
+offset_top = -19.999996
+offset_right = 60.000244
+offset_bottom = 20.000004
+scale = Vector2(16, 16)
+texture = ExtResource("4_b7kor")
 
 [node name="Confirm" type="Button" parent="Confirm" unique_id=692885979]
 layout_mode = 0
-offset_left = 802.0
-offset_top = 488.0
-offset_right = 2090.0
-offset_bottom = 1216.0
+offset_left = 918.0
+offset_top = 472.0
+offset_right = 1718.0
+offset_bottom = 1200.0
 scale = Vector2(0.1, 0.1)
-icon = ExtResource("4_44f6b")
+flat = true
+
+[node name="TextureRect" type="TextureRect" parent="Confirm/Confirm" unique_id=1670595029]
+texture_filter = 1
+layout_mode = 0
+offset_left = 519.9999
+offset_top = 140.0
+offset_right = 559.9999
+offset_bottom = 180.0
+scale = Vector2(16, 16)
+texture = ExtResource("5_h04my")
 
 [node name="Description" type="Label" parent="Confirm" unique_id=929481541]
 layout_mode = 0

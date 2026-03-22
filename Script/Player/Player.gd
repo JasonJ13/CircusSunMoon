@@ -1,7 +1,7 @@
 extends Control
 class_name Player
 
-var hp: int = 1
+var hp: int = 1000
 var playerTurn: bool = false
 @onready var interface: PlayerInterface = $PlayerInterface
 const hpmax: int = 1000

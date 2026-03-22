@@ -7,10 +7,6 @@ class_name PlayerInterface
 
 @export var debug : bool = false
 
-
-var back : Texture2D = preload("res://Asset/other/back.png")
-var backhover : Texture2D = preload("res://Asset/other/backhover.png")
-
 var hp_player : int
 var ennemie : Monster
 
@@ -105,17 +101,7 @@ func mouse_as_exited(button : Button) -> void :
 	button.modulate = Color.WHITE
 
 
-func _on_back_mouse_entered() -> void:
-	backButton.icon = backhover
 
-func _on_back_mouse_exited() -> void:
-	backButton.icon = back
-
-func _on_confirm_mouse_entered() -> void:
-	confirmButton.icon = backhover
-
-func _on_confirm_mouse_exited() -> void:
-	confirmButton.icon = back
 
 func spell_has_been_selected(spell : Spell) -> void :
 	spell_selected = spell
@@ -132,6 +118,5 @@ func spell_deny() -> void:
 	confirmNode.hide()
 
 func spell_confirm() -> void:
-
 	confirmNode.hide()
 	action.emit(spell_selected)
