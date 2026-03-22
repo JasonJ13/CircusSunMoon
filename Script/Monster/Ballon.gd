@@ -29,7 +29,7 @@ func pass_nuit() -> void:
 
 @warning_ignore("unused_parameter")
 func takeAction(day:bool) -> Action:
-	if actions[0].turnsBeforeUse <= 0:
+	if actions[0].turnsBeforeUse <= 0 and hp != hp_max:
 		return actions[0]
 	else:
 		var action = Action.new(dmg, 0, 0, true, Action.Change.NONE,Action.Effect.DMG)
