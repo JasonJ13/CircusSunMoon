@@ -26,7 +26,7 @@ func _ready() -> void:
 	actions.append(Spell.new(150,2,0,false,Action.Change.DAY,Action.Effect.DMG,preload("res://Asset/pixel/Sun_skill_UI.png")))
 	actions[-1].add_name_and_description("Astral Flash","Deals 150 damage")
 	actions.append(Spell.new(0,2,0,true,Action.Change.NIGHT,Action.Effect.INFLICT,preload("res://Asset/pixel/Moon_skill_UI.png")))
-	actions[-1].add_name_and_description("Lunar Harvest","Damage Deals +75% for the next turn")
+	actions[-1].add_name_and_description("Lunar Harvest","Damage Dealt +75% for the next turn")
 	actions.append(Spell.new(0,2,0,true,Action.Change.NIGHT,Action.Effect.RECEIVE,preload("res://Asset/pixel/Moon_skill_UI.png")))
 	actions[-1].add_name_and_description("Stellar Protection","Damage received -50% for the turn")
 	interface.start(hpmax,ennemie,actions)

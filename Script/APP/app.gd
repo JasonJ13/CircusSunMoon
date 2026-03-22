@@ -13,6 +13,7 @@ var fightRess : Resource = load("res://Scene/Fight/Fight.tscn")
 
 
 func to_menu() -> void :
+	mainMenu.play_menu()
 	gameOver.hide()
 	mainMenu.show()
 
@@ -23,9 +24,9 @@ func _on_main_menu_on_quit() -> void:
 
 
 func player_died() :
-	mainMenu.play_menu()
 	fight.queue_free()
 	sfx.stop_soundtracks()
+	sfx.play_gameover()
 	gameOver.show()
 
 

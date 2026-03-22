@@ -8,7 +8,7 @@ class_name PlayerInterface
 @export var debug : bool = false
 
 var hp_player : int
-var ennemie : Monster
+
 
 var size_spell : float
 var nmb_spell : int
@@ -18,6 +18,7 @@ var nmb_spell : int
 @onready var backButton : Button = $Confirm/Back
 @onready var confirmButton : Button = $Confirm/Confirm
 @onready var descriptionLabel : Label = $Confirm/Description
+@onready var ennemieLifeLabel : Label = $Confirm/EnnemieLife
 
 var buttons : Array[Button] = []
 
@@ -88,7 +89,8 @@ func _ready_Spell(spells : Array[Spell]) -> void :
 
 func start(hpp : int, enn : Monster, spells : Array[Spell]) -> void:
 	HP_player.value = hpp
-	ennemie = enn
+	if enn != null :
+		ennemieLifeLabel.text = enn.name + " :\n" + str(enn.hp) + " / " + str(enn.hp_max)
 	_ready_Spell(spells)
 	spellsNode.show()
 
