@@ -32,13 +32,17 @@ func _to_string() -> String:
 	var string : String = ""
 	
 	string += "Spell : " + name + "\n"
-	string += "cooldown : " + str(cooldown) + "\n"
+	string += "cooldown : " + str(cooldown) 
+	if stateToReload:
+		string += " days" + "\n"
+	else:
+		string += " nights" + "\n"
 	
 	match change :
 		Action.Change.DAY :
-			string += "Passe au jour\n"
+			string += "Switch to day\n"
 		Action.Change.NIGHT :
-			string += "Passe à la nuit\n"
+			string += "Switch to night\n"
 	
 	string += description
 	
