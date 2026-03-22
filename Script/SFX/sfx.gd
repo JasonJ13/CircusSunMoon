@@ -3,10 +3,10 @@ class_name sfx
 
 # Signals
 # ------------
-signal play_sountrack
-signal stop_soundtrack
 
 @onready var gameoversong: AudioStreamPlayer = $Circusover
+@onready var circus_sun : AudioStreamPlayer = $CircusSun
+@onready var circus_moon : AudioStreamPlayer = $CircusMoon
 
 # Variables 
 # ----------------- 
@@ -22,16 +22,6 @@ var _soundCursor:float
 
 # Methods 
 # -------------------
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	# tests 
-	#await get_tree().create_timer(5.0).timeout
-	#toMoon()
-	#await get_tree().create_timer(5.0).timeout
-	#toSun()
-	pass
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -56,30 +46,26 @@ func _process(delta: float) -> void:
 func toSun() -> void:
 	_soundCursor = 0.0
 	_isToSun = true
-	# AudioServer.set_bus_volume_linear(SunBuse, 1.0)
 
 
 func toMoon() -> void:
 	_soundCursor = 1.0
 	_isToMoon = true
-	# AudioServer.set_bus_volume_linear(SunBuse, 0.0)
 
 
 func start_soundtracks() -> void:
-	play_sountrack.emit()
+	circus_sun.play()
+	circus_moon.play()
 	
 func stop_soundtracks() -> void:
-	stop_soundtrack.emit()
+	circus_sun.stop()
+	circus_moon.stop()
 
 func play_gameover() -> void:
 	gameoversong.play()
 
 # Signals from OTHERS
 # ----------------------
-
-func _on_app_game_start() -> void:
-	start_soundtracks()
-
 
 func _on_fight_to_day() -> void:
 	toSun()

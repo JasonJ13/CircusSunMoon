@@ -31,7 +31,7 @@ func player_died() :
 
 func play_game() -> void :
 	sfx.start_soundtracks()
-	sfx.toSun()
+	#sfx.toSun()
 	gameOver.hide()
 	mainMenu.hide()
 	
