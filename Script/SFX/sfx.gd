@@ -6,7 +6,7 @@ class_name sfx
 signal play_sountrack
 signal stop_soundtrack
 
-
+@onready var gameoversong: AudioStreamPlayer = $Circusover
 
 # Variables 
 # ----------------- 
@@ -71,6 +71,8 @@ func start_soundtracks() -> void:
 func stop_soundtracks() -> void:
 	stop_soundtrack.emit()
 
+func play_gameover() -> void:
+	gameoversong.play()
 
 # Signals from OTHERS
 # ----------------------

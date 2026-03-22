@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://crdyr004tpf12" path="res://Script/SFX/circus_moon.gd" id="3_dti4m"]
 [ext_resource type="AudioStream" uid="uid://c45a5aw2xnq0i" path="res://Asset/Soundtrack/Circus Sun.wav" id="3_sl0mt"]
 [ext_resource type="Script" uid="uid://dn7eipmp56lm7" path="res://Script/SFX/circus_sun.gd" id="5_u1kxe"]
+[ext_resource type="AudioStream" uid="uid://d2o5gcw3s0rvr" path="res://Asset/Soundtrack/Circusover.wav" id="6_dti4m"]
 
 [node name="SFX" type="Node" unique_id=485798726]
 script = ExtResource("1_npfgb")
@@ -18,6 +19,9 @@ script = ExtResource("3_dti4m")
 stream = ExtResource("3_sl0mt")
 bus = &"Sun"
 script = ExtResource("5_u1kxe")
+
+[node name="Circusover" type="AudioStreamPlayer" parent="." unique_id=655090570]
+stream = ExtResource("6_dti4m")
 
 [connection signal="play_sountrack" from="." to="CircusMoon" method="_on_sfx_play_sountrack"]
 [connection signal="play_sountrack" from="." to="CircusSun" method="_on_sfx_play_sountrack"]
