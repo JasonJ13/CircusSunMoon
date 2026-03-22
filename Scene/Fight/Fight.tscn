@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://d3fja8v0oebt6" path="res://Script/Fight/Fight.gd" id="1_8f7nq"]
 [ext_resource type="PackedScene" uid="uid://cb5xjboiocjml" path="res://Scene/Fight/FightInterface.tscn" id="2_at0q3"]
 [ext_resource type="PackedScene" uid="uid://dd3h6nmejmclf" path="res://Scene/Player/Player.tscn" id="5_6b077"]
+[ext_resource type="PackedScene" uid="uid://v3n768hjtbgn" path="res://Scene/Monster/Marionnettiste.tscn" id="5_moa3j"]
+[ext_resource type="PackedScene" uid="uid://xoj5032gbsgh" path="res://Scene/Monster/BallonNight.tscn" id="6_2fspq"]
 [ext_resource type="PackedScene" uid="uid://bjgtbsw88nar4" path="res://Scene/Monster/Ballon.tscn" id="6_moa3j"]
 
 [node name="Fight" type="Control" unique_id=1148027261 node_paths=PackedStringArray("player", "ennemie")]
@@ -29,3 +31,11 @@ offset_top = 247.0
 offset_right = 764.0
 offset_bottom = 247.0
 scale = Vector2(2, 2)
+
+[node name="BallonNight" parent="." unique_id=1417483785 instance=ExtResource("6_2fspq")]
+visible = false
+layout_mode = 0
+
+[node name="Marionnettiste" parent="." unique_id=1567184551 instance=ExtResource("5_moa3j")]
+visible = false
+layout_mode = 0

@@ -23,6 +23,7 @@ layout_mode = 1
 visible = false
 layout_mode = 1
 
-[connection signal="game_start" from="." to="SFX" method="_on_app_game_start"]
 [connection signal="on_play" from="MainMenu" to="." method="_on_main_menu_on_play"]
 [connection signal="on_quit" from="MainMenu" to="." method="_on_main_menu_on_quit"]
+[connection signal="toDay" from="Fight" to="SFX" method="_on_fight_to_day"]
+[connection signal="toNight" from="Fight" to="SFX" method="_on_fight_to_night"]
