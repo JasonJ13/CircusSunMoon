@@ -75,7 +75,8 @@ func turn() -> void:
 	#Les ennemis font leurs actions
 	for action in ennemie.actions:
 		action.reload(day)
-	var eAction: Action = ennemie.takeAction(day)
+
+	var eAction = await ennemie.your_turn(day)
 	resolveAction(eAction)
 	
 	print(player.hp)

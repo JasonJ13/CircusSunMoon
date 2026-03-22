@@ -1,6 +1,9 @@
 extends Monster
 class_name Ballon
 
+
+
+
 func _init() -> void:
 	hp = 1000
 	dmg = 100
@@ -8,13 +11,18 @@ func _init() -> void:
 	var action1 : Action = Action.new(-150, 3, 0, true, Action.Change.NONE,Action.Effect.DMG)
 	action1.cible = Action.Cible.MONSTER
 	actions = [action1]
-	
+
+func _ready() -> void :
+	animation = $Animation
+	animation_player = $AnimationPlayer
+
 func pass_jour() -> void:
 	dmg = 100
 	
 func pass_nuit() -> void:
 	dmg=50
-	
+
+
 func takeAction(day:bool) -> Action:
 	if actions[0].turnsBeforeUse == 0:
 		return actions[0]
