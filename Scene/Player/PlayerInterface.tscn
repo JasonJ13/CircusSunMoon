@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b4rr1lu7ee03m" path="res://Script/Player/PlayerInterface.gd" id="1_4er2e"]
 [ext_resource type="Texture2D" uid="uid://770vj58bpuhp" path="res://Asset/other/black box.png" id="2_ihut5"]
-[ext_resource type="Texture2D" uid="uid://bvdf08viximpv" path="res://Asset/other/back.png" id="4_44f6b"]
+[ext_resource type="Texture2D" uid="uid://r4mnvso35tg2" path="res://Asset/other/back.png" id="4_44f6b"]
 [ext_resource type="Texture2D" uid="uid://cdguerduveyhm" path="res://Asset/other/jaune.png" id="5_b7kor"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_44f6b"]
@@ -93,6 +93,13 @@ offset_right = 74.0
 offset_bottom = 29.0
 text = "Confirm"
 label_settings = SubResource("LabelSettings_44f6b")
+
+[node name="Label" type="Label" parent="Confirm" unique_id=929481541]
+layout_mode = 0
+offset_left = 132.0
+offset_top = 482.0
+offset_right = 754.0
+offset_bottom = 571.0
 
 [connection signal="mouse_entered" from="Confirm/Back" to="." method="_on_back_mouse_entered"]
 [connection signal="mouse_exited" from="Confirm/Back" to="." method="_on_back_mouse_exited"]
