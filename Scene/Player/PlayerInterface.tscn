@@ -81,20 +81,18 @@ texture = ExtResource("4_b7kor")
 
 [node name="Confirm" type="Button" parent="Confirm" unique_id=692885979]
 layout_mode = 0
-offset_left = 918.0
-offset_top = 472.0
-offset_right = 1718.0
-offset_bottom = 1200.0
+offset_left = 967.0
+offset_top = 486.0
+offset_right = 1767.0
+offset_bottom = 1214.0
 scale = Vector2(0.1, 0.1)
 flat = true
 
 [node name="TextureRect" type="TextureRect" parent="Confirm/Confirm" unique_id=1670595029]
 texture_filter = 1
 layout_mode = 0
-offset_left = 519.9999
-offset_top = 140.0
-offset_right = 559.9999
-offset_bottom = 180.0
+offset_right = 40.0
+offset_bottom = 40.0
 scale = Vector2(16, 16)
 texture = ExtResource("5_h04my")
 
