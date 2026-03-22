@@ -5,6 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://r4mnvso35tg2" path="res://Asset/other/back.png" id="4_44f6b"]
 [ext_resource type="Texture2D" uid="uid://cdguerduveyhm" path="res://Asset/other/jaune.png" id="5_b7kor"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_44f6b"]
+font_size = 256
+
 [node name="PlayerInterface" type="Control" unique_id=1460089145]
 physics_interpolation_mode = 0
 layout_mode = 3
@@ -39,6 +42,7 @@ texture_under = ExtResource("2_ihut5")
 texture_progress = ExtResource("5_b7kor")
 
 [node name="Spells" type="Control" parent="." unique_id=1756865105]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -46,11 +50,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 1.0000305
 offset_top = -156.0
-offset_right = 10409.0
-offset_bottom = 572.0
+offset_right = -573.0
+offset_bottom = -119.599976
 grow_horizontal = 2
 grow_vertical = 0
-scale = Vector2(0.1, 0.1)
+scale = Vector2(2, 2)
 
 [node name="Confirm" type="Control" parent="." unique_id=1964108225]
 anchors_preset = 0
@@ -74,6 +78,15 @@ offset_right = 2090.0
 offset_bottom = 1216.0
 scale = Vector2(0.1, 0.1)
 icon = ExtResource("4_44f6b")
+
+[node name="Label" type="Label" parent="Confirm/Confirm" unique_id=1804454101]
+layout_mode = 0
+offset_left = 1309.9999
+offset_top = -249.99998
+offset_right = 1499.9999
+offset_bottom = 99.000015
+text = "3"
+label_settings = SubResource("LabelSettings_44f6b")
 
 [node name="Description" type="Label" parent="Confirm" unique_id=929481541]
 layout_mode = 0

@@ -5,17 +5,37 @@ var day: bool = true		#Indique si on est le jour
 
 @onready var interface = $FightInterface
 @export var player: Player
-@export var ennemie: Monster
-@onready var allEnnemies : Array[Monster] = [$Ballon, $BallonNight, $Marionnettiste] 
+var ennemie: Monster = null
+@onready var allEnnemies : Array[Resource] = [load("res://Scene/Monster/Ballon.tscn"), load("res://Scene/Monster/BallonNight.tscn"), load("res://Scene/Monster/Marionnettiste.tscn")] 
+var indEnnemy: int = 0
+@export var nmb_vague_tot = 3
 
 signal toNight
 signal toDay
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	ennemie = $Ballon
+	new_wave()
 	turn()
 
+
+func new_wave() -> bool:
+	
+	if ennemie != null :
+		ennemie.queue_free()
+	
+	if indEnnemy == nmb_vague_tot :
+		return true
+		
+	else :
+		
+		
+		ennemie = allEnnemies[indEnnemy].instantiate()
+		add_child(ennemie)
+		ennemie.position = Vector2(764,247)
+		
+		indEnnemy += 1
+		return false
 
 ##Changement entre jour et nuit
 func changeDayNight() -> void:
@@ -46,7 +66,7 @@ func resolveAction(action: Action) -> void:
 				#Mort du joueur
 	
 		Action.Cible.MONSTER :
-			await ennemie.take_dmg(action.dmg * player.dmgInflictModifier)
+			await ennemie.take_dmg(floor(action.dmg * player.dmgInflictModifier))
 			
 	#Regarde si l'action change le cycle
 	match action.change :
@@ -59,15 +79,7 @@ func resolveAction(action: Action) -> void:
 
 #Un tour : joueur + ennemis
 func turn() -> void:
-	
-	if ennemie.hp < 1 :
-		#S'il n'y a plus d'ennemis, fin du combat et nouveau combat
-		print("bravo")
-		ennemie.queue_free()
-		return
-		
 
-	
 	#Mise à jour des actions possibles du joueur
 	for action in player.actions:
 		action.reload(day)
@@ -75,6 +87,15 @@ func turn() -> void:
 	 #Le joueur fait son action
 	var playerAction: Action = await player.takeAction(ennemie, day)
 	await resolveAction(playerAction)
+	if ennemie.hp < 1 :
+		#Si l'ennemie meurt, nouveau combat
+		var terminer : bool = new_wave()
+		if terminer:
+			print("bravo")
+		else :
+			player.hp = player.hpmax
+			turn()
+		return
 
 	#Les ennemis font leurs actions
 	for action in ennemie.actions:
@@ -83,9 +104,5 @@ func turn() -> void:
 	var eAction = await ennemie.your_turn(day)
 	await resolveAction(eAction)
 	
-	print(player.hp)
-	print(ennemie.hp)
-	
-
 	turn()
 	

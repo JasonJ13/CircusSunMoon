@@ -6,10 +6,11 @@ var actionsDay: Array[Action]	#Sorts utilisables quand le marionnettiste est dan
 var actionsNight: Array[Action] #Sorts utilisables quand le marionnettiste est dans l'état jour
 
 func _init() -> void:
+	hp_max = 1000
 	hp = 1000
 	dmg = 75
 	nom = "Marionnettiste"
-	var actionNight1: Action = Action.new(225, 2, 0, false, Action.Change.NONE, Action.Effect.DMG)
+	var actionNight1: Action = Action.new(250, 2, 0, false, Action.Change.NONE, Action.Effect.DMG)
 	actionNight1.cible = Action.Cible.PLAYER
 	var actionNight2: Action = Action.new(100, 2, 2, true, Action.Change.NONE, Action.Effect.DMG)
 	actionNight2.cible = Action.Cible.PLAYER
@@ -21,6 +22,12 @@ func _init() -> void:
 	actionsDay = [actionDay1, actionDay2]
 	actions = actionsNight
 	
+func _ready() -> void :
+	animation = $Control/Animation
+	monsterAnimation = $BallonAnimation
+	dmgAnimation = $Control/DmgAnimation
+	dmgLabel =$Control/DmgTaken	
+
 func pass_jour() -> void:
 	if state:
 		dmg=100

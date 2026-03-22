@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://v3n768hjtbgn"]
 
-[ext_resource type="Script" uid="uid://dprkn87i0rkx" path="res://Script/Monster/Ballon.gd" id="1_mm5mc"]
+[ext_resource type="Script" uid="uid://bc80iwxerv1n3" path="res://Script/Monster/Marionnettiste.gd" id="1_1ivao"]
 [ext_resource type="Texture2D" uid="uid://bknftp6dv4xbg" path="res://Asset/pixel/Ennemy/Enemy_attack_sun.png" id="2_sae86"]
 [ext_resource type="Texture2D" uid="uid://bk7234bxuqjqi" path="res://Asset/pixel/Ennemy/Enemy_idle_sun.png" id="3_3ofm8"]
 [ext_resource type="Texture2D" uid="uid://uavuq0h8hh26" path="res://Asset/pixel/Ennemy/Enemy_hurt_sun.png" id="4_e04uj"]
@@ -384,7 +384,7 @@ font_size = 8
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 0
-script = ExtResource("1_mm5mc")
+script = ExtResource("1_1ivao")
 
 [node name="BallonAnimation" type="AnimationPlayer" parent="." unique_id=411659636]
 libraries/ = SubResource("AnimationLibrary_85c3l")
