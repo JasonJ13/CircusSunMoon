@@ -4,39 +4,34 @@ extends Control
 # -----------
 
 @onready var mainMenu : Control = $MainMenu
-@onready var fight : Fight = $Fight
+@onready var fight : Fight
+@onready var gameOver : Control = $GameOver
+@onready var sfx : sfx = $Soundtrack
 
-
-# Signals 
-# -----------
-
-signal game_start
-
-
-
-# Methods 
-# ------------
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+var fightRess : Resource = load("res://Scene/Fight/Fight.tscn")
 
 
 
-# Main Menu signals 
-# ---------------------
+func to_menu() -> void :
+	gameOver.hide()
+	mainMenu.show()
 
-func _on_main_menu_on_play() -> void:
-	game_start.emit()
-	
-	fight.show()
-	mainMenu.hide()
 
 
 func _on_main_menu_on_quit() -> void:
 	get_tree().quit()
+
+
+func player_died() :
+	fight.queue_free()
+	gameOver.show()
+
+
+func play_game() -> void :
+	sfx.start_soundtracks()
+	gameOver.hide()
+	mainMenu.hide()
+	
+	fight = fightRess.instantiate()
+	fight.playerDied.connect(player_died)
+	add_child(fight)

@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://rnupwuqu6c8n" path="res://Scene/MainMenu/MainMenu.tscn" id="1_8h336"]
 [ext_resource type="Script" uid="uid://jqpikbrdbbdo" path="res://Script/APP/app.gd" id="1_tay45"]
 [ext_resource type="PackedScene" uid="uid://dqoddm88ktvch" path="res://Scene/SFX/sfx.tscn" id="2_tay45"]
-[ext_resource type="PackedScene" uid="uid://dsexau7kcdupv" path="res://Scene/Fight/Fight.tscn" id="4_tay45"]
+[ext_resource type="PackedScene" uid="uid://cn3s2v3mtsvu7" path="res://Scene/MainMenu/game_over.tscn" id="5_1yhp0"]
 
 [node name="APP" type="Control" unique_id=651810850]
 layout_mode = 3
@@ -20,12 +20,11 @@ layout_mode = 1
 
 [node name="Soundtrack" parent="." unique_id=485798726 instance=ExtResource("2_tay45")]
 
-[node name="Fight" parent="." unique_id=1148027261 instance=ExtResource("4_tay45")]
+[node name="GameOver" parent="." unique_id=1924254361 instance=ExtResource("5_1yhp0")]
 visible = false
 layout_mode = 1
 
-[connection signal="game_start" from="." to="Soundtrack" method="_on_app_game_start"]
-[connection signal="on_play" from="MainMenu" to="." method="_on_main_menu_on_play"]
+[connection signal="on_play" from="MainMenu" to="." method="play_game"]
 [connection signal="on_quit" from="MainMenu" to="." method="_on_main_menu_on_quit"]
-[connection signal="toDay" from="Fight" to="Soundtrack" method="_on_fight_to_day"]
-[connection signal="toNight" from="Fight" to="Soundtrack" method="_on_fight_to_night"]
+[connection signal="menu" from="GameOver" to="." method="to_menu"]
+[connection signal="retry" from="GameOver" to="." method="play_game"]

@@ -12,6 +12,7 @@ var indEnnemy: int = 0
 
 signal toNight
 signal toDay
+signal playerDied
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -42,13 +43,15 @@ func changeDayNight() -> void:
 	day = not day
 
 	if day:
-		interface.night_to_day()
+		await interface.night_to_day()
 		ennemie.pass_jour()
 		toDay.emit()
 	else:
-		interface.day_to_night()
+		await interface.day_to_night()
 		ennemie.pass_nuit()
 		toNight.emit()
+		
+	
 
 ##Effectue les effets d'une action
 func resolveAction(action: Action) -> void:
@@ -60,10 +63,8 @@ func resolveAction(action: Action) -> void:
 	match action.cible :
 		Action.Cible.PLAYER :
 			player.hp -= floor(action.dmg * player.dmgReceiveModifier)
-			
 			if player.hp < 1 :
-				pass
-				#Mort du joueur
+				playerDied.emit()
 	
 		Action.Cible.MONSTER :
 			await ennemie.take_dmg(floor(action.dmg * player.dmgInflictModifier))
@@ -72,10 +73,10 @@ func resolveAction(action: Action) -> void:
 	match action.change :
 		Action.Change.DAY:
 			if not day:
-				changeDayNight()
+				await changeDayNight()
 		Action.Change.NIGHT:
 			if day:
-				changeDayNight()
+				await changeDayNight()
 
 #Un tour : joueur + ennemis
 func turn() -> void:

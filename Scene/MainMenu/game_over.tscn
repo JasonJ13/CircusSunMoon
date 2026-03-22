@@ -1,0 +1,119 @@
+[gd_scene format=3 uid="uid://cn3s2v3mtsvu7"]
+
+[ext_resource type="Script" uid="uid://c023rfrduxnme" path="res://Script/MainMenu/game_over.gd" id="1_4ls3o"]
+[ext_resource type="Texture2D" uid="uid://c1rfm62r7nq75" path="res://Asset/Images/astuce.png" id="1_457vr"]
+[ext_resource type="Texture2D" uid="uid://7aq2tdhw1u52" path="res://Asset/pixel/Sun_skill_UI.png" id="1_t33up"]
+[ext_resource type="Texture2D" uid="uid://dcd7qyj5ipdrs" path="res://Asset/pixel/Moon_skill_UI.png" id="2_457vr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_t33up"]
+font_size = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_457vr"]
+font_size = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_4ls3o"]
+line_spacing = 72.0
+font_size = 72
+
+[node name="GameOver" type="Control" unique_id=1924254361]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4ls3o")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1986262466]
+layout_mode = 0
+offset_left = -157.0
+offset_top = -28.0
+offset_right = 1369.0
+offset_bottom = 714.0
+texture = ExtResource("1_457vr")
+
+[node name="Retry" type="Button" parent="." unique_id=1474975341]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -102.0
+offset_top = -14.0
+offset_right = -30.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3, 3)
+icon = ExtResource("1_t33up")
+flat = true
+icon_alignment = 1
+
+[node name="Quit" type="Button" parent="." unique_id=2143480319]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -106.99997
+offset_top = 151.00003
+offset_right = -35.0
+offset_bottom = 191.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3, 3)
+icon = ExtResource("2_457vr")
+flat = true
+icon_alignment = 1
+
+[node name="RetryLabel" type="Label" parent="." unique_id=921900933]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -71.0
+offset_top = 11.0
+offset_right = 73.0
+offset_bottom = 78.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "RETRY"
+label_settings = SubResource("LabelSettings_t33up")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="QuitLabel" type="Label" parent="." unique_id=64795676]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -73.0
+offset_top = 176.0
+offset_right = 71.0
+offset_bottom = 243.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "MENU"
+label_settings = SubResource("LabelSettings_457vr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="." unique_id=1622801213]
+layout_mode = 0
+offset_left = 371.0
+offset_top = 119.0
+offset_right = 783.0
+offset_bottom = 218.0
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_4ls3o")
+
+[connection signal="pressed" from="Retry" to="." method="retryGame"]
+[connection signal="pressed" from="Retry" to="." method="backToMainMenu"]
+[connection signal="pressed" from="Quit" to="." method="backToMainMenu"]
