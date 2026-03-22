@@ -14,8 +14,8 @@ func _init() -> void:
 	actions = [action1]
 
 func _ready() -> void :
-	animation = $Animation
-	animation_player = $BallonAnimation
+	animation = $Control/Animation
+	monsterAnimation = $BallonAnimation
 
 func pass_jour() -> void:
 	dmg = 100
