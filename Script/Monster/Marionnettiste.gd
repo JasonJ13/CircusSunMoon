@@ -6,6 +6,7 @@ var actionsDay: Array[Action]	#Sorts utilisables quand le marionnettiste est dan
 var actionsNight: Array[Action] #Sorts utilisables quand le marionnettiste est dans l'état jour
 
 func _init() -> void:
+	hp_max = 1000
 	hp = 1000
 	dmg = 75
 	nom = "Marionnettiste"

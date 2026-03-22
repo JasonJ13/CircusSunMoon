@@ -1,9 +1,6 @@
 extends Monster
 class_name Ballon
 
-
-
-
 func _init() -> void:
 	hp_max = 1000
 	hp = hp_max

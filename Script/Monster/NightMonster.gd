@@ -2,12 +2,17 @@ extends Monster
 class_name NightMonster
 
 func _init() -> void:
+	hp_max = 1000
 	hp = 1000
 	dmg = 75
 	nom = "NightMonster"
 	var action1: Action = Action.new(225, 3, 0, false, Action.Change.NONE, Action.Effect.DMG)
 	action1.cible = Action.Cible.PLAYER
 	actions = [action1]
+	
+func _ready() -> void :
+	animation = $Control/Animation
+	monsterAnimation = $BallonAnimation	
 	
 func pass_jour() -> void:
 	dmg=75
