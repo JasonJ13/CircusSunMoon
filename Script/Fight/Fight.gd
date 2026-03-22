@@ -67,7 +67,10 @@ func resolveAction(action: Action) -> void:
 				playerDied.emit()
 	
 		Action.Cible.MONSTER :
-			await ennemie.take_dmg(floor(action.dmg * player.dmgInflictModifier))
+			if action.dmg > 0:
+				await ennemie.take_dmg(floor(action.dmg * player.dmgInflictModifier))
+			else :
+				await ennemie.take_dmg(floor(action.dmg))
 			
 	#Regarde si l'action change le cycle
 	match action.change :

@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://rnupwuqu6c8n" path="res://Scene/MainMenu/MainMenu.tscn" id="1_8h336"]
 [ext_resource type="Script" uid="uid://jqpikbrdbbdo" path="res://Script/APP/app.gd" id="1_tay45"]
 [ext_resource type="PackedScene" uid="uid://dqoddm88ktvch" path="res://Scene/SFX/sfx.tscn" id="2_tay45"]
-[ext_resource type="PackedScene" uid="uid://cn3s2v3mtsvu7" path="res://Scene/MainMenu/game_over.tscn" id="5_1yhp0"]
+[ext_resource type="PackedScene" path="res://Scene/MainMenu/game_over.tscn" id="5_1yhp0"]
 
 [node name="APP" type="Control" unique_id=651810850]
 layout_mode = 3
